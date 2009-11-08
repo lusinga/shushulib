@@ -10,10 +10,10 @@ YinYang::~YinYang(void)
 
 bool YinYang::isYang()
 {
-	return this->yinyang;
+	return this->yang;
 }
 
 bool YinYang::isYin()
 {
-	return !(this->yinyang);
+	return !(this->yang);
 }
