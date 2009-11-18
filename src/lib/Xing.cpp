@@ -21,22 +21,12 @@ bool Xing::ke(Xing* xing)
 
 bool Xing::sheng(int shenger, int shengee)
 {
-	if (shenger == MU && shengee == HUO) return true;
-	else if (shenger == HUO && shengee == TU) return true;
-	else if (shenger == TU && shengee == JIN) return true;
-	else if (shenger == JIN && shengee == SHUI) return true;
-	else if (shenger == SHUI && shengee == MU) return true;
-	else return false;
+	return ( (shenger + 1) % 5 == shengee);
 }
 
 bool Xing::ke(int ker, int kee)
 {
-	if (ker == JIN && kee == MU) return true;
-	else if(ker == MU && kee == TU) return true;
-	else if(ker == TU && kee == SHUI) return true;
-	else if(ker == SHUI && kee == HUO) return true;
-	else if(ker == HUO && kee == JIN) return true;
-	else return false;
+	return ((ker + 2)%5 == kee);
 }
 
 bool Xing::sheng(Xing* xing)

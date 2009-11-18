@@ -7,11 +7,11 @@ using namespace std;
 class Xing
 {
 public:
-	static const int JIN  = 0;
-	static const int MU   = 1;
-	static const int SHUI = 2;
-	static const int TU   = 3;
-	static const int HUO  = 4;
+	static const int MU   = 0;
+	static const int HUO  = 1;
+	static const int TU   = 2;
+	static const int JIN  = 3;
+	static const int SHUI = 4;
 
 	Xing(void);
 	~Xing(void);
