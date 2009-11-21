@@ -26,9 +26,12 @@ public:
 	static bool sanhe(int he1, int he2, int he3);//ÈýºÏ
 	static bool chong(int chong1, int chong2);//³å
 	virtual string getName() = 0;
+	int getDzid(void);
+
+	bool he(DiZhi* pz);
+	bool chong(DiZhi* pz);
+	bool sanhe(DiZhi* pz2, DiZhi* pz3);
 
 protected:
 	int dzid;
-public:
-	int getDzid(void);
 };
