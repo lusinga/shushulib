@@ -96,5 +96,19 @@ void LiuRen::siKe()
 
 void LiuRen::sanChuan()
 {
+	GanZhi* pgzh[4];
+	GanZhi* pgzl[4];
 
+	pgzl[0] = Month::buildGan(this->kelow[0]);
+	for(int i=1;i<4;i++)
+		pgzl[i] = Month::buildZhi(this->kelow[i]);
+
+	for(int i=0;i<4;i++)
+		pgzh[i] = Month::buildZhi(this->kehigh[i]);
+
+	for(int i=0;i<4;i++)
+		pgzl[i]->ke(pgzh[i]);
+
+	for(int i=0;i<4;i++)
+		pgzh[i]->ke(pgzl[i]);
 }
