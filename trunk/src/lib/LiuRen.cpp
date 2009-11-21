@@ -35,8 +35,20 @@ void LiuRen::diPan()
 	pdz = NULL;
 }
 
-void LiuRen::tianPan(int month, int time)
+void LiuRen::tianPan()
 {
 	cout<<endl<<"ÌìÅÌ£º"<<endl<<endl;
-	formatPan(Month::buildZhi(Month::getYueJiang(month)-time));
+	int tian_start = Month::getYueJiang(this->month)-this->time;
+	formatPan(Month::buildZhi(tian_start));
+	
+	for(int i=0;i<12;i++)
+	{
+		this->tianpan[i] = (tian_start+i>=0? (tian_start+i) %12 : (tian_start+i) %12 + 12);
+	}
+}
+
+void LiuRen::siKe()
+{
+	this->kelow[0] = this->riGan;
+	this->kehigh[0] = 
 }
