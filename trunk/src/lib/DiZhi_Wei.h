@@ -1,6 +1,6 @@
 #pragma once
 #include "yin.h"
-#include "Tu.h"
+#include "tu.h"
 #include "dizhi.h"
 
 class DiZhi_Wei :
