@@ -11,6 +11,4 @@ public:
 	~TianGan_Jia(void);
 
 	virtual string getName();
-protected:
-	int tgid;
 };
