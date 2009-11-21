@@ -31,7 +31,7 @@ public:
 	bool he(DiZhi* pz);
 	bool chong(DiZhi* pz);
 	bool sanhe(DiZhi* pz2, DiZhi* pz3);
-
+	
 protected:
 	int dzid;
 };
