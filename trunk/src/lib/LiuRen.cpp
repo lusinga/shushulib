@@ -94,6 +94,30 @@ void LiuRen::siKe()
 	pdzr = NULL;*/
 }
 
+void LiuRen::printSanChuan(bool isGan)
+{
+	TianGan* ptg;
+	DiZhi* pdz1;
+	DiZhi* pdz2;
+	DiZhi* pdz3;
+
+	cout<<endl<<"三传："<<endl;
+
+	if(isGan){
+		ptg = Month::buildGan(this->sanchuan[0]);
+		cout<<ptg->getName()<<endl;
+	}
+	else{
+		pdz1 = Month::buildZhi(this->sanchuan[0]);
+		cout<<pdz1->getName()<<endl;
+	}
+
+	pdz2 = Month::buildZhi(this->sanchuan[1]);
+	cout<<pdz2->getName()<<endl;
+	pdz3 = Month::buildZhi(this->sanchuan[2]);
+	cout<<pdz3->getName()<<endl;
+}
+
 void LiuRen::sanChuan()
 {
 	GanZhi* pgzh[4];
@@ -106,9 +130,33 @@ void LiuRen::sanChuan()
 	for(int i=0;i<4;i++)
 		pgzh[i] = Month::buildZhi(this->kehigh[i]);
 
+	//贼，下克上为贼
+	int izei=0;
+	int zeipos = -1;
 	for(int i=0;i<4;i++)
-		pgzl[i]->ke(pgzh[i]);
+	{
+		if(pgzl[i]->ke(pgzh[i]))
+		{
+			izei++;
+			zeipos = i;
+		}
+	}
+	
+	if (izei == 1){ 
+		cout<<"这是一个贼课!"<<endl;
+		this->sanchuan[0] = this->kehigh[zeipos];
+		this->sanchuan[1] =this->tianpan[this->sanchuan[0]];
+		this->sanchuan[2] =this->tianpan[this->sanchuan[1]];
+		this->printSanChuan(false);
+		return;
+	}
 
+	//上克下为克
+	int ike=0;
 	for(int i=0;i<4;i++)
-		pgzh[i]->ke(pgzl[i]);
+		if(pgzh[i]->ke(pgzl[i])) ike++;
+
+	if (ike == 1){ 
+		cout<<"发现克课"<<endl;}
+
 }
