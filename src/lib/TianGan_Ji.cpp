@@ -13,3 +13,8 @@ string TianGan_Ji::getName()
 {
 	return "¼º";
 }
+
+int TianGan_Ji::getXing()
+{
+	return this->feature;
+}
