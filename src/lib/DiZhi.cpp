@@ -28,3 +28,8 @@ bool DiZhi::chong(int chong1, int chong2)
 {
 	return (chong1 + 6) % 12 == chong2;
 }
+
+int DiZhi::getDzid()
+{
+	return this->dzid;
+}
