@@ -2,6 +2,7 @@
 
 DiZhi_You::DiZhi_You(void)
 {
+	this->dzid = DZyou;
 }
 
 DiZhi_You::~DiZhi_You(void)

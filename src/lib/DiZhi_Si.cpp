@@ -2,6 +2,7 @@
 
 DiZhi_Si::DiZhi_Si(void)
 {
+	this->dzid = DZsi;
 }
 
 DiZhi_Si::~DiZhi_Si(void)

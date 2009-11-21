@@ -2,6 +2,7 @@
 
 DiZhi_Chou::DiZhi_Chou(void)
 {
+	this->dzid = DZchou;
 }
 
 DiZhi_Chou::~DiZhi_Chou(void)
