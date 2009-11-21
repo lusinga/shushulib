@@ -14,3 +14,7 @@ string DiZhi_Mao::getName()
 	return "î";
 }
 
+int DiZhi_Mao::getXing()
+{
+	return this->feature;
+}

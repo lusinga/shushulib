@@ -11,4 +11,5 @@ public:
 	~DiZhi_Wei(void);
 
 	virtual string getName();
+	virtual int getXing();
 };

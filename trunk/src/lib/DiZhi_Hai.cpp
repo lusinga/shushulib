@@ -13,3 +13,8 @@ string DiZhi_Hai::getName()
 {
 	return "º¥";
 }
+
+int DiZhi_Hai::getXing()
+{
+	return this->feature;
+}

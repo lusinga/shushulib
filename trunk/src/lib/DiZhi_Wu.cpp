@@ -13,3 +13,8 @@ string DiZhi_Wu::getName()
 {
 	return "Îç";
 }
+
+int DiZhi_Wu::getXing()
+{
+	return this->feature;
+}

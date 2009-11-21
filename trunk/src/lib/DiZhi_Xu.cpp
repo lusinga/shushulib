@@ -13,3 +13,8 @@ string DiZhi_Xu::getName()
 {
 	return "ач";
 }
+
+int DiZhi_Xu::getXing()
+{
+	return this->feature;
+}
