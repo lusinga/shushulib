@@ -48,6 +48,47 @@ DiZhi* Month::buildZhi(int dzid)
 	return pdz;
 }
 
+TianGan* Month::buildGan(int tgid)
+{
+	tgid = tgid>=0 ? tgid %12: tgid % 12 +12;
+	TianGan* ptg = NULL;
+	switch(tgid)
+	{
+	case TianGan::TGjia:
+		ptg = new TianGan_Jia(); 
+		break;
+	case TianGan::TGyi:
+		ptg = new TianGan_Yi();
+		break;
+	case TianGan::TGbing:
+		ptg = new TianGan_Bing();
+		break;
+	case TianGan::TGding:
+		ptg = new TianGan_Ding();
+		break;
+	case TianGan::TGwu:
+		ptg = new TianGan_Wu();
+		break;
+	case TianGan::TGji:
+		ptg = new TianGan_Ji();
+		break;
+	case TianGan::TGgeng:
+		ptg = new TianGan_Geng();
+		break;
+	case TianGan::TGxin:
+		ptg = new TianGan_Xin();
+		break;
+	case TianGan::TGren:
+		ptg = new TianGan_Ren();
+		break;
+	case TianGan::TGgui:
+		ptg = new TianGan_Gui();
+		break;
+	}
+
+	return ptg;
+}
+
 int Month::getYueJiang(int month)
 {
 	return (12-month);
