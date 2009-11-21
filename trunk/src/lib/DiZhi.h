@@ -29,4 +29,6 @@ public:
 
 protected:
 	int dzid;
+public:
+	int getDzid(void);
 };
