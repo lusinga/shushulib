@@ -1,5 +1,6 @@
 #pragma once
 
+#include "dizhi.h"
 #include <string>
 
 using namespace std;
@@ -18,8 +19,11 @@ public:
 	static const int TGren  = 8;
 	static const int TGgui  = 9;
 
+	static int JiGong[];
+
 	virtual string getName() = 0;
 	int getDzid(void);
+	int getJiGong();
 
 protected:
 	int tgid;
