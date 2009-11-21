@@ -28,7 +28,7 @@ void LiuRen::formatPan(DiZhi* pdz)
 
 void LiuRen::diPan()
 {
-	cout<<endl<<"地盘："<<endl;
+	cout<<endl<<"地盘："<<endl<<endl;
 	DiZhi* pdz = new DiZhi_Zi();
 	formatPan(pdz);
 	delete pdz;
@@ -37,6 +37,6 @@ void LiuRen::diPan()
 
 void LiuRen::tianPan(int month, int time)
 {
-	cout<<endl<<"天盘："<<endl;
+	cout<<endl<<"天盘："<<endl<<endl;
 	formatPan(Month::buildZhi(Month::getYueJiang(month)-time));
 }
