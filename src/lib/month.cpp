@@ -3,17 +3,19 @@
 
 DiZhi* Month::buildZhi(int dzid)
 {
-	if(dzid == DiZhi::DZzi)
+	DiZhi* pdz = NULL;
+	switch(dzid)
 	{
-		return new DiZhi_Zi();
+	case DiZhi::DZzi:
+		pdz = new DiZhi_Zi();
+		break;
+	case DiZhi::DZchou:
+		break;
+	case DiZhi::DZyin:
+		break;
+	case DiZhi::DZmao:
+		break;
 	}
-	else if(dzid == DiZhi::DZyin){
-		return new DiZhi_Yin();
-	}
-	else if(dzid == DiZhi::DZmao)
-	{
-		return new DiZhi_Mao();
-	}
-	else
-		return NULL;
+
+	return pdz;
 }
