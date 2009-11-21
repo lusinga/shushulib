@@ -63,3 +63,12 @@ bool DiZhi::sanhe(DiZhi* pz2, DiZhi* pz3)
 {
 	return sanhe(this->getDzid(), pz2->getDzid(), pz3->getDzid());
 }
+
+bool DiZhi::ke(DiZhi* pdz)
+{
+	if (Xing::ke(this->getXing(),pdz->getXing())){
+		cout<<this->getName()<<"¿Ë"<<pdz->getName()<<endl;
+		return true;
+	}
+	else return false;
+}
