@@ -3,11 +3,11 @@
 #include <string>
 #include <iostream>
 
-#include "xing.h"
+#include "ganzhi.h"
 
 using namespace std;
 
-class DiZhi
+class DiZhi : public GanZhi
 {
 public:
 	static const int DZzi   = 0;
@@ -28,7 +28,6 @@ public:
 	static bool he(int he1, int he2);//ÁùºÏ
 	static bool sanhe(int he1, int he2, int he3);//ÈýºÏ
 	static bool chong(int chong1, int chong2);//³å
-	virtual string getName() = 0;
 	int getDzid(void);
 
 	bool he(DiZhi* pz);
