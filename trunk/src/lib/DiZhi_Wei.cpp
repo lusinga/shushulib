@@ -11,7 +11,7 @@ DiZhi_Wei::~DiZhi_Wei(void)
 
 string DiZhi_Wei::getName()
 {
-	return "W";
+	return "δ";
 }
 
 int DiZhi_Wei::getXing()
