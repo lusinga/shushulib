@@ -13,3 +13,8 @@ string DiZhi_Si::getName()
 {
 	return "ËÈ";
 }
+
+int DiZhi_Si::getXing()
+{
+	return this->feature;
+}

@@ -13,3 +13,8 @@ string DiZhi_Chen::getName()
 {
 	return "³½";
 }
+
+int DiZhi_Chen::getXing()
+{
+	return this->feature;
+}

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -31,6 +32,8 @@ public:
 	bool he(DiZhi* pz);
 	bool chong(DiZhi* pz);
 	bool sanhe(DiZhi* pz2, DiZhi* pz3);
+
+	virtual int getXing() = 0;
 	
 protected:
 	int dzid;
