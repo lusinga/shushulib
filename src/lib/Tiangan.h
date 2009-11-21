@@ -20,4 +20,7 @@ public:
 
 	virtual string getName() = 0;
 	int getDzid(void);
+
+protected:
+	int tgid;
 };
