@@ -11,6 +11,8 @@ public:
 	void diPan();
 	void tianPan();
 	void siKe(); 
+	void sanChuan();
+
 private:
 	int tianpan[12];
 	int kelow[4];

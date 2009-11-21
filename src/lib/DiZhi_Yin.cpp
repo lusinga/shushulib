@@ -13,3 +13,9 @@ string DiZhi_Yin::getName()
 {
 	return "Òú";
 }
+
+int DiZhi_Yin::getXing()
+{
+	return this->feature;
+}
+

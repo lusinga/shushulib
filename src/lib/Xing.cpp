@@ -13,7 +13,8 @@ Xing::~Xing(void)
 bool Xing::ke(Xing* xing)
 {
 	if (ke(this->feature,xing->feature)){
-		cout<<this->getFeature()<<"¿Ë"<<xing->getFeature()<<endl;
+		//cout<<this->getFeature()<<"¿Ë"<<xing->getFeature()<<endl;
+		cout<<this->feature<<"¿Ë"<<xing->feature<<endl;
 		return true;
 	}
 	else return false;
