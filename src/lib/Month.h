@@ -20,5 +20,6 @@ public:
 	Month(void);
 	~Month(void);
 	static DiZhi* buildZhi(int dzid);
+	static int getYueJiang(int month);
 };
 

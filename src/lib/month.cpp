@@ -3,6 +3,7 @@
 
 DiZhi* Month::buildZhi(int dzid)
 {
+	dzid = dzid>=0 ? dzid %12: dzid % 12 +12;
 	DiZhi* pdz = NULL;
 	switch(dzid)
 	{
@@ -45,4 +46,9 @@ DiZhi* Month::buildZhi(int dzid)
 	}
 
 	return pdz;
+}
+
+int Month::getYueJiang(int month)
+{
+	return (12-month);
 }

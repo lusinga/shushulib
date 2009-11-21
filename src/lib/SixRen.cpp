@@ -9,6 +9,7 @@
 #include "Tu.h"
 
 #include "month.h"
+#include "liuren.h"
 
 #include <iostream>
 
@@ -46,7 +47,11 @@ int main(int argc, char* argv[])
 			dzs[i]->chong(dzs[j]);
 		}
 	}
-		
+
+	LiuRen::diPan();
+	//正月雨水后卯时占
+	LiuRen::tianPan(1,DiZhi::DZmao);
+
 	cin.get();
 
 	return 0;
