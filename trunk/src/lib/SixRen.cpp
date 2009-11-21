@@ -52,6 +52,7 @@ int main(int argc, char* argv[])
 	plr->diPan();
 	plr->tianPan();
 	plr->siKe();
+	plr->sanChuan();
 
 	cin.get();
 

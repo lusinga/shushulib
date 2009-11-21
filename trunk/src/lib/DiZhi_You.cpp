@@ -13,3 +13,8 @@ string DiZhi_You::getName()
 {
 	return "со";
 }
+
+int DiZhi_You::getXing()
+{
+	return this->feature;
+}
