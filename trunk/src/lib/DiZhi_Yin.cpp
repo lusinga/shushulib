@@ -2,6 +2,7 @@
 
 DiZhi_Yin::DiZhi_Yin(void)
 {
+	this->dzid = DZyin;
 }
 
 DiZhi_Yin::~DiZhi_Yin(void)

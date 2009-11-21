@@ -1,5 +1,7 @@
 #include "DiZhi.h"
+#include <iostream>
 
+using namespace std;
 
 DiZhi::DiZhi(void)
 {
@@ -14,9 +16,8 @@ DiZhi::~DiZhi(void)
 
 bool DiZhi::he(int he1, int he2)
 {
-	return (he1 + he2) % 12 == 1;
+	return ((he1 + he2) % 12 == 1);
 }
-
 
 bool DiZhi::sanhe(int he1, int he2, int he3)
 {
@@ -36,12 +37,26 @@ int DiZhi::getDzid()
 
 bool DiZhi::he(DiZhi* pz)
 {
-	return he(this->getDzid(),pz->getDzid());
+	bool ishe = he(this->getDzid(),pz->getDzid());
+	if(ishe)
+	{
+		cout<<this->getName()<<"Óë"<<pz->getName()<<"ºÏ"<<endl;
+	}
+	return ishe;
 }
 
 bool DiZhi::chong(DiZhi* pz)
 {
-	return chong(this->getDzid(),pz->getDzid());
+	bool ischong = chong(this->getDzid(),pz->getDzid());
+	if(ischong)
+	{
+		cout<<this->getName()<<pz->getName()<<"Ïà³å"<<endl;
+	}
+	/*else
+	{
+		cout<<".";
+	}*/
+	return ischong;
 }
 
 bool DiZhi::sanhe(DiZhi* pz2, DiZhi* pz3)

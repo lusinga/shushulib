@@ -7,6 +7,9 @@
 #include "Mu.h"
 #include "Huo.h"
 #include "Tu.h"
+
+#include "month.h"
+
 #include <iostream>
 
 using namespace std;
@@ -27,7 +30,23 @@ int main(int argc, char* argv[])
 			xings[i]->ke(xings[j]);
 		}
 	}
-	
+
+	DiZhi* dzs[12];
+
+	for(int i=0;i<12;i++)
+	{
+		dzs[i] = Month::buildZhi(i);
+	}
+
+	for(int i=0;i<12;i++)
+	{
+		for(int j=0;j<12;j++)
+		{
+			dzs[i]->he(dzs[j]);
+			dzs[i]->chong(dzs[j]);
+		}
+	}
+		
 	cin.get();
 
 	return 0;
