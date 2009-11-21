@@ -4,6 +4,14 @@
 
 using namespace std;
 
+LiuRen::LiuRen(int month, int time, int gan, int zhi)
+{
+	this->month = month;
+	this->time = time;
+	this->riGan = gan;
+	this->riZhi = zhi;
+}
+
 void LiuRen::formatPan(DiZhi* pdz)
 {
 	DiZhi* dzs[12];
@@ -49,6 +57,26 @@ void LiuRen::tianPan()
 
 void LiuRen::siKe()
 {
+	TianGan* ptg1 = Month::buildGan(this->riGan);
 	this->kelow[0] = this->riGan;
-	this->kehigh[0] = 
+	this->kelow[1] = this->kehigh[0] = this->tianpan[ptg1->getJiGong()];
+	this->kehigh[1] = this->tianpan[kelow[1]];
+	
+	this->kelow[2] = this->riZhi;
+	this->kelow[3] = this->kehigh[2] = this->tianpan[kelow[2]]; 
+	this->kehigh[3] = this->tianpan[kelow[3]];
+
+	DiZhi* pdz0 = Month::buildZhi(kehigh[0]);
+	DiZhi* pdz1 = Month::buildZhi(kehigh[1]);
+	DiZhi* pdz2 = Month::buildZhi(kehigh[2]);
+	DiZhi* pdz3 = Month::buildZhi(kehigh[3]);
+
+	DiZhi* pdzr = Month::buildZhi(kelow[2]);
+
+	cout<<endl<<"ËÄ¿Î:"<<endl<<endl;
+	cout<<pdz0->getName()<<" "<<pdz1->getName()<<" "
+		<<pdz2->getName()<<" "<<pdz3->getName()<<" "<<endl;
+
+	cout<<ptg1->getName()<<" "<<pdz0->getName()<<" "
+		<<pdzr->getName()<<" "<<pdz2->getName()<<" "<<endl;
 }
