@@ -1,6 +1,7 @@
 #pragma once
 
 #include "dizhi.h"
+#include "dizhi_zi.h"
 #include "dizhi_mao.h"
 #include "dizhi_yin.h"
 
