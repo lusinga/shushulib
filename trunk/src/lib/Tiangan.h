@@ -1,11 +1,13 @@
 #pragma once
 
+#include "GanZhi.h"
+
 #include "dizhi.h"
 #include <string>
 
 using namespace std;
 
-class TianGan
+class TianGan : public GanZhi
 {
 public:
 	static const int TGjia  = 0;
@@ -21,7 +23,6 @@ public:
 
 	static int JiGong[];
 
-	virtual string getName() = 0;
 	int getDzid(void);
 	int getJiGong();
 

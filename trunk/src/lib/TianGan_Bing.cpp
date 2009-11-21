@@ -14,3 +14,7 @@ string TianGan_Bing::getName()
 	return "±û";
 }
 
+int TianGan_Bing::getXing()
+{
+	return this->feature;
+}

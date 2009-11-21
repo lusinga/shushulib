@@ -13,3 +13,8 @@ string TianGan_Ren::getName()
 {
 	return "хи";
 }
+
+int TianGan_Ren::getXing()
+{
+	return this->feature;
+}

@@ -13,3 +13,8 @@ string TianGan_Geng::getName()
 {
 	return "¸ı";
 }
+
+int TianGan_Geng::getXing()
+{
+	return this->feature;
+}

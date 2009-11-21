@@ -13,3 +13,8 @@ string TianGan_Gui::getName()
 {
 	return "¹ï";
 }
+
+int TianGan_Gui::getXing()
+{
+	return this->feature;
+}

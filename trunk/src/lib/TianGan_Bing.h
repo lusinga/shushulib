@@ -11,6 +11,5 @@ public:
 	~TianGan_Bing(void);
 
 	virtual string getName();
-protected:
-	int tgid;
+	virtual int getXing();
 };

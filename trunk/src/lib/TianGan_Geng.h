@@ -11,4 +11,5 @@ public:
 	~TianGan_Geng(void);
 
 	virtual string getName();
+	virtual int getXing();
 };
