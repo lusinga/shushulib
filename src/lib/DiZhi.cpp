@@ -33,3 +33,18 @@ int DiZhi::getDzid()
 {
 	return this->dzid;
 }
+
+bool DiZhi::he(DiZhi* pz)
+{
+	return he(this->getDzid(),pz->getDzid());
+}
+
+bool DiZhi::chong(DiZhi* pz)
+{
+	return chong(this->getDzid(),pz->getDzid());
+}
+
+bool DiZhi::sanhe(DiZhi* pz2, DiZhi* pz3)
+{
+	return sanhe(this->getDzid(), pz2->getDzid(), pz3->getDzid());
+}
