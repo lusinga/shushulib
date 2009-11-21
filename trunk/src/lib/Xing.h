@@ -22,4 +22,10 @@ public:
 	static bool ke(int ker, int kee);
 	virtual string getFeature() = 0;
 	bool sheng(Xing* xing);
+
+	static string transFeature(int feature)
+	{
+		string fname[] = {"д╬","╩П","ма","╫П","к╝",};
+		return fname[feature%5];
+	}
 };
