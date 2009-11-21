@@ -48,9 +48,10 @@ int main(int argc, char* argv[])
 		}
 	}
 
-	LiuRen::diPan();
-	//正月雨水后卯时占
-	LiuRen::tianPan(1,DiZhi::DZmao);
+	LiuRen* plr = new LiuRen(1,3, 0, 0);
+	plr->diPan();
+	plr->tianPan();
+	plr->siKe();
 
 	cin.get();
 
