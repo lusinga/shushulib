@@ -54,6 +54,12 @@ int main(int argc, char* argv[])
 	plr->siKe();
 	plr->sanChuan();
 
+	LiuRen* plr2 = new LiuRen(3, 6, 0, 4);
+	plr2->diPan();
+	plr2->tianPan();
+	plr2->siKe();
+	plr2->sanChuan();
+
 	cin.get();
 
 	return 0;

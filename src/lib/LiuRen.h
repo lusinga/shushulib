@@ -12,6 +12,7 @@ public:
 	void tianPan();
 	void siKe(); 
 	void sanChuan();
+	void printSanChuan(bool isGan);
 
 private:
 	int tianpan[12];
