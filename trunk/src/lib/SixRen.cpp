@@ -60,6 +60,12 @@ int main(int argc, char* argv[])
 	plr2->siKe();
 	plr2->sanChuan();
 
+	LiuRen* plr3 = new LiuRen(10, DiZhi::DZsi, TianGan::TGren, DiZhi::DZxu);
+	plr3->diPan();
+	plr3->tianPan();
+	plr3->siKe();
+	plr3->sanChuan();
+
 	cin.get();
 
 	return 0;
