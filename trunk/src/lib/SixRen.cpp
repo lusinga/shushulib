@@ -66,6 +66,8 @@ int main(int argc, char* argv[])
 	plr3->siKe();
 	plr3->sanChuan();
 
+	//比用法
+
 	LiuRen* plr4 = new LiuRen(4, DiZhi::DZwei, TianGan::TGjia, DiZhi::DZxu);
 	plr4->diPan();
 	plr4->tianPan();
@@ -77,6 +79,13 @@ int main(int argc, char* argv[])
 	plr5->tianPan();
 	plr5->siKe();
 	plr5->sanChuan();
+
+	//涉害法
+	LiuRen* plr6 = new LiuRen(1, DiZhi::DZchou, TianGan::TGding, DiZhi::DZmao);
+	plr6->diPan();
+	plr6->tianPan();
+	plr6->siKe();
+	plr6->sanChuan();
 	
 	cin.get();
 	
