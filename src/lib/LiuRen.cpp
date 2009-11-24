@@ -133,12 +133,20 @@ void LiuRen::sanChuan()
 	//贼，下克上为贼
 	int izei=0;
 	int zeipos = -1;
+	int izei_he=0;
+	int zei_he_pos = -1;
+
 	for(int i=0;i<4;i++)
 	{
 		if(pgzl[i]->ke(pgzh[i]))
 		{
 			izei++;
 			zeipos = i;
+			if(YinYang::isHe(this->riGan, kehigh[i]))
+			{
+				izei_he++;
+				zei_he_pos = i;
+			}
 		}
 	}
 	
@@ -151,21 +159,47 @@ void LiuRen::sanChuan()
 		return;
 	}
 
+	if (izei_he == 1){ 
+		cout<<"此课可以用比用法解决"<<endl;
+		this->sanchuan[0] = this->kehigh[zei_he_pos];
+		this->sanchuan[1] =this->tianpan[this->sanchuan[0]];
+		this->sanchuan[2] =this->tianpan[this->sanchuan[1]];
+		this->printSanChuan(false);
+		return;
+	}
+	
 	//上克下为克
 	int ike=0;
 	int kepos = -1;
+	int ike_he=0;
+	int ke_he_pos = -1;
+
 	for(int i=0;i<4;i++)
 	{
 		if(pgzh[i]->ke(pgzl[i]))
 		{
 			ike++;
 			kepos = i;
+			if(YinYang::isHe(this->riGan, kehigh[i]))
+			{
+				ike_he++;
+				ke_he_pos = i;
+			}
 		}
 	}
 
 	if (ike == 1){ 
 		cout<<"这是一个克课!"<<endl;
 		this->sanchuan[0] = this->kehigh[kepos];
+		this->sanchuan[1] =this->tianpan[this->sanchuan[0]];
+		this->sanchuan[2] =this->tianpan[this->sanchuan[1]];
+		this->printSanChuan(false);
+		return;
+	}
+
+	if (ike_he == 1){ 
+		cout<<"此课可以用比用法解决"<<endl;
+		this->sanchuan[0] = this->kehigh[ke_he_pos];
 		this->sanchuan[1] =this->tianpan[this->sanchuan[0]];
 		this->sanchuan[2] =this->tianpan[this->sanchuan[1]];
 		this->printSanChuan(false);

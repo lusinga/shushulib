@@ -12,6 +12,8 @@ public:
 	bool isYin();
 	bool isYang(); 
 
+	static bool isHe(int gan, int zhi);
+
 protected:
 	bool yang;
 };
