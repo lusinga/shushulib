@@ -153,10 +153,23 @@ void LiuRen::sanChuan()
 
 	//上克下为克
 	int ike=0;
+	int kepos = -1;
 	for(int i=0;i<4;i++)
-		if(pgzh[i]->ke(pgzl[i])) ike++;
+	{
+		if(pgzh[i]->ke(pgzl[i]))
+		{
+			ike++;
+			kepos = i;
+		}
+	}
 
 	if (ike == 1){ 
-		cout<<"发现克课"<<endl;}
+		cout<<"这是一个克课!"<<endl;
+		this->sanchuan[0] = this->kehigh[kepos];
+		this->sanchuan[1] =this->tianpan[this->sanchuan[0]];
+		this->sanchuan[2] =this->tianpan[this->sanchuan[1]];
+		this->printSanChuan(false);
+		return;
+	}
 
 }
