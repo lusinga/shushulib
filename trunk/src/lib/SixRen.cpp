@@ -66,7 +66,19 @@ int main(int argc, char* argv[])
 	plr3->siKe();
 	plr3->sanChuan();
 
-	cin.get();
+	LiuRen* plr4 = new LiuRen(4, DiZhi::DZwei, TianGan::TGjia, DiZhi::DZxu);
+	plr4->diPan();
+	plr4->tianPan();
+	plr4->siKe();
+	plr4->sanChuan();
 
+	LiuRen* plr5 = new LiuRen(9, DiZhi::DZhai, TianGan::TGxin, DiZhi::DZhai);
+	plr5->diPan();
+	plr5->tianPan();
+	plr5->siKe();
+	plr5->sanChuan();
+	
+	cin.get();
+	
 	return 0;
 }

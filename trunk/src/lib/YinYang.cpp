@@ -17,3 +17,8 @@ bool YinYang::isYin()
 {
 	return !(this->yang);
 }
+
+bool YinYang::isHe(int gan, int zhi)
+{
+	return ( (gan % 2) == (zhi % 2));
+}
