@@ -36,7 +36,7 @@ public:
 
 	virtual int getXing() = 0;
 	int ke(DiZhi* pdz);
-	
+
 protected:
 	int dzid;
 };
