@@ -13,6 +13,7 @@ public:
 	void siKe(); 
 	void sanChuan();
 	void printSanChuan(bool isGan);
+	void duanKe();
 
 private:
 	int tianpan[12];
@@ -24,4 +25,9 @@ private:
 	int time;
 	int riGan;
 	int riZhi;
+
+	int ike;
+	int izei;
+	int ike_he;
+	int izei_he;
 };

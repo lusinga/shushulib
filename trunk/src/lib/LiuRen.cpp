@@ -123,6 +123,11 @@ void LiuRen::sanChuan()
 	GanZhi* pgzh[4];
 	GanZhi* pgzl[4];
 
+	izei=0;
+	izei_he=0;
+	ike=0;
+	ike_he=0;
+
 	pgzl[0] = Month::buildGan(this->kelow[0]);
 	for(int i=1;i<4;i++)
 		pgzl[i] = Month::buildZhi(this->kelow[i]);
@@ -131,10 +136,10 @@ void LiuRen::sanChuan()
 		pgzh[i] = Month::buildZhi(this->kehigh[i]);
 
 	//贼，下克上为贼
-	int izei=0;
 	int zeipos = -1;
-	int izei_he=0;
 	int zei_he_pos = -1;
+
+
 
 	for(int i=0;i<4;i++)
 	{
@@ -151,7 +156,7 @@ void LiuRen::sanChuan()
 	}
 	
 	if (izei == 1){ 
-		cout<<"这是一个贼课!"<<endl;
+		//cout<<"这是一个贼课!"<<endl;
 		this->sanchuan[0] = this->kehigh[zeipos];
 		this->sanchuan[1] =this->tianpan[this->sanchuan[0]];
 		this->sanchuan[2] =this->tianpan[this->sanchuan[1]];
@@ -169,9 +174,9 @@ void LiuRen::sanChuan()
 	}
 	
 	//上克下为克
-	int ike=0;
+
 	int kepos = -1;
-	int ike_he=0;
+	ike_he=0;
 	int ke_he_pos = -1;
 
 	for(int i=0;i<4;i++)
@@ -189,7 +194,7 @@ void LiuRen::sanChuan()
 	}
 
 	if (ike == 1){ 
-		cout<<"这是一个克课!"<<endl;
+		//cout<<"这是一个克课!"<<endl;
 		this->sanchuan[0] = this->kehigh[kepos];
 		this->sanchuan[1] =this->tianpan[this->sanchuan[0]];
 		this->sanchuan[2] =this->tianpan[this->sanchuan[1]];
@@ -205,5 +210,38 @@ void LiuRen::sanChuan()
 		this->printSanChuan(false);
 		return;
 	}
+}
+
+void LiuRen::duanKe()
+{
+	cout<<endl;
+
+	//始入课，只有一课下贼上。
+	if (izei == 1 && ike == 0)
+	{
+		cout<<"这是一个始入课！"<<endl;
+	}
+	
+	if(izei ==0 && ike == 1)
+	{
+		cout<<"这是一个元首课!"<<endl;
+	}
+
+	if(izei ==1 && ike >0 )
+	{
+		cout<<"这是一个重审课"<<endl;
+	}
+
+	if(izei_he==1)
+	{
+		cout<<"这是一个比用课"<<endl;
+	}
+
+	if(ike_he==1)
+	{
+		cout<<"这是一个知一课"<<endl;
+	}
+
+	cout<<"========================================================"<<endl;
 
 }
