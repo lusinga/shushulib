@@ -16,6 +16,7 @@ public:
 	void duanKe();
 
 private:
+	int walk(int start,int end);
 	int tianpan[12];
 	int kelow[4];
 	int kehigh[4];
