@@ -92,6 +92,13 @@ int main(int argc, char* argv[])
 	plr6->siKe();
 	plr6->sanChuan();
 	plr6->duanKe();
+
+	LiuRen* plr7 = new LiuRen(4, DiZhi::DZxu, TianGan::TGgeng, DiZhi::DZzi);
+	plr7->diPan();
+	plr7->tianPan();
+	plr7->siKe();
+	plr7->sanChuan();
+	plr7->duanKe();
 	
 	cin.get();
 	

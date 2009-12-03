@@ -48,7 +48,7 @@ void LiuRen::tianPan()
 	cout<<endl<<"天盘："<<endl<<endl;
 	int tian_start = Month::getYueJiang(this->month)-this->time;
 	formatPan(Month::buildZhi(tian_start));
-	
+
 	for(int i=0;i<12;i++)
 	{
 		this->tianpan[i] = (tian_start+i>=0? (tian_start+i) %12 : (tian_start+i) %12 + 12);
@@ -61,7 +61,7 @@ void LiuRen::siKe()
 	this->kelow[0] = this->riGan;
 	this->kelow[1] = this->kehigh[0] = this->tianpan[ptg1->getJiGong()];
 	this->kehigh[1] = this->tianpan[kelow[1]];
-	
+
 	this->kelow[2] = this->riZhi;
 	this->kelow[3] = this->kehigh[2] = this->tianpan[kelow[2]]; 
 	this->kehigh[3] = this->tianpan[kelow[3]];
@@ -80,7 +80,7 @@ void LiuRen::siKe()
 	cout<<ptg1->getName()<<" "<<pdz0->getName()<<" "
 		<<pdzr->getName()<<" "<<pdz2->getName()<<" "<<endl;
 
-/*	delete ptg1;
+	/*	delete ptg1;
 	ptg1 = NULL;
 	delete pdz0;
 	pdz0 = NULL;
@@ -154,7 +154,7 @@ void LiuRen::sanChuan()
 			}
 		}
 	}
-	
+
 	if (izei == 1){ 
 		//cout<<"这是一个贼课!"<<endl;
 		this->sanchuan[0] = this->kehigh[zeipos];
@@ -172,7 +172,44 @@ void LiuRen::sanChuan()
 		this->printSanChuan(false);
 		return;
 	}
-	
+	//尝试使用涉害法解决，先找出同时贼的课
+	else if(izei > 1)
+	{
+		int azei[4]={-1,-1,-1,-1};
+		int azeipos = 0;
+		for(int i=0;i<4;i++)
+		{
+			if(pgzl[i]->ke(pgzh[i]))
+			{
+				azei[azeipos++]=i;
+			}
+		}
+
+		int ibig = -1;
+
+		if(izei==2)
+		{
+			int walk1 = walk(this->kelow[azei[0]],this->kehigh[azei[0]]);
+			int walk2 = walk(this->kelow[azei[1]],this->kehigh[azei[1]]);
+			if( walk1 > walk2)
+			{
+				cout<<"此课可以用涉害法解决"<<endl;
+				this->sanchuan[0] = this->kehigh[azei[0]];
+				this->sanchuan[1] =this->tianpan[this->sanchuan[0]];
+				this->sanchuan[2] =this->tianpan[this->sanchuan[1]];
+				this->printSanChuan(false);
+			}
+			else if( walk1 < walk2)
+			{
+				cout<<"此课可以用涉害法解决"<<endl;
+				this->sanchuan[0] = this->kehigh[azei[1]];
+				this->sanchuan[1] =this->tianpan[this->sanchuan[0]];
+				this->sanchuan[2] =this->tianpan[this->sanchuan[1]];
+				this->printSanChuan(false);
+			}
+		}
+	}
+
 	//上克下为克
 
 	int kepos = -1;
@@ -210,6 +247,67 @@ void LiuRen::sanChuan()
 		this->printSanChuan(false);
 		return;
 	}
+	//尝试使用涉害法解决，先找出同时贼的课
+	else if(ike > 1)
+	{
+		int ake[4]={-1,-1,-1,-1};
+		int akepos = 0;
+		for(int i=0;i<4;i++)
+		{
+			if(pgzl[i]->ke(pgzh[i]))
+			{
+				ake[akepos++]=i;
+			}
+		}
+
+		int ibig = -1;
+
+		if(izei==2)
+		{
+			int walk1 = walk(this->kelow[ake[0]],this->kehigh[ake[0]]);
+			int walk2 = walk(this->kelow[ake[1]],this->kehigh[ake[1]]);
+			if( walk1 > walk2)
+			{
+				cout<<"此课可以用涉害法解决"<<endl;
+				this->sanchuan[0] = this->kehigh[ake[0]];
+				this->sanchuan[1] =this->tianpan[this->sanchuan[0]];
+				this->sanchuan[2] =this->tianpan[this->sanchuan[1]];
+				this->printSanChuan(false);
+			}
+			else if( walk1 < walk2)
+			{
+				cout<<"此课可以用涉害法解决"<<endl;
+				this->sanchuan[0] = this->kehigh[ake[1]];
+				this->sanchuan[1] =this->tianpan[this->sanchuan[0]];
+				this->sanchuan[2] =this->tianpan[this->sanchuan[1]];
+				this->printSanChuan(false);
+			}
+		}
+	}
+
+	//walk(DiZhi::DZmao,DiZhi::DZchou);
+	//walk(DiZhi::DZchou, DiZhi::DZhai);
+}
+
+int LiuRen::walk(int start, int end)
+{
+	cout<<endl;
+	int kecount = 0;
+
+	if(end<start) end+=12;
+
+	DiZhi* pMe = Month::buildZhi(end);
+
+	for(int i=start; i<=end; i++)
+	{
+		DiZhi* pHe = Month::buildZhi(i);
+		//cout<<pHe->getName();
+		if(pHe->ke(pMe))
+			kecount++;
+	}
+	cout<<"天盘在回归地盘本位的过程中，共计被克"<<kecount<<"次"<<endl<<endl;
+
+	return kecount;
 }
 
 void LiuRen::duanKe()
@@ -221,7 +319,7 @@ void LiuRen::duanKe()
 	{
 		cout<<"这是一个始入课！"<<endl;
 	}
-	
+
 	if(izei ==0 && ike == 1)
 	{
 		cout<<"这是一个元首课!"<<endl;
