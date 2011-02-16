@@ -14,7 +14,9 @@ public:
 
 	DiZhi* pDiFen;
 
-	DiZhi* pYueJiang;
+	DiZhi* pYueJiang; 
+
+	void show();
 
 };
 
