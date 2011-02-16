@@ -12,6 +12,7 @@
 #include "liuren.h"
 
 #include "Gan_Zhi.h"
+#include "JinKouJue.h"
 
 #include <iostream>
 
@@ -104,6 +105,22 @@ int main(int argc, char* argv[])
 
 	Gan_Zhi* pGZ = new Gan_Zhi(0,0);
 	cout<<pGZ->getName()<<endl;
+
+	JinKouJue* pJKJ = new JinKouJue(new Gan_Zhi(TianGan::TGwu, DiZhi::DZyin),
+		new Gan_Zhi(TianGan::TGren, DiZhi::DZxu),
+		new Gan_Zhi(TianGan::TGgeng, DiZhi::DZyin),
+		new Gan_Zhi(TianGan::TGren, DiZhi::DZwu),
+		Month::buildZhi(DiZhi::DZshen));
+
+	JinKouJue* pJKJ2 = new JinKouJue(
+		new Gan_Zhi(TianGan::TGding, DiZhi::DZhai),
+		new Gan_Zhi(TianGan::TGgui, DiZhi::DZmao),
+		new Gan_Zhi(TianGan::TGding, DiZhi::DZmao),
+		new Gan_Zhi(TianGan::TGyi, DiZhi::DZsi),
+		Month::buildZhi(DiZhi::DZyou));
+
+	pJKJ->show();
+	pJKJ2->show();
 	
 	cin.get();
 	
