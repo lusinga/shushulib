@@ -11,6 +11,8 @@
 #include "month.h"
 #include "liuren.h"
 
+#include "Gan_Zhi.h"
+
 #include <iostream>
 
 using namespace std;
@@ -99,6 +101,9 @@ int main(int argc, char* argv[])
 	plr7->siKe();
 	plr7->sanChuan();
 	plr7->duanKe();
+
+	Gan_Zhi* pGZ = new Gan_Zhi(0,0);
+	cout<<pGZ->getName()<<endl;
 	
 	cin.get();
 	
