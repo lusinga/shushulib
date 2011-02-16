@@ -66,5 +66,5 @@ bool DiZhi::sanhe(DiZhi* pz2, DiZhi* pz3)
 
 int DiZhi::getMonth(void)
 {
-	return (this->dzid -2 ) %12;
+	return (this->dzid -1 ) %12;
 }

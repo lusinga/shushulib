@@ -12,7 +12,7 @@ JinKouJue::JinKouJue(Gan_Zhi* pYear,Gan_Zhi* pMonth,Gan_Zhi* pDay,Gan_Zhi* pHour
 	this->pHour = pHour;
 	this->pDiFen = pDiFen;
 
-	this->pYueJiang = Month::buildZhi(Month::getYueJiang(this->pMonth->pDZ->getMonth())-this->pHour->pDZ->getDzid());
+	this->pYueJiang = Month::buildZhi(Month::getYueJiang(this->pMonth->pDZ)-this->pHour->pDZ->getDzid()+this->pDiFen->getDzid());
 
 }
 
