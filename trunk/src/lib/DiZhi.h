@@ -37,7 +37,6 @@ public:
 	bool sanhe(DiZhi* pz2, DiZhi* pz3);
 
 	virtual int getXing() = 0;
-	//int ke(DiZhi* pdz);
 
 protected:
 	int dzid;
