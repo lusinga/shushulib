@@ -80,18 +80,6 @@ void LiuRen::siKe()
 	cout<<ptg1->getName()<<" "<<pdz0->getName()<<" "
 		<<pdzr->getName()<<" "<<pdz2->getName()<<" "<<endl;
 
-	/*	delete ptg1;
-	ptg1 = NULL;
-	delete pdz0;
-	pdz0 = NULL;
-	delete pdz1;
-	pdz1 = NULL;
-	delete pdz2;
-	pdz2 = NULL;
-	delete pdz3;
-	pdz3 = NULL;
-	delete pdzr;
-	pdzr = NULL;*/
 }
 
 void LiuRen::printSanChuan(bool isGan)
