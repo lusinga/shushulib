@@ -30,6 +30,8 @@ public:
 	static bool chong(int chong1, int chong2);//³å
 	int getDzid(void);
 
+	int getMonth(void);
+
 	bool he(DiZhi* pz);
 	bool chong(DiZhi* pz);
 	bool sanhe(DiZhi* pz2, DiZhi* pz3);

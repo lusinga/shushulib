@@ -93,3 +93,8 @@ int Month::getYueJiang(int month)
 {
 	return (12-month);
 }
+
+int Month::getYueJiang(DiZhi* pDZ)
+{
+	return getYueJiang(pDZ->getMonth());
+}
