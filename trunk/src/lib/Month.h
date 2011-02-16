@@ -34,5 +34,6 @@ public:
 	static TianGan* buildGan(int tgid);
 	static DiZhi* buildZhi(int dzid);
 	static int getYueJiang(int month);
+	static int getYueJiang(DiZhi* pDZ);
 };
 
