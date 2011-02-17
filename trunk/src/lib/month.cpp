@@ -98,3 +98,11 @@ int Month::getYueJiang(DiZhi* pDZ)
 {
 	return getYueJiang(pDZ->getMonth());
 }
+
+TianGan* Month::wuZiYuanDu(TianGan* pTG, DiZhi* pDZ)
+{
+	int iTgID = pTG->getTgid();
+	int iDzID = pDZ->getDzid();
+
+	int iTG2 = (iTgID % 5) * 2;
+}

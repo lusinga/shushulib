@@ -26,6 +26,12 @@
 #include "tiangan_ren.h"
 #include "tiangan_gui.h"
 
+/************************************************************************/
+/* Month类是主要的工具类的集合
+/* 包括：根据数字来构造干支类的对象
+/* 求月将的值
+/* 五子元遁术
+/************************************************************************/
 class Month
 {
 public:
@@ -35,5 +41,6 @@ public:
 	static DiZhi* buildZhi(int dzid);
 	static int getYueJiang(int month);
 	static int getYueJiang(DiZhi* pDZ);
+	static TianGan* wuZiYuanDu(TianGan* pTG, DiZhi* pDZ);
 };
 
