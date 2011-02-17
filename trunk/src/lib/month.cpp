@@ -50,7 +50,8 @@ DiZhi* Month::buildZhi(int dzid)
 
 TianGan* Month::buildGan(int tgid)
 {
-	tgid = tgid>=0 ? tgid %12: tgid % 12 +12;
+
+	tgid = (tgid + 10) % 10; 
 	TianGan* ptg = NULL;
 	switch(tgid)
 	{
@@ -105,4 +106,10 @@ TianGan* Month::wuZiYuanDu(TianGan* pTG, DiZhi* pDZ)
 	int iDzID = pDZ->getDzid();
 
 	int iTG2 = (iTgID % 5) * 2;
+
+	TianGan* pTG2 = buildGan((iTG2+iDzID)%10);
+
+	cout<<"[debug]TianGan = "<<pTG2->getTgid()<<endl;
+
+	return pTG2;
 }

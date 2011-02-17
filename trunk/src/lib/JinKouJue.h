@@ -17,6 +17,7 @@ public:
 
 	DiZhi* pYueJiang;
 	GuiShen* pGuiShen;
+	TianGan* pRenYuan;
 
 	void show();
 
