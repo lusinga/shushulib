@@ -21,5 +21,7 @@ public:
 
 	void show();
 
+private:
+	string parseYueJiangName();
 };
 
