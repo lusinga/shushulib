@@ -119,8 +119,16 @@ int main(int argc, char* argv[])
 		new Gan_Zhi(TianGan::TGyi, DiZhi::DZsi),
 		Month::buildZhi(DiZhi::DZyou));
 
+	JinKouJue* pJKJ3 = new JinKouJue(
+		new Gan_Zhi(TianGan::TGwu, DiZhi::DZyin),
+		new Gan_Zhi(TianGan::TGxin, DiZhi::DZyou),
+		new Gan_Zhi(TianGan::TGbing, DiZhi::DZxu),
+		new Gan_Zhi(TianGan::TGyi, DiZhi::DZwei),
+		Month::buildZhi(DiZhi::DZzi));
+
 	pJKJ->show();
 	pJKJ2->show();
+	pJKJ3->show();
 	
 	cin.get();
 	

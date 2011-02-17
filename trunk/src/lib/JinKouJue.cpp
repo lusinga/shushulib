@@ -15,7 +15,9 @@ JinKouJue::JinKouJue(Gan_Zhi* pYear,Gan_Zhi* pMonth,Gan_Zhi* pDay,Gan_Zhi* pHour
 
 	this->pYueJiang = Month::buildZhi(Month::getYueJiang(this->pMonth->pDZ)-this->pHour->pDZ->getDzid()+this->pDiFen->getDzid());
 
-	bool isDay = pDay->pDZ->getDzid()<DiZhi::DZyou && pDay->pDZ->getDzid()>=DiZhi::DZmao;
+	bool isDay = pHour->pDZ->getDzid()<DiZhi::DZyou && pHour->pDZ->getDzid()>=DiZhi::DZmao;
+
+	cout<<"[debug]isDay="<<isDay<<endl;
 
 	this->pGuiShen = new GuiShen(pDay->pTG,isDay,pDiFen);
 }
