@@ -1,5 +1,6 @@
 #pragma once
 #include "Gan_Zhi.h"
+#include "GuiShen.h"
 
 class JinKouJue
 {
@@ -14,7 +15,8 @@ public:
 
 	DiZhi* pDiFen;
 
-	DiZhi* pYueJiang; 
+	DiZhi* pYueJiang;
+	GuiShen* pGuiShen;
 
 	void show();
 

@@ -12,46 +12,50 @@ GuiShen::GuiShen(TianGan* pTG, bool isDay, DiZhi* pDiFen)
 {
 	int startForward=0;
 	int startReverse=0;
-	bool isForward;
+	bool isForward=true;
 
 	//¼×Îì¸ýÅ£Ñò
-	if(pTG->getDzid() == TianGan::TGjia || pTG->getDzid() == TianGan::TGwu || pTG->getDzid() == TianGan::TGgeng)
+	if(pTG->getTgid() == TianGan::TGjia || pTG->getTgid() == TianGan::TGwu || pTG->getTgid() == TianGan::TGgeng)
 	{
 		startForward = DiZhi::DZchou;
 		startReverse = DiZhi::DZwei;
 		isForward = isDay;
 	}
 	//ÒÒÒÑÊóºïÏç
-	else if(pTG->getDzid()==TianGan::TGyi || pTG->getDzid()==TianGan::TGji)
+	else if(pTG->getTgid()==TianGan::TGyi || pTG->getTgid()==TianGan::TGji)
 	{
 		startForward = DiZhi::DZzi;
 		startReverse = DiZhi::DZshen;
 		isForward = isDay;				
 	}
 	//±û¶¡Öí¼¦Î»
-	else if(pTG->getDzid()==TianGan::TGbing || pTG->getDzid()==TianGan::TGding)
+	else if(pTG->getTgid()==TianGan::TGbing || pTG->getTgid()==TianGan::TGding)
 	{
 		startForward = DiZhi::DZhai;
 		startReverse = DiZhi::DZyou;
 		isForward = isDay;
 	}
 	//ÈÉ¹ïÉßÍÃ²Ø
-	else if(pTG->getDzid()==TianGan::TGren || pTG->getDzid()==TianGan::TGgui)
+	else if(pTG->getTgid()==TianGan::TGren || pTG->getTgid()==TianGan::TGgui)
 	{
 		startForward = DiZhi::DZsi;
 		startReverse = DiZhi::DZmao;
 		isForward = !isDay;
 	}
 	//ÁùÐÁ·êÂí»¢
-	else if(pTG->getDzid()==TianGan::TGxin)
+	else if(pTG->getTgid()==TianGan::TGxin)
 	{
 		startForward = DiZhi::DZwu;
 		startReverse = DiZhi::DZyin;
 		isForward = !isDay;
 	}
 	//´ËÊÇ¹óÈË·½
-
-	gsID = isForward ? (pDiFen->getDzid() - startForward) % 12 : (pDiFen->getDzid() + startForward) % 12;
+	else{
+		cout<<"Error! Ìì¸É´íÎó£¡"<<endl;
+	}
+	
+	gsID = isForward ? (pDiFen->getDzid() - startForward + 12) % 12 : (pDiFen->getDzid() + startForward + 12) % 12;
+	cout<<"[debug]gsID="<<gsID<<endl;
 
 	switch(gsID)
 	{
@@ -114,6 +118,9 @@ GuiShen::GuiShen(TianGan* pTG, bool isDay, DiZhi* pDiFen)
 		pName =new string("Ììºó(ÒõË®)");
 		pYingYang = new Yin();
 		pXing = new Shui();
+		break;
+	default:
+		pName = new string("´íÎó£¡");
 		break;
 	}
 }
