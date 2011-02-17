@@ -26,3 +26,8 @@ int TianGan::JiGong[] = {
 	DiZhi::DZhai,
 	DiZhi::DZchou,
 };
+
+int TianGan::getDzid()
+{
+	return this->dzid;
+}
