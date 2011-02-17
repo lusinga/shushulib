@@ -7,6 +7,7 @@
 #include "Shui.h"
 #include "Tu.h"
 #include "Huo.h"
+#include "Month.h"
 
 GuiShen::GuiShen(TianGan* pTG, bool isDay, DiZhi* pDiFen)
 {
@@ -63,59 +64,71 @@ GuiShen::GuiShen(TianGan* pTG, bool isDay, DiZhi* pDiFen)
 		pName =new string("³ó (ÌìÒÒ¹óÉñ ÒõÍÁ)");
 		pYingYang = new Yin();
 		pXing = new Tu();
+		pGod = Month::buildZhi(DiZhi::DZchou);
 		break;
 	case 1:
 		pName =new string("ËÈ (ÎŸÉß Òõ»ð)");
+		pGod = Month::buildZhi(DiZhi::DZsi);
 		pYingYang = new Yin();
 		pXing = new Huo();
 		break;
 	case 2:
 		pName =new string("Îç (ÖìÈ¸ Ñô»ð)");
+		pGod = Month::buildZhi(DiZhi::DZwu);
 		pYingYang = new Yang();
 		pXing = new Huo();
 		break;
 	case 3:
 		pName =new string("Ã® (ÁùºÏ ÒõÄ¾)");
+		pGod = Month::buildZhi(DiZhi::DZmao);
 		pYingYang = new Yin();
 		pXing = new Mu();
 		break;
 	case 4:
 		pName =new string("³½ (¹´³Â ÑôÍÁ)");
+		pGod = Month::buildZhi(DiZhi::DZchen);
 		pYingYang = new Yang();
 		pXing = new Tu();
 		break;
 	case 5:
 		pName =new string("Òú (ÇàÁú ÑôÄ¾)");
+		pGod = Month::buildZhi(DiZhi::DZyin);
 		pYingYang = new Yang();
 		pXing = new Mu();
 		break;
 	case 6:
 		pName =new string("Ðç (Ìì¿Õ ÑôÍÁ)");
+		pGod = Month::buildZhi(DiZhi::DZxu);
 		pYingYang = new Yang();
 		pXing = new Tu();
 		break;
 	case 7:
 		pName =new string("Éê (°×»¢ Ñô½ð)");
+		pGod = Month::buildZhi(DiZhi::DZshen);
 		pYingYang = new Yang();
 		pXing = new Jin();
 		break;
 	case 8:
 		pName =new string("Î´ (Ì«³£ ÒõÍÁ)");
+		pGod = Month::buildZhi(DiZhi::DZwei);
 		pYingYang = new Yin();
 		pXing = new Tu();
 		break;
 	case 9:
 		pName =new string("×Ó (ÐþÎä ÑôË®)");
+		pGod = Month::buildZhi(DiZhi::DZzi);
 		pYingYang = new Yang();
 		pXing = new Shui();
 		break;
 	case 10:
 		pName =new string("ÓÏ (Ì«Òõ Òõ½ð)");
+		pGod = Month::buildZhi(DiZhi::DZyou);
 		pYingYang = new Yin();
 		pXing = new Jin();
 		break;
 	case 11:
 		pName =new string("º¥ (ÌìºóÒõË®)");
+		pGod = Month::buildZhi(DiZhi::DZhai);
 		pYingYang = new Yin();
 		pXing = new Shui();
 		break;

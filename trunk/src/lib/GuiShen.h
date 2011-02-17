@@ -29,4 +29,5 @@ public:
 	string* pName;
 	Xing* pXing;
 	YinYang* pYingYang;
+
 };

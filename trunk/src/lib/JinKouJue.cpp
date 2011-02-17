@@ -30,10 +30,9 @@ JinKouJue::~JinKouJue(void)
 
 void JinKouJue::show()
 {
-	
 	cout<<this->pYear->getName()<<"年"<<this->pMonth->getName()<<"月"<<this->pDay->getName()<<"日"<<this->pHour->getName()<<"时"<<endl;
 	cout<<"人元："<<this->pRenYuan->getName()<<endl;
-	cout<<"贵神："<</*Month::wuZiYuanDu(pDay->pTG,)<<*/this->pGuiShen->getName()<<endl;
+	cout<<"贵神："<<Month::wuZiYuanDu(pDay->pTG,this->pGuiShen->pGod)->getName()<<this->pGuiShen->getName()<<endl;
 	cout<<"月将："<<Month::wuZiYuanDu(pDay->pTG,this->pYueJiang)->getName()<<this->pYueJiang->getName()<<endl;
 	cout<<"地分："<<this->pDiFen->getName()<<endl;
 
