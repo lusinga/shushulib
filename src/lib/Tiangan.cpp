@@ -27,7 +27,7 @@ int TianGan::JiGong[] = {
 	DiZhi::DZchou,
 };
 
-int TianGan::getDzid()
+int TianGan::getTgid()
 {
-	return this->dzid;
+	return this->tgid;
 }

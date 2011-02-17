@@ -23,7 +23,8 @@ public:
 
 	static int JiGong[];
 
-	int getDzid(void);
+	//int getDzid(void);
+	int getTgid(void);
 	int getJiGong();
 
 protected:
