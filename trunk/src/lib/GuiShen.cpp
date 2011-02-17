@@ -8,20 +8,50 @@
 #include "Tu.h"
 #include "Huo.h"
 
-GuiShen::GuiShen(TianGan* pTG, bool isDay)
+GuiShen::GuiShen(TianGan* pTG, bool isDay, DiZhi* pDiFen)
 {
+	int startForward=0;
+	int startReverse=0;
+	bool isForward;
+
 	//¼×Îì¸ýÅ£Ñò
 	if(pTG->getDzid() == TianGan::TGjia || pTG->getDzid() == TianGan::TGwu || pTG->getDzid() == TianGan::TGgeng)
 	{
-		if(isDay)
-		{
-			
-		}
-		else
-		{
-
-		}
+		startForward = DiZhi::DZchou;
+		startReverse = DiZhi::DZwei;
+		isForward = isDay;
 	}
+	//ÒÒÒÑÊóºïÏç
+	else if(pTG->getDzid()==TianGan::TGyi || pTG->getDzid()==TianGan::TGji)
+	{
+		startForward = DiZhi::DZzi;
+		startReverse = DiZhi::DZshen;
+		isForward = isDay;				
+	}
+	//±û¶¡Öí¼¦Î»
+	else if(pTG->getDzid()==TianGan::TGbing || pTG->getDzid()==TianGan::TGding)
+	{
+		startForward = DiZhi::DZhai;
+		startReverse = DiZhi::DZyou;
+		isForward = isDay;
+	}
+	//ÈÉ¹ïÉßÍÃ²Ø
+	else if(pTG->getDzid()==TianGan::TGren || pTG->getDzid()==TianGan::TGgui)
+	{
+		startForward = DiZhi::DZsi;
+		startReverse = DiZhi::DZmao;
+		isForward = !isDay;
+	}
+	//ÁùÐÁ·êÂí»¢
+	else if(pTG->getDzid()==TianGan::TGxin)
+	{
+		startForward = DiZhi::DZwu;
+		startReverse = DiZhi::DZyin;
+		isForward = !isDay;
+	}
+	//´ËÊÇ¹óÈË·½
+
+	gsID = isForward ? (pDiFen->getDzid() - startForward) % 12 : (pDiFen->getDzid() + startForward) % 12;
 
 	switch(gsID)
 	{
@@ -97,4 +127,8 @@ GuiShen::~GuiShen(void)
 {
 	delete pName;
 	pName = NULL;
+	delete pXing;
+	pXing = NULL;
+	delete pYingYang;
+	pYingYang = NULL;
 }
