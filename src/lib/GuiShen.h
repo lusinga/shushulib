@@ -19,7 +19,7 @@ public:
 	static const int gsTaiYin = 10;
 	static const int gsTianHou = 11;
 
-	GuiShen(TianGan* pTG, bool isDay);
+	GuiShen(TianGan* pTG, bool isDay, DiZhi* pDiFen);
 	~GuiShen(void);
 
 	string getName();
