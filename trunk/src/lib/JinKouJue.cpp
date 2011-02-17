@@ -30,7 +30,7 @@ void JinKouJue::show()
 {
 	
 	cout<<this->pYear->getName()<<"年"<<this->pMonth->getName()<<"月"<<this->pDay->getName()<<"日"<<this->pHour->getName()<<"时"<<endl;
-	cout<<"地分："<<this->pDiFen->getName()<<endl;
-	cout<<"月将："<<this->pYueJiang->getName()<<endl;
 	cout<<"贵神："<<this->pGuiShen->getName()<<endl;
+	cout<<"月将："<<this->pYueJiang->getName()<<endl;
+	cout<<"地分："<<this->pDiFen->getName()<<endl;
 }

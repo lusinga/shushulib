@@ -60,62 +60,62 @@ GuiShen::GuiShen(TianGan* pTG, bool isDay, DiZhi* pDiFen)
 	switch(gsID)
 	{
 	case 0:
-		pName =new string("天乙贵神(阴土)");
+		pName =new string("丑 (天乙贵神 阴土)");
 		pYingYang = new Yin();
 		pXing = new Tu();
 		break;
 	case 1:
-		pName =new string("螣蛇(阴火)");
+		pName =new string("巳 (螣蛇 阴火)");
 		pYingYang = new Yin();
 		pXing = new Huo();
 		break;
 	case 2:
-		pName =new string("朱雀(阳火)");
+		pName =new string("午 (朱雀 阳火)");
 		pYingYang = new Yang();
 		pXing = new Huo();
 		break;
 	case 3:
-		pName =new string("六合(阴木)");
+		pName =new string("卯 (六合 阴木)");
 		pYingYang = new Yin();
 		pXing = new Mu();
 		break;
 	case 4:
-		pName =new string("勾陈(阳土)");
+		pName =new string("辰 (勾陈 阳土)");
 		pYingYang = new Yang();
 		pXing = new Tu();
 		break;
 	case 5:
-		pName =new string("青龙(阳木)");
+		pName =new string("寅 (青龙 阳木)");
 		pYingYang = new Yang();
 		pXing = new Mu();
 		break;
 	case 6:
-		pName =new string("天空(阳土)");
+		pName =new string("戌 (天空 阳土)");
 		pYingYang = new Yang();
 		pXing = new Tu();
 		break;
 	case 7:
-		pName =new string("白虎(阳金)");
+		pName =new string("申 (白虎 阳金)");
 		pYingYang = new Yang();
 		pXing = new Jin();
 		break;
 	case 8:
-		pName =new string("太常(阴土)");
+		pName =new string("未 (太常 阴土)");
 		pYingYang = new Yin();
 		pXing = new Tu();
 		break;
 	case 9:
-		pName =new string("玄武(阳水)");
+		pName =new string("子 (玄武 阳水)");
 		pYingYang = new Yang();
 		pXing = new Shui();
 		break;
 	case 10:
-		pName =new string("太阴(阴金)");
+		pName =new string("酉 (太阴 阴金)");
 		pYingYang = new Yin();
 		pXing = new Jin();
 		break;
 	case 11:
-		pName =new string("天后(阴水)");
+		pName =new string("亥 (天后阴水)");
 		pYingYang = new Yin();
 		pXing = new Shui();
 		break;
