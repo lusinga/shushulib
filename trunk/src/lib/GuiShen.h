@@ -1,5 +1,7 @@
 #include "Tiangan.h"
 #include "DiZhi.h"
+#include "Xing.h"
+#include "YinYang.h"
 
 class GuiShen
 {
@@ -20,5 +22,11 @@ public:
 	GuiShen(TianGan* pTG, bool isDay);
 	~GuiShen(void);
 
+	string getName();
+
 	DiZhi* pGod;
+	int gsID;
+	string* pName;
+	Xing* pXing;
+	YinYang* pYingYang;
 };
