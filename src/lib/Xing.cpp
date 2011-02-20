@@ -99,3 +99,34 @@ int Xing::whichWang(Xing** pXing, int numbers)
 	
 	return index;
 }
+
+Xing* Xing::whichXingIsWang(Xing** pXing,int numbers)
+{
+	return pXing[whichWang(pXing,numbers)];
+}
+
+int Xing::getState(Xing* pXing, Xing** pXings, int numbers)
+{
+	Xing* pWang = whichXingIsWang(pXings,numbers);
+	
+	if(pWang->getFeature() == pXing->getFeature())
+	{
+		return WANG;
+	}
+	else if(pWang->sheng(pXing))
+	{
+		return XIANG;//旺生者为相
+	}
+	else if(pWang->ke(pXing))
+	{
+		return SI;//旺克者为死
+	}
+	else if(pXing->sheng(pWang))
+	{
+		return XIU;//生旺者为休
+	}
+	else if(pXing->ke(pWang))
+	{
+		return QIU;//克旺者囚
+	}
+}
