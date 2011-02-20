@@ -55,9 +55,8 @@ GuiShen::GuiShen(TianGan* pTG, bool isDay, DiZhi* pDiFen)
 		cout<<"Error! Ìì¸É´íÎó£¡"<<endl;
 	}
 	
-	gsID = isForward ? (pDiFen->getDzid() - startForward + 12) % 12 : (pDiFen->getDzid() + startForward + 12) % 12;
-	//cout<<"[debug]gsID="<<gsID<<endl;
-
+	gsID = isForward ? (pDiFen->getDzid() - startForward + 12) % 12 : (pDiFen->getDzid() + startReverse + 12) % 12;
+	
 	switch(gsID)
 	{
 	case 0:

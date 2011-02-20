@@ -18,7 +18,4 @@ public:
 	bool ke(GanZhi* pgz);
 	virtual string getName() = 0;
 	Xing* buildXing();
-
-protected:
-	int dzid;
 };
