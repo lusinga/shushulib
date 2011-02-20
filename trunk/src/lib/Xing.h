@@ -28,4 +28,6 @@ public:
 		string fname[] = {"д╬","╩П","ма","╫П","к╝",};
 		return fname[feature%5];
 	}
+
+	int whichWang(Xing* pXing, int numbers);
 };

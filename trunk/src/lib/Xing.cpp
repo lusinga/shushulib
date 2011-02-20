@@ -37,3 +37,47 @@ bool Xing::sheng(Xing* xing)
 	}
 	else return false;
 }
+
+int Xing::whichWang(Xing* pXing, int numbers)
+{
+	int index = 0;
+
+	int iJin =0;
+	int iMu = 0;
+	int iShui = 0;
+	int iHuo = 0;
+	int iTu = 0;
+
+	for(int i=0;i<numbers;i++)
+	{
+		switch(pXing[i].feature)
+		{
+		case this->HUO:
+			iHuo++;
+			break;
+		case this->JIN:
+			iJin++;
+			break;
+		case this->MU:
+			iMu++;
+			break;
+		case this->SHUI:
+			iShui++;
+			break;
+		case this->TU:
+			iTu++;
+			break;
+		default:
+			break;
+		}
+	}
+
+	//五行中金木水土火不重复的情况
+	if(iJin<2 && iMu < 2 && iShui <2 && iHuo<2 && iTu<<2)
+	{
+		//察看哪位不受克，不受克者旺
+
+	}
+	
+	return index;
+}
