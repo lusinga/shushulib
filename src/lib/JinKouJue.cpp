@@ -17,7 +17,7 @@ JinKouJue::JinKouJue(Gan_Zhi* pYear,Gan_Zhi* pMonth,Gan_Zhi* pDay,Gan_Zhi* pHour
 
 	bool isDay = pHour->pDZ->getDzid()<DiZhi::DZyou && pHour->pDZ->getDzid()>=DiZhi::DZmao;
 
-	cout<<"[debug]isDay="<<isDay<<endl;
+	//cout<<"[debug]isDay="<<isDay<<endl;
 
 	this->pGuiShen = new GuiShen(pDay->pTG,isDay,pDiFen);
 
