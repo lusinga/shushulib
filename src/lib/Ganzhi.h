@@ -16,6 +16,7 @@ public:
 
 	virtual int getXing() = 0;
 	bool ke(GanZhi* pgz);
+	bool sheng(GanZhi* pgz);
 	virtual string getName() = 0;
 	Xing* buildXing();
 };

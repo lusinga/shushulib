@@ -24,6 +24,17 @@ bool GanZhi::ke(GanZhi* pdz)
 	else return false;
 }
 
+bool GanZhi::sheng(GanZhi* pGZ)
+{
+	if(Xing::sheng(getXing(),pGZ->getXing())){
+		cout<<this->getName()<<Xing::transFeature(this->getXing());
+		cout<<"Éú"<<pGZ->getName()<<Xing::transFeature(pGZ->getXing());
+		cout<<endl;
+		return true;
+	}
+	return false;
+}
+
 Xing* GanZhi::buildXing()
 {
 	return Xing::buildXing(this->getXing());

@@ -19,5 +19,5 @@ public:
 	DiZhi* pDZ;
 
 	bool isXunKong(DiZhi* pDZToBeCheck);
-	bool isSiDaKongWang(DiZhi* pDZToBeCheck);
+	bool isSiDaKongWang(int xing);
 };

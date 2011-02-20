@@ -151,11 +151,40 @@ void JinKouJue::duanKe()
 		}
 	}
 
-	if(pDay->isSiDaKongWang(pGuiShen->pDZ) || pDay->isSiDaKongWang(pYueJiang) || pDay->isSiDaKongWang(pDiFen))
+	if(pDay->isSiDaKongWang(pRenYuan->getXing()) ||pDay->isSiDaKongWang(pGuiShen->pDZ->getXing()) || 
+		pDay->isSiDaKongWang(pYueJiang->getXing()) || pDay->isSiDaKongWang(pDiFen->getXing()))
 	{
 		cout<<"遇四大空亡，吉凶不成。"<<endl;
 		cout<<"出空日期待完成。"<<endl;
 	}
+
+	//判断五动
+	//1.将克神为财动
+	if(pYueJiang->ke(pGuiShen->pDZ))
+		cout<<"将克神为财动"<<endl;
+	//2.干克方为妻动
+	if(pRenYuan->ke(pDiFen))
+		cout<<"干克方为妻动"<<endl;
+	//3.神克将为贼动
+	if(pGuiShen->pDZ->ke(pYueJiang))
+		cout<<"神克将为贼动"<<endl;
+	//4.方克干为鬼动
+	if(pDiFen->ke(pRenYuan))
+		cout<<"方克干为鬼动"<<endl;
+	//5.神克干为官动
+	if(pGuiShen->pDZ->ke(pRenYuan))
+		cout<<"神克干为官动"<<endl;
+	
+	//判断三动
+	//1.方生干为父母动
+	if(pDiFen->sheng(pRenYuan))
+		cout<<"方生干为父母动"<<endl;
+	//2.干生方为子孙动
+	if(pRenYuan->sheng(pDiFen))
+		cout<<"干生方为子孙动"<<endl;
+	//3.干方同兄弟动
+	if(pRenYuan->getXing() == pDiFen->getXing())
+		cout<<"干方同兄弟动"<<endl;
 
 	delete pXings;
 	pXings = NULL;
