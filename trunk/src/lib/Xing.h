@@ -29,5 +29,5 @@ public:
 		return fname[feature%5];
 	}
 
-	int whichWang(Xing* pXing, int numbers);
+	static int whichWang(Xing** pXing, int numbers);
 };

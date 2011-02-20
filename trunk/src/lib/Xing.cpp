@@ -38,9 +38,9 @@ bool Xing::sheng(Xing* xing)
 	else return false;
 }
 
-int Xing::whichWang(Xing* pXing, int numbers)
+int Xing::whichWang(Xing** pXing, int numbers)
 {
-	int index = 0;
+	int index = -1;
 
 	int iJin =0;
 	int iMu = 0;
@@ -50,21 +50,21 @@ int Xing::whichWang(Xing* pXing, int numbers)
 
 	for(int i=0;i<numbers;i++)
 	{
-		switch(pXing[i].feature)
+		switch(pXing[i]->feature)
 		{
-		case this->HUO:
+		case HUO:
 			iHuo++;
 			break;
-		case this->JIN:
+		case JIN:
 			iJin++;
 			break;
-		case this->MU:
+		case MU:
 			iMu++;
 			break;
-		case this->SHUI:
+		case SHUI:
 			iShui++;
 			break;
-		case this->TU:
+		case TU:
 			iTu++;
 			break;
 		default:
@@ -73,10 +73,28 @@ int Xing::whichWang(Xing* pXing, int numbers)
 	}
 
 	//五行中金木水土火不重复的情况
-	if(iJin<2 && iMu < 2 && iShui <2 && iHuo<2 && iTu<<2)
+	if(iJin<2 && iMu < 2 && iShui <2 && iHuo<2 && iTu<2)
 	{
 		//察看哪位不受克，不受克者旺
-
+		for(int i=0;i<numbers;i++)
+		{
+			bool iBeenKe = false;
+			for(int j=0;j<numbers;j++)
+			{
+				if (i==j)
+					continue;
+				if(pXing[j]->ke(pXing[i]))
+				{
+					iBeenKe = true;
+					break;
+				}
+			}
+			if (!iBeenKe)
+			{
+				index = i;
+				break;
+			}
+		}
 	}
 	
 	return index;
