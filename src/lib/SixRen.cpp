@@ -129,6 +129,10 @@ int main(int argc, char* argv[])
 	pJKJ->show();
 	pJKJ2->show();
 	pJKJ3->show();
+
+	Xing* pXings[] = {new Jin(), new Mu(), new Shui(), new Huo()};
+	int index = Xing::whichWang(pXings,4);
+	cout<<"The wang index is"<<index<<endl;
 	
 	cin.get();
 	
