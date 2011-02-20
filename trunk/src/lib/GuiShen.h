@@ -24,10 +24,9 @@ public:
 
 	string getName();
 
-	DiZhi* pGod;
+	DiZhi* pDZ;
 	int gsID;
 	string* pName;
 	Xing* pXing;
 	YinYang* pYinYang;
-
 };

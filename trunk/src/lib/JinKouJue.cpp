@@ -1,6 +1,7 @@
 #include "JinKouJue.h"
 #include "Month.h"
 #include "Ganzhi.h"
+#include "Gan_Zhi.h"
 
 #include <iostream>
 using namespace std;
@@ -32,7 +33,7 @@ void JinKouJue::show()
 {
 	cout<<this->pYear->getName()<<"年"<<this->pMonth->getName()<<"月"<<this->pDay->getName()<<"日"<<this->pHour->getName()<<"时"<<endl;
 	cout<<"人元："<<this->pRenYuan->getName()<<endl;
-	cout<<"贵神："<<Month::wuZiYuanDu(pDay->pTG,this->pGuiShen->pGod)->getName()<<this->pGuiShen->getName()<<endl;
+	cout<<"贵神："<<Month::wuZiYuanDu(pDay->pTG,this->pGuiShen->pDZ)->getName()<<this->pGuiShen->getName()<<endl;
 	cout<<"月将："<<Month::wuZiYuanDu(pDay->pTG,this->pYueJiang)->getName()<<this->pYueJiang->getName()<<"("<<parseYueJiangName()<<")"<<endl;
 	cout<<"地分："<<this->pDiFen->getName()<<endl;
 
@@ -133,7 +134,29 @@ void JinKouJue::duanKe()
 		cout<<"用神蛰伏"<<endl;
 		break;
 	}
-	
+
+	if(pDay->isXunKong(pYueJiang))
+		cout<<"月将旬空"<<endl;
+
+	if(pDay->isXunKong(pGuiShen->pDZ))
+		cout<<"贵神旬空"<<endl;
+
+	if (pDay->isXunKong(pYueJiang) ||pDay->isXunKong(pGuiShen->pDZ))
+	{
+		cout<<"1.事件虚假，此事不真实，有欺诈行为。\n2.问事人心中不实，非真心求问。"<<endl;
+		if(state == Xing::WANG || state == Xing::XIANG)
+		{
+			cout<<"3.此事本旬中不成，出旬可有希望。"<<endl;
+			cout<<"出旬还需要"<<10 - pDay->pTG->getTgid()<<"天。"<<endl;
+		}
+	}
+
+	if(pDay->isSiDaKongWang(pGuiShen->pDZ) || pDay->isSiDaKongWang(pYueJiang) || pDay->isSiDaKongWang(pDiFen))
+	{
+		cout<<"遇四大空亡，吉凶不成。"<<endl;
+		cout<<"出空日期待完成。"<<endl;
+	}
+
 	delete pXings;
 	pXings = NULL;
 }
