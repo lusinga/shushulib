@@ -18,6 +18,7 @@ public:
 	static const int XIU   = 2;
 	static const int QIU   = 3;
 	static const int SI    = 4;
+	static const int ZHEFU = 5;
 
 	Xing(void);
 	~Xing(void);
