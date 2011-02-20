@@ -98,7 +98,7 @@ int Xing::whichWang(Xing** pXing, int numbers)
 	}
 	else if(iJin == 2 || iMu == 2 || iShui == 2 || iHuo == 2 || iTu == 2)
 	{
-		if (iJin == 1 || iMu == 1 || iShui == 1 || iHuo == 1 || iTu == 1)
+		//if (iJin == 1 || iMu == 1 || iShui == 1 || iHuo == 1 || iTu == 1)
 		{
 			//克他爻者为旺
 			for(int i=0;i<numbers;i++)
@@ -115,7 +115,8 @@ int Xing::whichWang(Xing** pXing, int numbers)
 				}
 			}
 		}
-		else
+		if(index == -1)
+		//else
 		{
 			//受生者为旺
 			for(int i=0;i<numbers;i++)
@@ -136,15 +137,27 @@ int Xing::whichWang(Xing** pXing, int numbers)
 	}
 	else if(iJin == 3 || iMu == 3 || iShui == 3 || iHuo == 3 || iTu == 3)
 	{
-
+		//多着为旺
+		if(pXing[0]->getFeature()==pXing[1]->getFeature())
+		{
+			index = 0;
+		}
+		else if(pXing[0]->getFeature()==pXing[2]->getFeature())
+		{
+			index = 0;
+		}
+		else
+		{
+			index = 1;
+		}
 	}
 	else if(iJin == 4 || iMu == 4 || iShui == 4 || iHuo == 4 || iTu == 4)
 	{
-
+		index = numbers;
 	}
 	else
 	{
-
+		index = -1;
 	}
 
 	return index;
@@ -152,12 +165,19 @@ int Xing::whichWang(Xing** pXing, int numbers)
 
 Xing* Xing::whichXingIsWang(Xing** pXing,int numbers)
 {
-	return pXing[whichWang(pXing,numbers)];
+	int index = whichWang(pXing,numbers);
+	if(index == numbers)
+		return NULL;
+	else
+		return pXing[index];
 }
 
 int Xing::getState(Xing* pXing, Xing** pXings, int numbers)
 {
 	Xing* pWang = whichXingIsWang(pXings,numbers);
+
+	if(pWang == NULL)
+		return ZHEFU;
 	
 	if(pWang->getFeature() == pXing->getFeature())
 	{
