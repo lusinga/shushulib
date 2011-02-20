@@ -142,6 +142,22 @@ int main(int argc, char* argv[])
 	index = Xing::whichWang(pXings3,4);
 	cout<<"The wang index is "<<index<<endl;
 
+	Xing* pXings4[] = {new Jin(), new Mu(), new Shui(), new Shui()};
+	index = Xing::whichWang(pXings4,4);
+	cout<<"The wang index is "<<index<<endl;
+
+	Xing* pXings5[] = {new Mu(), new Huo(), new Shui(), new Shui()};
+	index = Xing::whichWang(pXings5,4);
+	cout<<"The wang index is "<<index<<endl;
+
+	Xing* pXings6[] = {new Tu(), new Huo(), new Mu(), new Tu()};
+	index = Xing::whichWang(pXings6,4);
+	cout<<"The wang index is "<<index<<endl;
+
+	Xing* pXings7[] = {new Jin(), new Mu(), new Jin(), new Mu()};
+	index = Xing::whichWang(pXings7,4);
+	cout<<"The wang index is "<<index<<endl;
+	
 	cin.get();
 	
 	return 0;
