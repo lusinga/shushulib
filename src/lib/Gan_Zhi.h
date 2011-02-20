@@ -17,4 +17,6 @@ public:
 
 	TianGan* pTG;
 	DiZhi* pDZ;
+
+	bool isXunKong(DiZhi* pDZToBeCheck);
 };
