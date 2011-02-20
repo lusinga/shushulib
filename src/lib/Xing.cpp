@@ -96,7 +96,57 @@ int Xing::whichWang(Xing** pXing, int numbers)
 			}
 		}
 	}
-	
+	else if(iJin == 2 || iMu == 2 || iShui == 2 || iHuo == 2 || iTu == 2)
+	{
+		if (iJin == 1 || iMu == 1 || iShui == 1 || iHuo == 1 || iTu == 1)
+		{
+			//克他爻者为旺
+			for(int i=0;i<numbers;i++)
+			{
+				for(int j=0;j<numbers;j++)
+				{
+					if(i==j) 
+						continue;
+					if(pXing[i]->ke(pXing[j]))
+					{
+						index = i;
+						break;
+					}
+				}
+			}
+		}
+		else
+		{
+			//受生者为旺
+			for(int i=0;i<numbers;i++)
+			{
+				for(int j=0;j<numbers;j++)
+				{
+					if(i==j) 
+						continue;
+					if(pXing[j]->sheng(pXing[i]))
+					{
+						index = i;
+						break;
+					}
+				}
+			}
+		}
+
+	}
+	else if(iJin == 3 || iMu == 3 || iShui == 3 || iHuo == 3 || iTu == 3)
+	{
+
+	}
+	else if(iJin == 4 || iMu == 4 || iShui == 4 || iHuo == 4 || iTu == 4)
+	{
+
+	}
+	else
+	{
+
+	}
+
 	return index;
 }
 
