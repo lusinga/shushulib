@@ -63,71 +63,71 @@ GuiShen::GuiShen(TianGan* pTG, bool isDay, DiZhi* pDiFen)
 		pName =new string("³ó (ÌìÒÒ¹óÉñ ÒõÍÁ)");
 		pYinYang = new Yin();
 		pXing = new Tu();
-		pGod = Month::buildZhi(DiZhi::DZchou);
+		pDZ = Month::buildZhi(DiZhi::DZchou);
 		break;
 	case 1:
 		pName =new string("ËÈ (ÎŸÉß Òõ»ð)");
-		pGod = Month::buildZhi(DiZhi::DZsi);
+		pDZ = Month::buildZhi(DiZhi::DZsi);
 		pYinYang = new Yin();
 		pXing = new Huo();
 		break;
 	case 2:
 		pName =new string("Îç (ÖìÈ¸ Ñô»ð)");
-		pGod = Month::buildZhi(DiZhi::DZwu);
+		pDZ = Month::buildZhi(DiZhi::DZwu);
 		pYinYang = new Yang();
 		pXing = new Huo();
 		break;
 	case 3:
 		pName =new string("Ã® (ÁùºÏ ÒõÄ¾)");
-		pGod = Month::buildZhi(DiZhi::DZmao);
+		pDZ = Month::buildZhi(DiZhi::DZmao);
 		pYinYang = new Yin();
 		pXing = new Mu();
 		break;
 	case 4:
 		pName =new string("³½ (¹´³Â ÑôÍÁ)");
-		pGod = Month::buildZhi(DiZhi::DZchen);
+		pDZ = Month::buildZhi(DiZhi::DZchen);
 		pYinYang = new Yang();
 		pXing = new Tu();
 		break;
 	case 5:
 		pName =new string("Òú (ÇàÁú ÑôÄ¾)");
-		pGod = Month::buildZhi(DiZhi::DZyin);
+		pDZ = Month::buildZhi(DiZhi::DZyin);
 		pYinYang = new Yang();
 		pXing = new Mu();
 		break;
 	case 6:
 		pName =new string("Ðç (Ìì¿Õ ÑôÍÁ)");
-		pGod = Month::buildZhi(DiZhi::DZxu);
+		pDZ = Month::buildZhi(DiZhi::DZxu);
 		pYinYang = new Yang();
 		pXing = new Tu();
 		break;
 	case 7:
 		pName =new string("Éê (°×»¢ Ñô½ð)");
-		pGod = Month::buildZhi(DiZhi::DZshen);
+		pDZ = Month::buildZhi(DiZhi::DZshen);
 		pYinYang = new Yang();
 		pXing = new Jin();
 		break;
 	case 8:
 		pName =new string("Î´ (Ì«³£ ÒõÍÁ)");
-		pGod = Month::buildZhi(DiZhi::DZwei);
+		pDZ = Month::buildZhi(DiZhi::DZwei);
 		pYinYang = new Yin();
 		pXing = new Tu();
 		break;
 	case 9:
 		pName =new string("×Ó (ÐþÎä ÑôË®)");
-		pGod = Month::buildZhi(DiZhi::DZzi);
+		pDZ = Month::buildZhi(DiZhi::DZzi);
 		pYinYang = new Yang();
 		pXing = new Shui();
 		break;
 	case 10:
 		pName =new string("ÓÏ (Ì«Òõ Òõ½ð)");
-		pGod = Month::buildZhi(DiZhi::DZyou);
+		pDZ = Month::buildZhi(DiZhi::DZyou);
 		pYinYang = new Yin();
 		pXing = new Jin();
 		break;
 	case 11:
 		pName =new string("º¥ (ÌìºóÒõË®)");
-		pGod = Month::buildZhi(DiZhi::DZhai);
+		pDZ = Month::buildZhi(DiZhi::DZhai);
 		pYinYang = new Yin();
 		pXing = new Shui();
 		break;

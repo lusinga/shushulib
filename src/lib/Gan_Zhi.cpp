@@ -59,3 +59,26 @@ bool Gan_Zhi::isXunKong(DiZhi* pDZToBeCheck)
 
 	return bResult;
 }
+
+bool Gan_Zhi::isSiDaKongWang(DiZhi* pDZToBeCheck)
+{
+	int tgid = pTG->getTgid();
+	int dzid = pDZ->getDzid();
+
+	int xunid = (dzid - tgid + 12) % 12;
+
+	bool bResult = false;
+
+	if(xunid == DiZhi::DZzi || xunid == DiZhi::DZwu)
+	{
+		bResult = pDZToBeCheck->getXing() == Xing::SHUI;
+	}
+	else if(xunid == DiZhi::DZyin || xunid == DiZhi::DZshen)
+	{
+		bResult = pDZToBeCheck->getXing() == Xing::JIN;
+	}
+	else
+		bResult = false;
+	
+	return bResult;
+}
