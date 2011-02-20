@@ -177,6 +177,10 @@ int main(int argc, char* argv[])
 	Xing* pXings12[] = {new Tu(), new Shui(), new Shui(), new Shui()};
 	index = Xing::whichWang(pXings12,4);
 	cout<<"The wang index is "<<index<<endl;
+
+	Xing* pXings13[] = {new Tu(), new Tu(), new Tu(), new Tu()};
+	index = Xing::whichWang(pXings13,4);
+	cout<<"The wang index is "<<index<<endl;
 	
 	cin.get();
 	
