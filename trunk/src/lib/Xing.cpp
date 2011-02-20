@@ -1,5 +1,10 @@
 #include "Xing.h"
 #include <iostream>
+#include "Jin.h"
+#include "Mu.h"
+#include "Shui.h"
+#include "Tu.h"
+#include "Huo.h"
 
 Xing::Xing(void)
 : feature(0)
@@ -198,5 +203,34 @@ int Xing::getState(Xing* pXing, Xing** pXings, int numbers)
 	else if(pXing->ke(pWang))
 	{
 		return QIU;//¿ËÍúÕßÇô
+	}
+	else
+		return ZHEFU;
+}
+
+Xing* Xing::buildXing(int xing)
+{
+	int xing2 = (xing+5) % 5;
+
+	switch (xing2)
+	{
+	case Xing::HUO:
+		return new Huo();
+		break;
+	case Xing::JIN:
+		return new Jin();
+		break;
+	case Xing::MU:
+		return new Mu();
+		break;
+	case Xing::SHUI:
+		return new Shui();
+		break;
+	case Xing::TU:
+		return new Tu();
+		break;
+	default:
+		return NULL;
+		break;
 	}
 }
