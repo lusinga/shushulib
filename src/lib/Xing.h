@@ -36,6 +36,7 @@ public:
 		return fname[feature%5];
 	}
 
+	static Xing* buildXing(int xing);
 	static int whichWang(Xing** pXing, int numbers);
 	static Xing* whichXingIsWang(Xing** pXing, int numbers);
 	static int getState(Xing* pXing, Xing** pXings, int numbers);

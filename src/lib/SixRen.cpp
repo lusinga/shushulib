@@ -106,30 +106,6 @@ int main(int argc, char* argv[])
 	Gan_Zhi* pGZ = new Gan_Zhi(0,0);
 	cout<<pGZ->getName()<<endl;
 
-	JinKouJue* pJKJ = new JinKouJue(new Gan_Zhi(TianGan::TGwu, DiZhi::DZyin),
-		new Gan_Zhi(TianGan::TGren, DiZhi::DZxu),
-		new Gan_Zhi(TianGan::TGgeng, DiZhi::DZyin),
-		new Gan_Zhi(TianGan::TGren, DiZhi::DZwu),
-		Month::buildZhi(DiZhi::DZshen));
-
-	JinKouJue* pJKJ2 = new JinKouJue(
-		new Gan_Zhi(TianGan::TGding, DiZhi::DZhai),
-		new Gan_Zhi(TianGan::TGgui, DiZhi::DZmao),
-		new Gan_Zhi(TianGan::TGding, DiZhi::DZmao),
-		new Gan_Zhi(TianGan::TGyi, DiZhi::DZsi),
-		Month::buildZhi(DiZhi::DZyou));
-
-	JinKouJue* pJKJ3 = new JinKouJue(
-		new Gan_Zhi(TianGan::TGwu, DiZhi::DZyin),
-		new Gan_Zhi(TianGan::TGxin, DiZhi::DZyou),
-		new Gan_Zhi(TianGan::TGbing, DiZhi::DZxu),
-		new Gan_Zhi(TianGan::TGyi, DiZhi::DZwei),
-		Month::buildZhi(DiZhi::DZzi));
-
-	pJKJ->show();
-	pJKJ2->show();
-	pJKJ3->show();
-
 	Xing* pXings1[] = {new Jin(), new Mu(), new Shui(), new Huo()};
 	int index = Xing::whichWang(pXings1,4);
 	cout<<"The wang index is "<<index<<endl;
@@ -181,6 +157,30 @@ int main(int argc, char* argv[])
 	Xing* pXings13[] = {new Tu(), new Tu(), new Tu(), new Tu()};
 	index = Xing::whichWang(pXings13,4);
 	cout<<"The wang index is "<<index<<endl;
+
+	JinKouJue* pJKJ = new JinKouJue(new Gan_Zhi(TianGan::TGwu, DiZhi::DZyin),
+		new Gan_Zhi(TianGan::TGren, DiZhi::DZxu),
+		new Gan_Zhi(TianGan::TGgeng, DiZhi::DZyin),
+		new Gan_Zhi(TianGan::TGren, DiZhi::DZwu),
+		Month::buildZhi(DiZhi::DZshen));
+
+	JinKouJue* pJKJ2 = new JinKouJue(
+		new Gan_Zhi(TianGan::TGding, DiZhi::DZhai),
+		new Gan_Zhi(TianGan::TGgui, DiZhi::DZmao),
+		new Gan_Zhi(TianGan::TGding, DiZhi::DZmao),
+		new Gan_Zhi(TianGan::TGyi, DiZhi::DZsi),
+		Month::buildZhi(DiZhi::DZyou));
+
+	JinKouJue* pJKJ3 = new JinKouJue(
+		new Gan_Zhi(TianGan::TGwu, DiZhi::DZyin),
+		new Gan_Zhi(TianGan::TGxin, DiZhi::DZyou),
+		new Gan_Zhi(TianGan::TGbing, DiZhi::DZxu),
+		new Gan_Zhi(TianGan::TGyi, DiZhi::DZwei),
+		Month::buildZhi(DiZhi::DZzi));
+
+	pJKJ->show();
+	pJKJ2->show();
+	pJKJ3->show();
 	
 	cin.get();
 	

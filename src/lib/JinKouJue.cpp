@@ -101,4 +101,39 @@ void JinKouJue::duanKe()
 		cout<<"阴阳错乱了。"<<endl;
 		break;
 	}
+
+	Xing** pXings = new Xing*[4];
+	//人，贵，月，地
+	pXings[0] = pRenYuan->buildXing();
+	pXings[1] = pGuiShen->pXing;
+	pXings[2] = pYueJiang->buildXing();
+	pXings[3] = pDiFen->buildXing();
+
+	Xing* pYongShenXing = bYongShenIsJiang? pXings[2] : pXings[1];
+
+	int state = Xing::getState(pYongShenXing,pXings,4);
+	switch(state)
+	{
+	case Xing::WANG:
+		cout<<"用神旺"<<endl;
+		break;
+	case Xing::XIANG:
+		cout<<"用神相"<<endl;
+		break;
+	case Xing::XIU:
+		cout<<"用神休"<<endl;
+		break;
+	case Xing::QIU:
+		cout<<"用神囚"<<endl;
+		break;
+	case Xing::SI:
+		cout<<"用神死"<<endl;
+		break;
+	case Xing::ZHEFU:
+		cout<<"用神蛰伏"<<endl;
+		break;
+	}
+	
+	delete pXings;
+	pXings = NULL;
 }

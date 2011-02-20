@@ -23,3 +23,8 @@ bool GanZhi::ke(GanZhi* pdz)
 	}
 	else return false;
 }
+
+Xing* GanZhi::buildXing()
+{
+	return Xing::buildXing(this->getXing());
+}
