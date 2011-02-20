@@ -192,12 +192,44 @@ int main(int argc, char* argv[])
 		new Gan_Zhi(TianGan::TGyi, DiZhi::DZsi),
 		Month::buildZhi(DiZhi::DZshen));
 
+	JinKouJue* pJKJ6 = new JinKouJue(
+		new Gan_Zhi(TianGan::TGwu, DiZhi::DZyin),
+		new Gan_Zhi(TianGan::TGbing, DiZhi::DZchen),
+		new Gan_Zhi(TianGan::TGding, DiZhi::DZhai),
+		new Gan_Zhi(TianGan::TGjia, DiZhi::DZchen),
+		Month::buildZhi(DiZhi::DZmao));
+
+	JinKouJue* pJKJ7 = new JinKouJue(
+		new Gan_Zhi(TianGan::TGjia, DiZhi::DZxu),
+		new Gan_Zhi(TianGan::TGgui, DiZhi::DZyou),
+		new Gan_Zhi(TianGan::TGgeng, DiZhi::DZxu),
+		new Gan_Zhi(TianGan::TGbing, DiZhi::DZzi),
+		Month::buildZhi(DiZhi::DZhai));
+
+	JinKouJue* pJKJ8 = new JinKouJue(
+		new Gan_Zhi(TianGan::TGjia, DiZhi::DZxu),
+		new Gan_Zhi(TianGan::TGbing, DiZhi::DZzi),
+		new Gan_Zhi(TianGan::TGji, DiZhi::DZsi),
+		new Gan_Zhi(TianGan::TGji, DiZhi::DZsi),
+		Month::buildZhi(DiZhi::DZyin));
+
+	JinKouJue* pJKJ9 = new JinKouJue(
+		new Gan_Zhi(TianGan::TGyi, DiZhi::DZhai),
+		new Gan_Zhi(TianGan::TGgeng, DiZhi::DZchen),
+		new Gan_Zhi(TianGan::TGgeng, DiZhi::DZwu),
+		new Gan_Zhi(TianGan::TGgui, DiZhi::DZwei),
+		Month::buildZhi(DiZhi::DZwu));
+	
 	pJKJ->show();
 	pJKJ2->show();
 	pJKJ3->show();
 	pJKJ4->show();
 	pJKJ5->show();
-	
+	pJKJ6->show();
+	pJKJ7->show();//???
+	pJKJ8->show();//???
+	pJKJ9->show();
+
 	cin.get();
 	
 	return 0;

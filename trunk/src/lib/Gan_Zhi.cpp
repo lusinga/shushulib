@@ -60,7 +60,7 @@ bool Gan_Zhi::isXunKong(DiZhi* pDZToBeCheck)
 	return bResult;
 }
 
-bool Gan_Zhi::isSiDaKongWang(DiZhi* pDZToBeCheck)
+bool Gan_Zhi::isSiDaKongWang(int xing)
 {
 	int tgid = pTG->getTgid();
 	int dzid = pDZ->getDzid();
@@ -71,11 +71,11 @@ bool Gan_Zhi::isSiDaKongWang(DiZhi* pDZToBeCheck)
 
 	if(xunid == DiZhi::DZzi || xunid == DiZhi::DZwu)
 	{
-		bResult = pDZToBeCheck->getXing() == Xing::SHUI;
+		bResult = xing == Xing::SHUI;
 	}
 	else if(xunid == DiZhi::DZyin || xunid == DiZhi::DZshen)
 	{
-		bResult = pDZToBeCheck->getXing() == Xing::JIN;
+		bResult = xing == Xing::JIN;
 	}
 	else
 		bResult = false;
