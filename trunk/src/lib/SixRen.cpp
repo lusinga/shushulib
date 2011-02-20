@@ -130,10 +130,18 @@ int main(int argc, char* argv[])
 	pJKJ2->show();
 	pJKJ3->show();
 
-	Xing* pXings[] = {new Jin(), new Mu(), new Shui(), new Huo()};
-	int index = Xing::whichWang(pXings,4);
-	cout<<"The wang index is"<<index<<endl;
-	
+	Xing* pXings1[] = {new Jin(), new Mu(), new Shui(), new Huo()};
+	int index = Xing::whichWang(pXings1,4);
+	cout<<"The wang index is "<<index<<endl;
+
+	Xing* pXings2[] = {new Mu(), new Huo(), new Shui(), new Tu()};
+	index = Xing::whichWang(pXings2,4);
+	cout<<"The wang index is "<<index<<endl;
+
+	Xing* pXings3[] = {new Jin(), new Mu(), new Huo(), new Tu()};
+	index = Xing::whichWang(pXings3,4);
+	cout<<"The wang index is "<<index<<endl;
+
 	cin.get();
 	
 	return 0;

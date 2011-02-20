@@ -13,6 +13,12 @@ public:
 	static const int JIN  = 3;
 	static const int SHUI = 4;
 
+	static const int WANG  = 0; 
+	static const int XIANG = 1;
+	static const int XIU   = 2;
+	static const int QIU   = 3;
+	static const int SI    = 4;
+
 	Xing(void);
 	~Xing(void);
 	bool ke(Xing* xing);
@@ -30,4 +36,6 @@ public:
 	}
 
 	static int whichWang(Xing** pXing, int numbers);
+	static Xing* whichXingIsWang(Xing** pXing, int numbers);
+	static int getState(Xing* pXing, Xing** pXings, int numbers);
 };
