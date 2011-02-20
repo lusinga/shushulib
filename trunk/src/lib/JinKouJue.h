@@ -19,7 +19,11 @@ public:
 	GuiShen* pGuiShen;
 	TianGan* pRenYuan;
 
+	bool bYongShenIsJiang;
+
 	void show();
+
+	void duanKe();
 
 private:
 	string parseYueJiangName();

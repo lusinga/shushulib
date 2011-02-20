@@ -28,6 +28,6 @@ public:
 	int gsID;
 	string* pName;
 	Xing* pXing;
-	YinYang* pYingYang;
+	YinYang* pYinYang;
 
 };
