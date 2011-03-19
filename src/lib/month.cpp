@@ -109,7 +109,7 @@ TianGan* Month::wuZiYuanDu(TianGan* pTG, DiZhi* pDZ)
 
 	TianGan* pTG2 = buildGan((iTG2+iDzID)%10);
 
-	cout<<"[debug]TianGan = "<<pTG2->getTgid()<<endl;
+	//cout<<"[debug]TianGan = "<<pTG2->getTgid()<<endl;
 
 	return pTG2;
 }

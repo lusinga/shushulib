@@ -161,7 +161,7 @@ void JinKouJue::duanKe()
 	//判断五动
 	//1.将克神为财动
 	if(pYueJiang->ke(pGuiShen->pDZ))
-		cout<<"将克神为财动"<<endl;
+		cout<<"将克神为财动\n主求财有利。问官主不利。问婚姻主本人一生财旺。问病主家中家长有病。"<<endl;
 	//2.干克方为妻动
 	if(pRenYuan->ke(pDiFen))
 		cout<<"干克方为妻动"<<endl;
@@ -186,6 +186,28 @@ void JinKouJue::duanKe()
 	if(pRenYuan->getXing() == pDiFen->getXing())
 		cout<<"干方同兄弟动"<<endl;
 
+	shensha();
+
 	delete pXings;
 	pXings = NULL;
+}
+
+void JinKouJue::shensha()
+{
+	//1. 人元见甲
+	if(pRenYuan->getTgid() == TianGan::TGjia)
+	{
+		cout<<"人元见甲。甲主喜庆和婚姻喜美之事，财帛官职文书之事。主事吉。"<<endl;
+	}
+	//2.人元见丁
+	if(pRenYuan->getTgid() == TianGan::TGding)
+	{
+		cout<<"人元见丁。丁火主惊恐事，家中不安，疾病忧愁，损伤六畜，神经病人"<<endl;
+	}
+	//3.天盗(课中见子水)
+	if(pDiFen->getDzid() == DiZhi::DZzi || pGuiShen->pDZ->getDzid() == DiZhi::DZzi ||pYueJiang->getDzid() == DiZhi::DZzi)
+	{
+		cout<<"课中见天盗，被贼盗去财物，丢失宝物。"<<endl;
+	}
+
 }

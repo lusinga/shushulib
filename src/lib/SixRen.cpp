@@ -219,6 +219,13 @@ int main(int argc, char* argv[])
 		new Gan_Zhi(TianGan::TGgeng, DiZhi::DZwu),
 		new Gan_Zhi(TianGan::TGgui, DiZhi::DZwei),
 		Month::buildZhi(DiZhi::DZwu));
+
+	JinKouJue* pJKJ_11_1 = new JinKouJue(
+		new Gan_Zhi(TianGan::TGbing, DiZhi::DZzi),
+		new Gan_Zhi(TianGan::TGxin, DiZhi::DZchou),
+		new Gan_Zhi(TianGan::TGding, DiZhi::DZsi),
+		new Gan_Zhi(TianGan::TGgui, DiZhi::DZmao),
+		Month::buildZhi(DiZhi::DZwu));
 	
 	pJKJ->show();
 	pJKJ2->show();
@@ -226,9 +233,13 @@ int main(int argc, char* argv[])
 	pJKJ4->show();
 	pJKJ5->show();
 	pJKJ6->show();
-	pJKJ7->show();//???
-	pJKJ8->show();//???
+	//pJKJ7->show();//???
+	//pJKJ8->show();//???
 	pJKJ9->show();
+
+	//《金口诀教程》第十一讲 解课分析课例指导
+	//例1
+	pJKJ_11_1->show();
 
 	cin.get();
 	

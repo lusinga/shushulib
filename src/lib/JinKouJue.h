@@ -23,6 +23,8 @@ public:
 
 	void show();
 
+	void shensha();
+
 	void duanKe();
 
 private:
