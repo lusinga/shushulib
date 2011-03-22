@@ -102,3 +102,26 @@ bool ShenSha::isTianDe(DiZhi* pMonth, DiZhi* pDZ)
 		break;
 	}
 }
+
+bool ShenSha::isYueDe(DiZhi* pMonth, TianGan* pTG)
+{
+	int dzid = pMonth->getDzid();
+	if(dzid == DiZhi::DZyin ||dzid == DiZhi::DZwu || dzid == DiZhi::DZmao)
+	{
+		return pTG->getTgid() == TianGan::TGbing;
+	}
+	else if(dzid == DiZhi::DZhai ||dzid == DiZhi::DZmao || dzid == DiZhi::DZwei)
+	{
+		return pTG->getTgid() == TianGan::TGjia;
+	}
+	else if(dzid == DiZhi::DZshen ||dzid == DiZhi::DZzi || dzid == DiZhi::DZchen)
+	{
+		return pTG->getTgid() == TianGan::TGren;
+	}
+	else if(dzid == DiZhi::DZsi ||dzid == DiZhi::DZyou || dzid == DiZhi::DZchou)
+	{
+		return pTG->getTgid() == TianGan::TGgeng;
+	}
+	else
+		return false;
+}
