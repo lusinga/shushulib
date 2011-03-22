@@ -240,4 +240,17 @@ void JinKouJue::shensha()
 	{
 		cout<<"贵神干天德，天德入课无忧祸，逢凶化吉危得安。"<<endl;
 	}
+	//5.月德
+	if(ShenSha::isYueDe(pMonth->pDZ,pRenYuan))
+	{
+		cout<<"人元月德，月德入课主和眭，万事顺达有吉庆，化解凶煞，减少损失，逢凶化解，得吉助吉。"<<endl;
+	}
+	else if(ShenSha::isYueDe(pMonth->pDZ,pJiangGan))
+	{
+		cout<<"将干月德，月德入课主和眭，万事顺达有吉庆，化解凶煞，减少损失，逢凶化解，得吉助吉。"<<endl;
+	}
+	else if(ShenSha::isYueDe(pMonth->pDZ,pShenGan))
+	{
+		cout<<"神干月德，月德入课主和眭，万事顺达有吉庆，化解凶煞，减少损失，逢凶化解，得吉助吉。"<<endl;
+	}
 }

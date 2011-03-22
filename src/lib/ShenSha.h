@@ -12,4 +12,6 @@ public:
 
 	static bool isTianDe(DiZhi* pMonth, TianGan* pTG);
 	static bool isTianDe(DiZhi* pMonth, DiZhi* pDZ);
+
+	static bool isYueDe(DiZhi* pMonth, TianGan* pTG);
 };
