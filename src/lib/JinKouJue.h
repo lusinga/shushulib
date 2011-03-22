@@ -19,6 +19,9 @@ public:
 	GuiShen* pGuiShen;
 	TianGan* pRenYuan;
 
+	TianGan* pJiangGan;
+	TianGan* pShenGan;
+
 	bool bYongShenIsJiang;
 
 	void show();

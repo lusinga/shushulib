@@ -2,6 +2,7 @@
 #include "Month.h"
 #include "Ganzhi.h"
 #include "Gan_Zhi.h"
+#include "ShenSha.h"
 
 #include <iostream>
 using namespace std;
@@ -23,6 +24,10 @@ JinKouJue::JinKouJue(Gan_Zhi* pYear,Gan_Zhi* pMonth,Gan_Zhi* pDay,Gan_Zhi* pHour
 	this->pGuiShen = new GuiShen(pDay->pTG,isDay,pDiFen);
 
 	pRenYuan = Month::wuZiYuanDu(pDay->pTG,pDiFen);
+
+	pShenGan = Month::wuZiYuanDu(pDay->pTG,this->pGuiShen->pDZ);
+	pJiangGan = Month::wuZiYuanDu(pDay->pTG,this->pYueJiang);
+
 }
 
 JinKouJue::~JinKouJue(void)
@@ -31,10 +36,11 @@ JinKouJue::~JinKouJue(void)
 
 void JinKouJue::show()
 {
+
 	cout<<this->pYear->getName()<<"年"<<this->pMonth->getName()<<"月"<<this->pDay->getName()<<"日"<<this->pHour->getName()<<"时"<<endl;
 	cout<<"人元："<<this->pRenYuan->getName()<<endl;
-	cout<<"贵神："<<Month::wuZiYuanDu(pDay->pTG,this->pGuiShen->pDZ)->getName()<<this->pGuiShen->getName()<<endl;
-	cout<<"月将："<<Month::wuZiYuanDu(pDay->pTG,this->pYueJiang)->getName()<<this->pYueJiang->getName()<<"("<<parseYueJiangName()<<")"<<endl;
+	cout<<"贵神："<<pShenGan->getName()<<this->pGuiShen->getName()<<endl;
+	cout<<"月将："<<pJiangGan->getName()<<this->pYueJiang->getName()<<"("<<parseYueJiangName()<<")"<<endl;
 	cout<<"地分："<<this->pDiFen->getName()<<endl;
 
 	duanKe();
@@ -209,5 +215,29 @@ void JinKouJue::shensha()
 	{
 		cout<<"课中见天盗，被贼盗去财物，丢失宝物。"<<endl;
 	}
-
+	//4.天德
+	if(ShenSha::isTianDe(pMonth->pDZ,pDiFen))
+	{
+		cout<<"地分天德，天德入课无忧祸，逢凶化吉危得安。"<<endl;
+	}
+	else if(ShenSha::isTianDe(pMonth->pDZ,pYueJiang))
+	{
+		cout<<"月将天德，天德入课无忧祸，逢凶化吉危得安。"<<endl;
+	}
+	else if(ShenSha::isTianDe(pMonth->pDZ,pJiangGan))
+	{
+		cout<<"月将干天德，天德入课无忧祸，逢凶化吉危得安。"<<endl;
+	}
+	else if(ShenSha::isTianDe(pMonth->pDZ,pRenYuan))
+	{
+		cout<<"人元天德，天德入课无忧祸，逢凶化吉危得安。"<<endl;
+	}
+	else if(ShenSha::isTianDe(pMonth->pDZ,pGuiShen->pDZ))
+	{
+		cout<<"贵神天德，天德入课无忧祸，逢凶化吉危得安。"<<endl;
+	}
+	else if(ShenSha::isTianDe(pMonth->pDZ,pShenGan))
+	{
+		cout<<"贵神干天德，天德入课无忧祸，逢凶化吉危得安。"<<endl;
+	}
 }
