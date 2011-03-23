@@ -5,6 +5,9 @@
 #include "ShenSha.h"
 
 #include <iostream>
+#include <boost/foreach.hpp>
+#include <vector>
+
 using namespace std;
 
 JinKouJue::JinKouJue(Gan_Zhi* pYear,Gan_Zhi* pMonth,Gan_Zhi* pDay,Gan_Zhi* pHour,DiZhi* pDiFen)
@@ -28,6 +31,13 @@ JinKouJue::JinKouJue(Gan_Zhi* pYear,Gan_Zhi* pMonth,Gan_Zhi* pDay,Gan_Zhi* pHour
 	pShenGan = Month::wuZiYuanDu(pDay->pTG,this->pGuiShen->pDZ);
 	pJiangGan = Month::wuZiYuanDu(pDay->pTG,this->pYueJiang);
 
+	gans.push_back(pRenYuan);
+	gans.push_back(pShenGan);
+	gans.push_back(pJiangGan);
+
+	zhis.push_back(pDiFen);
+	zhis.push_back(pYueJiang);
+	zhis.push_back(pGuiShen->pDZ);
 }
 
 JinKouJue::~JinKouJue(void)
@@ -211,46 +221,36 @@ void JinKouJue::shensha()
 		cout<<"人元见丁。丁火主惊恐事，家中不安，疾病忧愁，损伤六畜，神经病人"<<endl;
 	}
 	//3.天盗(课中见子水)
-	if(pDiFen->getDzid() == DiZhi::DZzi || pGuiShen->pDZ->getDzid() == DiZhi::DZzi ||pYueJiang->getDzid() == DiZhi::DZzi)
+	BOOST_FOREACH(DiZhi* pDZ, zhis)
 	{
-		cout<<"课中见天盗，被贼盗去财物，丢失宝物。"<<endl;
+		if(pDZ->getDzid() ==DiZhi::DZzi)
+		{
+			cout<<"课中见天盗，被贼盗去财物，丢失宝物。"<<endl;
+		}
 	}
 	//4.天德
-	if(ShenSha::isTianDe(pMonth->pDZ,pDiFen))
+	BOOST_FOREACH(DiZhi* pDZ, zhis)
 	{
-		cout<<"地分天德，天德入课无忧祸，逢凶化吉危得安。"<<endl;
+		if(ShenSha::isTianDe(pMonth->pDZ,pDZ))
+		{
+			cout<<"天德入课无忧祸，逢凶化吉危得安。"<<endl;
+		}
 	}
-	else if(ShenSha::isTianDe(pMonth->pDZ,pYueJiang))
+
+	BOOST_FOREACH(TianGan* pTG, gans)
 	{
-		cout<<"月将天德，天德入课无忧祸，逢凶化吉危得安。"<<endl;
+		if(ShenSha::isTianDe(pMonth->pDZ,pTG))
+		{
+			cout<<"天德入课无忧祸，逢凶化吉危得安。"<<endl;
+		}
 	}
-	else if(ShenSha::isTianDe(pMonth->pDZ,pJiangGan))
-	{
-		cout<<"月将干天德，天德入课无忧祸，逢凶化吉危得安。"<<endl;
-	}
-	else if(ShenSha::isTianDe(pMonth->pDZ,pRenYuan))
-	{
-		cout<<"人元天德，天德入课无忧祸，逢凶化吉危得安。"<<endl;
-	}
-	else if(ShenSha::isTianDe(pMonth->pDZ,pGuiShen->pDZ))
-	{
-		cout<<"贵神天德，天德入课无忧祸，逢凶化吉危得安。"<<endl;
-	}
-	else if(ShenSha::isTianDe(pMonth->pDZ,pShenGan))
-	{
-		cout<<"贵神干天德，天德入课无忧祸，逢凶化吉危得安。"<<endl;
-	}
+	
 	//5.月德
-	if(ShenSha::isYueDe(pMonth->pDZ,pRenYuan))
+	BOOST_FOREACH(TianGan* pTG, gans)
 	{
-		cout<<"人元月德，月德入课主和眭，万事顺达有吉庆，化解凶煞，减少损失，逢凶化解，得吉助吉。"<<endl;
-	}
-	else if(ShenSha::isYueDe(pMonth->pDZ,pJiangGan))
-	{
-		cout<<"将干月德，月德入课主和眭，万事顺达有吉庆，化解凶煞，减少损失，逢凶化解，得吉助吉。"<<endl;
-	}
-	else if(ShenSha::isYueDe(pMonth->pDZ,pShenGan))
-	{
-		cout<<"神干月德，月德入课主和眭，万事顺达有吉庆，化解凶煞，减少损失，逢凶化解，得吉助吉。"<<endl;
+		if(ShenSha::isYueDe(pMonth->pDZ,pTG))
+		{
+			cout<<"月德入课主和眭，万事顺达有吉庆，化解凶煞，减少损失，逢凶化解，得吉助吉。"<<endl;
+		}
 	}
 }
