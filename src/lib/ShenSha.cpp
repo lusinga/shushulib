@@ -173,3 +173,60 @@ bool ShenSha::isTianDeHe(DiZhi* pMonth, TianGan* pTG)
 		break;
 	}
 }
+
+bool ShenSha::isTianMa(int month, int dzid)
+{
+	switch(month % 6)
+	{
+	case 1:
+		return dzid == DiZhi::DZwu;
+		break;
+	case 2:
+		return dzid == DiZhi::DZshen;
+		break;
+	case 3:
+		return dzid == DiZhi::DZxu;
+		break;
+	case 4:
+		return dzid == DiZhi::DZzi;
+		break;
+	case 5:
+		return dzid == DiZhi::DZyin;
+		break;
+	case 0:
+		return dzid == DiZhi::DZchen;
+		break;
+	default:
+		return false;
+		break;
+	}
+}
+
+bool ShenSha::isDuoMa(int day_dzid, int dzid)
+{
+	switch (day_dzid)
+	{
+	case DiZhi::DZshen:
+	case DiZhi::DZzi:
+	case DiZhi::DZchen:
+		return dzid == DiZhi::DZyin;
+		break;
+	case DiZhi::DZhai:
+	case DiZhi::DZmao:
+	case DiZhi::DZwei:
+		return dzid == DiZhi::DZsi;
+		break;
+	case DiZhi::DZyin:
+	case DiZhi::DZwu:
+	case DiZhi::DZxu:
+		return dzid == DiZhi::DZshen;
+		break;
+	case DiZhi::DZsi:
+	case DiZhi::DZyou:
+	case DiZhi::DZchou:
+		return dzid == DiZhi::DZhai;
+		break;
+	default:
+		return false;
+	}
+}
