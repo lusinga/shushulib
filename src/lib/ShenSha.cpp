@@ -125,3 +125,51 @@ bool ShenSha::isYueDe(DiZhi* pMonth, TianGan* pTG)
 	else
 		return false;
 }
+
+bool ShenSha::isTianDeHe(DiZhi* pMonth, TianGan* pTG)
+{
+	int tgid = pTG->getTgid();
+
+	switch(pMonth->getMonth())
+	{
+	case 1:
+		return tgid == TianGan::TGren; 
+		break;
+	case 2:
+		return tgid == TianGan::TGyi;
+		break;
+	case 3:
+		return tgid == TianGan::TGding;
+		break;
+	case 4:
+		return tgid == TianGan::TGbing;
+		break;
+	case 5:
+		return tgid == TianGan::TGwu;
+		break;
+	case 6:
+		return tgid == TianGan::TGji;
+		break;
+	case 7:
+		return tgid == TianGan::TGwu;
+		break;
+	case 8:
+		return tgid == TianGan::TGji;
+		break;
+	case 9:
+		return tgid == TianGan::TGxin;
+		break;
+	case 10:
+		return tgid == TianGan::TGgeng;
+		break;
+	case 11:
+		return tgid == TianGan::TGren;
+		break;
+	case 12:
+		return tgid == TianGan::TGyi;
+		break;
+	default:
+		return false;
+		break;
+	}
+}

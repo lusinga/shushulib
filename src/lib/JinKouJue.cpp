@@ -253,4 +253,12 @@ void JinKouJue::shensha()
 			cout<<"月德入课主和眭，万事顺达有吉庆，化解凶煞，减少损失，逢凶化解，得吉助吉。"<<endl;
 		}
 	}
+	//6.天德合
+	BOOST_FOREACH(TianGan* pTG, gans)
+	{
+		if(ShenSha::isTianDeHe(pMonth->pDZ,pTG))
+		{
+			cout<<"天德合入课无忧祸，逢凶化吉危得安，喜庆程度稍次于天德。"<<endl;
+		}
+	}
 }
