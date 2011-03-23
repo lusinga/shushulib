@@ -26,6 +26,7 @@ public:
 	//int getDzid(void);
 	int getTgid(void);
 	int getJiGong();
+	int getHe();
 
 protected:
 	int tgid;
