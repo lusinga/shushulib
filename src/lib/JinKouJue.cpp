@@ -7,6 +7,7 @@
 #include <iostream>
 #include <boost/foreach.hpp>
 #include <vector>
+#include <memory>
 
 using namespace std;
 
@@ -248,7 +249,7 @@ void JinKouJue::shensha()
 	//5.月德
 	BOOST_FOREACH(TianGan* pTG, gans)
 	{
-		if(ShenSha::isYueDe(pMonth->pDZ,pTG))
+		if(ShenSha::isYueDe(pMonth->pDZ,pTG->getTgid()))
 		{
 			cout<<"月德入课主和眭，万事顺达有吉庆，化解凶煞，减少损失，逢凶化解，得吉助吉。"<<endl;
 		}
@@ -259,6 +260,15 @@ void JinKouJue::shensha()
 		if(ShenSha::isTianDeHe(pMonth->pDZ,pTG))
 		{
 			cout<<"天德合入课无忧祸，逢凶化吉危得安，喜庆程度稍次于天德。"<<endl;
+		}
+	}
+	//7.月德合
+	BOOST_FOREACH(TianGan* pTG, gans)
+	{
+		auto_ptr<TianGan> pTGHe(Month::buildGan(pTG->getHe()));
+		if (ShenSha::isYueDe(pMonth->pDZ,pTGHe->getTgid()))
+		{
+			cout<<"月德合入课主和眭，万事顺达有吉庆，化解凶煞，减少损失，逢凶化解，得吉助吉，但是吉庆程度不如月德。"<<endl;
 		}
 	}
 }
