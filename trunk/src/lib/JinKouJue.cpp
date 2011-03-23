@@ -271,4 +271,21 @@ void JinKouJue::shensha()
 			cout<<"月德合入课主和眭，万事顺达有吉庆，化解凶煞，减少损失，逢凶化解，得吉助吉，但是吉庆程度不如月德。"<<endl;
 		}
 	}
+	//8.天马
+	BOOST_FOREACH(DiZhi* pDZ, zhis)
+	{
+		if(ShenSha::isTianMa(pMonth->pDZ->getMonth(),pDZ->getDzid()))
+		{
+			cout<<"天马入课主事迅速。"<<endl;
+		}
+	}
+
+	//9.驿马
+	BOOST_FOREACH(DiZhi* pDZ, zhis)
+	{
+		if(ShenSha::isDuoMa(pDay->pDZ->getDzid(),pDZ->getDzid()))
+		{
+			cout<<"驿马入课主事迅速。"<<endl;
+		}
+	}
 }
