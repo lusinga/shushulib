@@ -31,3 +31,8 @@ int TianGan::getTgid()
 {
 	return this->tgid;
 }
+
+int TianGan::getHe()
+{
+	return (tgid + 5) % 10;
+}
