@@ -1,6 +1,7 @@
 #pragma once
 #include "Gan_Zhi.h"
 #include "GuiShen.h"
+#include <vector>
 
 class JinKouJue
 {
@@ -32,5 +33,8 @@ public:
 
 private:
 	string parseYueJiangName();
+	vector<TianGan*> gans;
+	vector<DiZhi*> zhis;
+
 };
 
