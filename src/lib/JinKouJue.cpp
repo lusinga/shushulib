@@ -127,6 +127,15 @@ void JinKouJue::duanKe()
 		break;
 	}
 
+	if(bYongShenIsJiang)
+	{
+		cout<<"以将为用神"<<endl;
+	}
+	else
+	{
+		cout<<"以神为用神"<<endl;
+	}
+
 	Xing** pXings = new Xing*[4];
 	//人，贵，月，地
 	pXings[0] = pRenYuan->buildXing();
@@ -188,13 +197,13 @@ void JinKouJue::duanKe()
 		cout<<"将克神为财动\n主求财有利。问官主不利。问婚姻主本人一生财旺。问病主家中家长有病。"<<endl;
 	//2.干克方为妻动
 	if(pRenYuan->ke(pDiFen))
-		cout<<"干克方为妻动"<<endl;
+		cout<<"干克方为妻动\n问婚姻主不成之象。问官问财都不利。"<<endl;
 	//3.神克将为贼动
 	if(pGuiShen->pDZ->ke(pYueJiang))
 		cout<<"神克将为贼动"<<endl;
 	//4.方克干为鬼动
 	if(pDiFen->ke(pRenYuan))
-		cout<<"方克干为鬼动"<<endl;
+		cout<<"方克干为鬼动\n问官主本人志向高远，在外求谋。问求财，主在外求财。"<<endl;
 	//5.神克干为官动
 	if(pGuiShen->pDZ->ke(pRenYuan))
 		cout<<"神克干为官动"<<endl;
@@ -202,10 +211,10 @@ void JinKouJue::duanKe()
 	//判断三动
 	//1.方生干为父母动
 	if(pDiFen->sheng(pRenYuan))
-		cout<<"方生干为父母动"<<endl;
+		cout<<"方生干为父母动\n主印授之事，故利于求官。又主文书。"<<endl;
 	//2.干生方为子孙动
 	if(pRenYuan->sheng(pDiFen))
-		cout<<"干生方为子孙动"<<endl;
+		cout<<"干生方为子孙动\n多主子孙方面的事。"<<endl;
 	//3.干方同兄弟动
 	if(pRenYuan->getXing() == pDiFen->getXing())
 		cout<<"干方同兄弟动"<<endl;
