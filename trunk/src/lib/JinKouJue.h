@@ -31,10 +31,23 @@ public:
 
 	void duanKe();
 
+	template<class T>
+	inline void PRINT_ELEMENTS(const T& coll, const char* optcstr="")
+	{
+		typename T::const_iterator pos;
+
+		cout<<optcstr;
+		for(pos=coll.begin();pos!=coll.end();++pos)
+		{
+			cout<<*pos<<' ';
+		}
+		cout<<endl;
+	}
+
 private:
 	string parseYueJiangName();
 	vector<TianGan*> gans;
 	vector<DiZhi*> zhis;
-
+	vector<Gan_Zhi*> sizhu;
 };
 
