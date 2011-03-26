@@ -8,6 +8,8 @@
 #include <boost/foreach.hpp>
 #include <vector>
 #include <memory>
+#include <set>
+#include <algorithm>
 
 using namespace std;
 
@@ -39,6 +41,11 @@ JinKouJue::JinKouJue(Gan_Zhi* pYear,Gan_Zhi* pMonth,Gan_Zhi* pDay,Gan_Zhi* pHour
 	zhis.push_back(pDiFen);
 	zhis.push_back(pYueJiang);
 	zhis.push_back(pGuiShen->pDZ);
+
+	sizhu.push_back(pYear);
+	sizhu.push_back(pMonth);
+	sizhu.push_back(pDay);
+	sizhu.push_back(pHour);
 }
 
 JinKouJue::~JinKouJue(void)
@@ -286,6 +293,78 @@ void JinKouJue::shensha()
 		if(ShenSha::isDuoMa(pDay->pDZ->getDzid(),pDZ->getDzid()))
 		{
 			cout<<"驿马入课主事迅速。"<<endl;
+		}
+	}
+	//10.劫煞
+	BOOST_FOREACH(DiZhi* pDZ, zhis)
+	{
+		if(ShenSha::isJieSha(pDay->pDZ->getDzid(),pDZ->getDzid()))
+		{
+			cout<<"劫煞君子权在手，政法军令和头领，狠毒服众会指挥，常人凶伤有官司。"<<endl;
+		}
+	}
+	//11.截命灾煞
+	//12.天喜
+	//13.禄倒
+	//14.马倒
+	//15.病符
+	//16.丧门，吊客
+	//17.天赦
+	//18.丧车
+	//19.四丘
+	//20.飞廉
+	//21.地煞
+	//22.灭门
+	//23.往亡
+	//24.每月生气、死气
+	//25.天医
+	//26.地医
+	//27.五鬼歌
+	//28.旬空
+	//29.丧门
+	//30.天鬼加年月日时
+	//31.天罗地网
+	//32.关隔锁
+	//33.四败
+	//34.课中四绝
+	//35.三奇
+	set<int> ganset;
+	BOOST_FOREACH(TianGan* pTG, gans)
+	{
+		ganset.insert(pTG->getTgid());
+	}
+	BOOST_FOREACH(Gan_Zhi* pGZ, sizhu)
+	{
+		ganset.insert(pGZ->pTG->getTgid());
+	}
+	set<int> tiansanqi;
+	set<int> disanqi;
+	set<int> rensanqi;
+	
+	tiansanqi.insert(TianGan::TGjia);
+	tiansanqi.insert(TianGan::TGgeng);
+	tiansanqi.insert(TianGan::TGwu);
+
+	disanqi.insert(TianGan::TGyi);
+	disanqi.insert(TianGan::TGbing);
+	disanqi.insert(TianGan::TGding);
+
+	rensanqi.insert(TianGan::TGxin);
+	rensanqi.insert(TianGan::TGren);
+	rensanqi.insert(TianGan::TGgui);
+	
+	vector<set<int>> sanqis;
+	sanqis.push_back(tiansanqi);
+	sanqis.push_back(disanqi);
+	sanqis.push_back(rensanqi);
+
+	BOOST_FOREACH(set<int>sanqi, sanqis)
+	{
+		if(includes(ganset.begin(),ganset.end(),sanqi.begin(),sanqi.end()))
+		{
+			cout<<"课中遇三奇，利见大人，百事吉昌，求官得官，求财得财，孕生贵子，上下有辅，贵人相助，万事亨通。"<<endl;
+			//PRINT_ELEMENTS(ganset, "天干表");
+			//PRINT_ELEMENTS(sanqi,"三奇表");
 		}
 	}
 }

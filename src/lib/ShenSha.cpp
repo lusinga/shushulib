@@ -101,6 +101,8 @@ bool ShenSha::isTianDe(DiZhi* pMonth, DiZhi* pDZ)
 		return false;
 		break;
 	}
+
+	return false;
 }
 
 bool ShenSha::isYueDe(DiZhi* pMonth, int tgid)
@@ -230,3 +232,33 @@ bool ShenSha::isDuoMa(int day_dzid, int dzid)
 		return false;
 	}
 }
+
+bool ShenSha::isJieSha(int day_dzid, int dzid)
+{
+	switch (day_dzid)
+	{
+	case DiZhi::DZshen:
+	case DiZhi::DZzi:
+	case DiZhi::DZchen:
+		return dzid == DiZhi::DZsi;
+		break;
+	case DiZhi::DZhai:
+	case DiZhi::DZmao:
+	case DiZhi::DZwei:
+		return dzid == DiZhi::DZhai;
+		break;
+	case DiZhi::DZyin:
+	case DiZhi::DZwu:
+	case DiZhi::DZxu:
+		return dzid == DiZhi::DZshen;
+		break;
+	case DiZhi::DZsi:
+	case DiZhi::DZyou:
+	case DiZhi::DZchou:
+		return dzid == DiZhi::DZyin;
+		break;
+	default:
+		return false;
+	}
+}
+
