@@ -1,6 +1,10 @@
 #include "liuren.h"
 
 #include <iostream>
+#include <boost/foreach.hpp>
+#include <vector>
+#include <map>
+#include <algorithm>
 
 using namespace std;
 
@@ -110,6 +114,10 @@ void LiuRen::sanChuan()
 {
 	GanZhi* pgzh[4];
 	GanZhi* pgzl[4];
+	vector<int> zeiKe;
+	vector<int> zeiKeBiYong;
+	vector<int> keKe;
+	vector<int> keKeBiYong;
 
 	izei=0;
 	izei_he=0;
@@ -124,28 +132,27 @@ void LiuRen::sanChuan()
 		pgzh[i] = Month::buildZhi(this->kehigh[i]);
 
 	//贼，下克上为贼
-	int zeipos = -1;
-	int zei_he_pos = -1;
-
-
-
 	for(int i=0;i<4;i++)
 	{
 		if(pgzl[i]->ke(pgzh[i]))
 		{
-			izei++;
-			zeipos = i;
+			zeiKe.push_back(i);
 			if(YinYang::isHe(this->riGan, kehigh[i]))
 			{
-				izei_he++;
-				zei_he_pos = i;
+				zeiKeBiYong.push_back(i);
 			}
 		}
 	}
 
+	izei=zeiKe.size();
+	izei_he=zeiKeBiYong.size();
+
+	cout<<"[Debug]共有"<<izei<<"个贼课。"<<endl;
+	cout<<"[Debug]共有"<<izei_he<<"个贼课比用。"<<endl;
+
 	if (izei == 1){ 
 		//cout<<"这是一个贼课!"<<endl;
-		this->sanchuan[0] = this->kehigh[zeipos];
+		this->sanchuan[0] = this->kehigh[zeiKe.front()];
 		this->sanchuan[1] =this->tianpan[this->sanchuan[0]];
 		this->sanchuan[2] =this->tianpan[this->sanchuan[1]];
 		this->printSanChuan(false);
@@ -154,7 +161,7 @@ void LiuRen::sanChuan()
 
 	if (izei_he == 1){ 
 		cout<<"此课可以用比用法解决"<<endl;
-		this->sanchuan[0] = this->kehigh[zei_he_pos];
+		this->sanchuan[0] = this->kehigh[zeiKeBiYong.front()];
 		this->sanchuan[1] =this->tianpan[this->sanchuan[0]];
 		this->sanchuan[2] =this->tianpan[this->sanchuan[1]];
 		this->printSanChuan(false);
@@ -163,73 +170,53 @@ void LiuRen::sanChuan()
 	//尝试使用涉害法解决，先找出同时贼的课
 	else if(izei > 1)
 	{
-		int azei[4]={-1,-1,-1,-1};
-		int azeipos = 0;
-		for(int i=0;i<4;i++)
+		map<int, int> shehai;
+		BOOST_FOREACH(int ii, zeiKe)
 		{
-			if(pgzl[i]->ke(pgzh[i]))
-			{
-				azei[azeipos++]=i;
-			}
+			shehai.insert(map<int,int>::value_type(ii,walk(kelow[ii],kehigh[ii])));
 		}
 
-		int ibig = -1;
+		cout<<"此课可以用涉害法解决"<<endl;
+		int iPos = max_element(shehai.begin(),shehai.end())->first;
+		this->sanchuan[0] = this->kehigh[iPos];
+		this->sanchuan[1] =this->tianpan[this->sanchuan[0]];
+		this->sanchuan[2] =this->tianpan[this->sanchuan[1]];
+		this->printSanChuan(false);
 
-		if(izei==2)
-		{
-			int walk1 = walk(this->kelow[azei[0]],this->kehigh[azei[0]]);
-			int walk2 = walk(this->kelow[azei[1]],this->kehigh[azei[1]]);
-			if( walk1 > walk2)
-			{
-				cout<<"此课可以用涉害法解决"<<endl;
-				this->sanchuan[0] = this->kehigh[azei[0]];
-				this->sanchuan[1] =this->tianpan[this->sanchuan[0]];
-				this->sanchuan[2] =this->tianpan[this->sanchuan[1]];
-				this->printSanChuan(false);
-			}
-			else if( walk1 < walk2)
-			{
-				cout<<"此课可以用涉害法解决"<<endl;
-				this->sanchuan[0] = this->kehigh[azei[1]];
-				this->sanchuan[1] =this->tianpan[this->sanchuan[0]];
-				this->sanchuan[2] =this->tianpan[this->sanchuan[1]];
-				this->printSanChuan(false);
-			}
-		}
+
 	}
 
-	//上克下为克
-
-	int kepos = -1;
-	ike_he=0;
-	int ke_he_pos = -1;
-
+	//克，上克下为克
 	for(int i=0;i<4;i++)
 	{
 		if(pgzh[i]->ke(pgzl[i]))
 		{
-			ike++;
-			kepos = i;
+			keKe.push_back(i);
 			if(YinYang::isHe(this->riGan, kehigh[i]))
 			{
-				ike_he++;
-				ke_he_pos = i;
+				keKeBiYong.push_back(i);
 			}
 		}
 	}
 
-	if (ike == 1){ 
-		//cout<<"这是一个克课!"<<endl;
-		this->sanchuan[0] = this->kehigh[kepos];
+	izei=keKe.size();
+	izei_he=keKeBiYong.size();
+
+	cout<<"[Debug]共有"<<ike<<"个克课。"<<endl;
+	cout<<"[Debug]共有"<<ike_he<<"个克课比用。"<<endl;
+
+	if (izei == 1){ 
+		cout<<"这是一个克课!"<<endl;
+		this->sanchuan[0] = this->kehigh[keKe.front()];
 		this->sanchuan[1] =this->tianpan[this->sanchuan[0]];
 		this->sanchuan[2] =this->tianpan[this->sanchuan[1]];
 		this->printSanChuan(false);
 		return;
 	}
 
-	if (ike_he == 1){ 
+	if (izei_he == 1){ 
 		cout<<"此课可以用比用法解决"<<endl;
-		this->sanchuan[0] = this->kehigh[ke_he_pos];
+		this->sanchuan[0] = this->kehigh[keKeBiYong.front()];
 		this->sanchuan[1] =this->tianpan[this->sanchuan[0]];
 		this->sanchuan[2] =this->tianpan[this->sanchuan[1]];
 		this->printSanChuan(false);
@@ -238,39 +225,18 @@ void LiuRen::sanChuan()
 	//尝试使用涉害法解决，先找出同时贼的课
 	else if(ike > 1)
 	{
-		int ake[4]={-1,-1,-1,-1};
-		int akepos = 0;
-		for(int i=0;i<4;i++)
+		map<int, int> shehai;
+		BOOST_FOREACH(int ii, keKe)
 		{
-			if(pgzl[i]->ke(pgzh[i]))
-			{
-				ake[akepos++]=i;
-			}
+			shehai.insert(map<int,int>::value_type(ii,walk(kelow[ii],kehigh[ii])));
 		}
 
-		int ibig = -1;
-
-		if(izei==2)
-		{
-			int walk1 = walk(this->kelow[ake[0]],this->kehigh[ake[0]]);
-			int walk2 = walk(this->kelow[ake[1]],this->kehigh[ake[1]]);
-			if( walk1 > walk2)
-			{
-				cout<<"此课可以用涉害法解决"<<endl;
-				this->sanchuan[0] = this->kehigh[ake[0]];
-				this->sanchuan[1] =this->tianpan[this->sanchuan[0]];
-				this->sanchuan[2] =this->tianpan[this->sanchuan[1]];
-				this->printSanChuan(false);
-			}
-			else if( walk1 < walk2)
-			{
-				cout<<"此课可以用涉害法解决"<<endl;
-				this->sanchuan[0] = this->kehigh[ake[1]];
-				this->sanchuan[1] =this->tianpan[this->sanchuan[0]];
-				this->sanchuan[2] =this->tianpan[this->sanchuan[1]];
-				this->printSanChuan(false);
-			}
-		}
+		cout<<"此课可以用涉害法解决"<<endl;
+		int iPos = max_element(shehai.begin(),shehai.end())->first;
+		this->sanchuan[0] = this->kehigh[iPos];
+		this->sanchuan[1] =this->tianpan[this->sanchuan[0]];
+		this->sanchuan[2] =this->tianpan[this->sanchuan[1]];
+		this->printSanChuan(false);
 	}
 
 	//walk(DiZhi::DZmao,DiZhi::DZchou);
