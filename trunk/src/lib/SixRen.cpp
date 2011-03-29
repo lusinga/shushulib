@@ -106,57 +106,57 @@ int main(int argc, char* argv[])
 	Gan_Zhi* pGZ = new Gan_Zhi(0,0);
 	cout<<pGZ->getName()<<endl;
 
-	Xing* pXings1[] = {new Jin(), new Mu(), new Shui(), new Huo()};
-	int index = Xing::whichWang(pXings1,4);
-	cout<<"The wang index is "<<index<<endl;
+	//Xing* pXings1[] = {new Jin(), new Mu(), new Shui(), new Huo()};
+	//int index = Xing::whichWang(pXings1,4);
+	//cout<<"The wang index is "<<index<<endl;
 
-	Xing* pXings2[] = {new Mu(), new Huo(), new Shui(), new Tu()};
-	index = Xing::whichWang(pXings2,4);
-	cout<<"The wang index is "<<index<<endl;
+	//Xing* pXings2[] = {new Mu(), new Huo(), new Shui(), new Tu()};
+	//index = Xing::whichWang(pXings2,4);
+	//cout<<"The wang index is "<<index<<endl;
 
-	Xing* pXings3[] = {new Jin(), new Mu(), new Huo(), new Tu()};
-	index = Xing::whichWang(pXings3,4);
-	cout<<"The wang index is "<<index<<endl;
+	//Xing* pXings3[] = {new Jin(), new Mu(), new Huo(), new Tu()};
+	//index = Xing::whichWang(pXings3,4);
+	//cout<<"The wang index is "<<index<<endl;
 
-	Xing* pXings4[] = {new Jin(), new Mu(), new Shui(), new Shui()};
-	index = Xing::whichWang(pXings4,4);
-	cout<<"The wang index is "<<index<<endl;
+	//Xing* pXings4[] = {new Jin(), new Mu(), new Shui(), new Shui()};
+	//index = Xing::whichWang(pXings4,4);
+	//cout<<"The wang index is "<<index<<endl;
 
-	Xing* pXings5[] = {new Mu(), new Huo(), new Shui(), new Shui()};
-	index = Xing::whichWang(pXings5,4);
-	cout<<"The wang index is "<<index<<endl;
+	//Xing* pXings5[] = {new Mu(), new Huo(), new Shui(), new Shui()};
+	//index = Xing::whichWang(pXings5,4);
+	//cout<<"The wang index is "<<index<<endl;
 
-	Xing* pXings6[] = {new Tu(), new Huo(), new Mu(), new Tu()};
-	index = Xing::whichWang(pXings6,4);
-	cout<<"The wang index is "<<index<<endl;
+	//Xing* pXings6[] = {new Tu(), new Huo(), new Mu(), new Tu()};
+	//index = Xing::whichWang(pXings6,4);
+	//cout<<"The wang index is "<<index<<endl;
 
-	Xing* pXings7[] = {new Jin(), new Mu(), new Jin(), new Mu()};
-	index = Xing::whichWang(pXings7,4);
-	cout<<"The wang index is "<<index<<endl;
+	//Xing* pXings7[] = {new Jin(), new Mu(), new Jin(), new Mu()};
+	//index = Xing::whichWang(pXings7,4);
+	//cout<<"The wang index is "<<index<<endl;
 
-	Xing* pXings8[] = {new Jin(), new Shui(), new Shui(), new Jin()};
-	index = Xing::whichWang(pXings8,4);
-	cout<<"The wang index is "<<index<<endl;
+	//Xing* pXings8[] = {new Jin(), new Shui(), new Shui(), new Jin()};
+	//index = Xing::whichWang(pXings8,4);
+	//cout<<"The wang index is "<<index<<endl;
 
-	Xing* pXings9[] = {new Tu(), new Tu(), new Huo(), new Huo()};
-	index = Xing::whichWang(pXings9,4);
-	cout<<"The wang index is "<<index<<endl;
+	//Xing* pXings9[] = {new Tu(), new Tu(), new Huo(), new Huo()};
+	//index = Xing::whichWang(pXings9,4);
+	//cout<<"The wang index is "<<index<<endl;
 
-	Xing* pXings10[] = {new Jin(), new Jin(), new Jin(), new Mu()};
-	index = Xing::whichWang(pXings10,4);
-	cout<<"The wang index is "<<index<<endl;
+	//Xing* pXings10[] = {new Jin(), new Jin(), new Jin(), new Mu()};
+	//index = Xing::whichWang(pXings10,4);
+	//cout<<"The wang index is "<<index<<endl;
 
-	Xing* pXings11[] = {new Jin(), new Jin(), new Shui(), new Jin()};
-	index = Xing::whichWang(pXings11,4);
-	cout<<"The wang index is "<<index<<endl;
+	//Xing* pXings11[] = {new Jin(), new Jin(), new Shui(), new Jin()};
+	//index = Xing::whichWang(pXings11,4);
+	//cout<<"The wang index is "<<index<<endl;
 
-	Xing* pXings12[] = {new Tu(), new Shui(), new Shui(), new Shui()};
-	index = Xing::whichWang(pXings12,4);
-	cout<<"The wang index is "<<index<<endl;
+	//Xing* pXings12[] = {new Tu(), new Shui(), new Shui(), new Shui()};
+	//index = Xing::whichWang(pXings12,4);
+	//cout<<"The wang index is "<<index<<endl;
 
-	Xing* pXings13[] = {new Tu(), new Tu(), new Tu(), new Tu()};
-	index = Xing::whichWang(pXings13,4);
-	cout<<"The wang index is "<<index<<endl;
+	//Xing* pXings13[] = {new Tu(), new Tu(), new Tu(), new Tu()};
+	//index = Xing::whichWang(pXings13,4);
+	//cout<<"The wang index is "<<index<<endl;
 
 	JinKouJue* pJKJ = new JinKouJue(new Gan_Zhi(TianGan::TGwu, DiZhi::DZyin),
 		new Gan_Zhi(TianGan::TGren, DiZhi::DZxu),
