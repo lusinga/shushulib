@@ -5,6 +5,7 @@
 #include <vector>
 #include <map>
 #include <algorithm>
+#include <boost/shared_ptr.hpp>
 
 using namespace std;
 
@@ -14,6 +15,11 @@ LiuRen::LiuRen(int month, int time, int gan, int zhi)
 	this->time = time;
 	this->riGan = gan;
 	this->riZhi = zhi;
+}
+
+LiuRen::~LiuRen()
+{
+
 }
 
 void LiuRen::formatPan(DiZhi* pdz)
@@ -144,7 +150,7 @@ void LiuRen::sanChuan()
 		}
 	}
 
-	izei=zeiKe.size();
+	izei=(int)zeiKe.size();
 	izei_he=zeiKeBiYong.size();
 
 	cout<<"[Debug]¹²ÓÐ"<<izei<<"¸öÔô¿Î¡£"<<endl;

@@ -35,7 +35,7 @@ bool GanZhi::sheng(GanZhi* pGZ)
 	return false;
 }
 
-Xing* GanZhi::buildXing()
+shared_ptr<Xing> GanZhi::buildXing()
 {
 	return Xing::buildXing(this->getXing());
 }

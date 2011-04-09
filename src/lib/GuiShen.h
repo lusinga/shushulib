@@ -3,6 +3,8 @@
 #include "Xing.h"
 #include "YinYang.h"
 
+#include <boost/shared_ptr.hpp>
+
 class GuiShen
 {
 public:
@@ -19,14 +21,14 @@ public:
 	static const int gsTaiYin = 10;
 	static const int gsTianHou = 11;
 
-	GuiShen(TianGan* pTG, bool isDay, DiZhi* pDiFen);
+	GuiShen(shared_ptr<TianGan> pTG, bool isDay, shared_ptr<DiZhi> pDiFen);
 	~GuiShen(void);
 
 	string getName();
 
-	DiZhi* pDZ;
+	shared_ptr<DiZhi> pDZ;
 	int gsID;
-	string* pName;
-	Xing* pXing;
-	YinYang* pYinYang;
+	shared_ptr<string> pName;
+	shared_ptr<Xing> pXing;
+	shared_ptr<YinYang> pYinYang;
 };

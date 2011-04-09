@@ -9,7 +9,9 @@
 #include "Huo.h"
 #include "Month.h"
 
-GuiShen::GuiShen(TianGan* pTG, bool isDay, DiZhi* pDiFen)
+#include <boost/make_shared.hpp>
+
+GuiShen::GuiShen(shared_ptr<TianGan> pTG, bool isDay, shared_ptr<DiZhi> pDiFen)
 {
 	int startForward=0;
 	int startReverse=0;
@@ -60,79 +62,79 @@ GuiShen::GuiShen(TianGan* pTG, bool isDay, DiZhi* pDiFen)
 	switch(gsID)
 	{
 	case 0:
-		pName =new string("³ó (ÌìÒÒ¹óÉñ ÒõÍÁ)");
-		pYinYang = new Yin();
-		pXing = new Tu();
+		pName = make_shared<string>("³ó (ÌìÒÒ¹óÉñ ÒõÍÁ)");
+		pYinYang = make_shared<Yin>();
+		pXing = make_shared<Tu>();
 		pDZ = Month::buildZhi(DiZhi::DZchou);
 		break;
 	case 1:
-		pName =new string("ËÈ (ÎŸÉß Òõ»ğ)");
+		pName = make_shared<string>("ËÈ (ÎŸÉß Òõ»ğ)");
 		pDZ = Month::buildZhi(DiZhi::DZsi);
-		pYinYang = new Yin();
-		pXing = new Huo();
+		pYinYang = make_shared<Yin>();
+		pXing = make_shared<Huo>();
 		break;
 	case 2:
-		pName =new string("Îç (ÖìÈ¸ Ñô»ğ)");
+		pName =make_shared<string>("Îç (ÖìÈ¸ Ñô»ğ)");
 		pDZ = Month::buildZhi(DiZhi::DZwu);
-		pYinYang = new Yang();
-		pXing = new Huo();
+		pYinYang = make_shared<Yang>();
+		pXing = make_shared<Huo>();
 		break;
 	case 3:
-		pName =new string("Ã® (ÁùºÏ ÒõÄ¾)");
+		pName =make_shared<string>("Ã® (ÁùºÏ ÒõÄ¾)");
 		pDZ = Month::buildZhi(DiZhi::DZmao);
-		pYinYang = new Yin();
-		pXing = new Mu();
+		pYinYang = make_shared<Yin>();
+		pXing = make_shared<Mu>();
 		break;
 	case 4:
-		pName =new string("³½ (¹´³Â ÑôÍÁ)");
+		pName =make_shared<string>("³½ (¹´³Â ÑôÍÁ)");
 		pDZ = Month::buildZhi(DiZhi::DZchen);
-		pYinYang = new Yang();
-		pXing = new Tu();
+		pYinYang = make_shared<Yang>();
+		pXing = make_shared<Tu>();
 		break;
 	case 5:
-		pName =new string("Òú (ÇàÁú ÑôÄ¾)");
+		pName =make_shared<string>("Òú (ÇàÁú ÑôÄ¾)");
 		pDZ = Month::buildZhi(DiZhi::DZyin);
-		pYinYang = new Yang();
-		pXing = new Mu();
+		pYinYang = make_shared<Yang>();
+		pXing = make_shared<Mu>();
 		break;
 	case 6:
-		pName =new string("Ğç (Ìì¿Õ ÑôÍÁ)");
+		pName =make_shared<string>("Ğç (Ìì¿Õ ÑôÍÁ)");
 		pDZ = Month::buildZhi(DiZhi::DZxu);
-		pYinYang = new Yang();
-		pXing = new Tu();
+		pYinYang = make_shared<Yang>();
+		pXing = make_shared<Tu>();
 		break;
 	case 7:
-		pName =new string("Éê (°×»¢ Ñô½ğ)");
+		pName =make_shared<string>("Éê (°×»¢ Ñô½ğ)");
 		pDZ = Month::buildZhi(DiZhi::DZshen);
-		pYinYang = new Yang();
-		pXing = new Jin();
+		pYinYang = make_shared<Yang>();
+		pXing = make_shared<Jin>();
 		break;
 	case 8:
-		pName =new string("Î´ (Ì«³£ ÒõÍÁ)");
+		pName =make_shared<string>("Î´ (Ì«³£ ÒõÍÁ)");
 		pDZ = Month::buildZhi(DiZhi::DZwei);
-		pYinYang = new Yin();
-		pXing = new Tu();
+		pYinYang = make_shared<Yin>();
+		pXing = make_shared<Tu>();
 		break;
 	case 9:
-		pName =new string("×Ó (ĞşÎä ÑôË®)");
+		pName =make_shared<string>("×Ó (ĞşÎä ÑôË®)");
 		pDZ = Month::buildZhi(DiZhi::DZzi);
-		pYinYang = new Yang();
-		pXing = new Shui();
+		pYinYang = make_shared<Yang>();
+		pXing = make_shared<Shui>();
 		break;
 	case 10:
-		pName =new string("ÓÏ (Ì«Òõ Òõ½ğ)");
+		pName =make_shared<string>("ÓÏ (Ì«Òõ Òõ½ğ)");
 		pDZ = Month::buildZhi(DiZhi::DZyou);
-		pYinYang = new Yin();
-		pXing = new Jin();
+		pYinYang = make_shared<Yin>();
+		pXing = make_shared<Jin>();
 		break;
 	case 11:
-		pName =new string("º¥ (ÌìºóÒõË®)");
+		pName =make_shared<string>("º¥ (ÌìºóÒõË®)");
 		pDZ = Month::buildZhi(DiZhi::DZhai);
-		pYinYang = new Yin();
-		pXing = new Shui();
+		pYinYang = make_shared<Yin>();
+		pXing = make_shared<Shui>();
 		break;
 	default:
-		pName = new string("´íÎó£¡");
+		pName = make_shared<string>("´íÎó£¡");
 		break;
 	}
 }
@@ -144,10 +146,5 @@ string GuiShen::getName()
 
 GuiShen::~GuiShen(void)
 {
-	delete pName;
-	pName = NULL;
-	delete pXing;
-	pXing = NULL;
-	delete pYinYang;
-	pYinYang = NULL;
+
 }

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <boost/shared_ptr.hpp>
 
 using namespace std;
 
@@ -36,8 +37,8 @@ public:
 		return fname[feature%5];
 	}
 
-	static Xing* buildXing(int xing);
-	static int whichWang(Xing** pXing, int numbers);
-	static Xing* whichXingIsWang(Xing** pXing, int numbers);
+	static shared_ptr<Xing> buildXing(int xing);
+	static int whichWang(shared_ptr<Xing>* pXings, int numbers);
+	static shared_ptr<Xing> whichXingIsWang(shared_ptr<Xing>* pXings, int numbers);
 	static int getState(Xing* pXing, Xing** pXings, int numbers);
 };

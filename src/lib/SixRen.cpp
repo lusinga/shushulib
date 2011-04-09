@@ -16,6 +16,8 @@
 
 #include <iostream>
 
+#include <boost/smart_ptr.hpp>
+
 using namespace std;
 
 int main(int argc, char* argv[])
@@ -96,7 +98,7 @@ int main(int argc, char* argv[])
 	plr6->sanChuan();
 	plr6->duanKe();
 
-	LiuRen* plr7 = new LiuRen(4, DiZhi::DZxu, TianGan::TGgeng, DiZhi::DZzi);
+	shared_ptr<LiuRen> plr7(new LiuRen(4, DiZhi::DZxu, TianGan::TGgeng, DiZhi::DZzi));
 	plr7->diPan();
 	plr7->tianPan();
 	plr7->siKe();
