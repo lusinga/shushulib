@@ -6,6 +6,8 @@
 #include "Tu.h"
 #include "Huo.h"
 
+#include <boost/make_shared.hpp>
+
 Xing::Xing(void)
 : feature(0)
 {
@@ -208,26 +210,26 @@ int Xing::getState(Xing* pXing, Xing** pXings, int numbers)
 		return ZHEFU;
 }
 
-Xing* Xing::buildXing(int xing)
+shared_ptr<Xing> Xing::buildXing(int xing)
 {
 	int xing2 = (xing+5) % 5;
 
 	switch (xing2)
 	{
 	case Xing::HUO:
-		return new Huo();
+		return make_shared<Huo>();
 		break;
 	case Xing::JIN:
-		return new Jin();
+		return make_shared<Jin>();
 		break;
 	case Xing::MU:
-		return new Mu();
+		return make_shared<Mu>();
 		break;
 	case Xing::SHUI:
-		return new Shui();
+		return make_shared<Shui>();
 		break;
 	case Xing::TU:
-		return new Tu();
+		return make_shared<Tu>();
 		break;
 	default:
 		return NULL;

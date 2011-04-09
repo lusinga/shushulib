@@ -2,26 +2,27 @@
 #include "Gan_Zhi.h"
 #include "GuiShen.h"
 #include <vector>
+#include <boost/shared_ptr.hpp>
 
 class JinKouJue
 {
 public:
-	JinKouJue(Gan_Zhi* pYear,Gan_Zhi* pMonth,Gan_Zhi* pDay,Gan_Zhi* pHour,DiZhi* pDiFen);
+	JinKouJue(shared_ptr<Gan_Zhi> pYear,shared_ptr<Gan_Zhi> pMonth,shared_ptr<Gan_Zhi> pDay,shared_ptr<Gan_Zhi> pHour,shared_ptr<DiZhi> pDiFen);
 	~JinKouJue(void);
 
-	Gan_Zhi* pYear;
-	Gan_Zhi* pMonth;
-	Gan_Zhi* pDay;
-	Gan_Zhi* pHour;
+	shared_ptr<Gan_Zhi> pYear;
+	shared_ptr<Gan_Zhi> pMonth;
+	shared_ptr<Gan_Zhi> pDay;
+	shared_ptr<Gan_Zhi> pHour;
 
-	DiZhi* pDiFen;
+	shared_ptr<DiZhi> pDiFen;
 
-	DiZhi* pYueJiang;
-	GuiShen* pGuiShen;
-	TianGan* pRenYuan;
+	shared_ptr<DiZhi> pYueJiang;
+	shared_ptr<GuiShen> pGuiShen;
+	shared_ptr<TianGan> pRenYuan;
 
-	TianGan* pJiangGan;
-	TianGan* pShenGan;
+	shared_ptr<TianGan> pJiangGan;
+	shared_ptr<TianGan> pShenGan;
 
 	bool bYongShenIsJiang;
 
@@ -46,8 +47,7 @@ public:
 
 private:
 	string parseYueJiangName();
-	vector<TianGan*> gans;
-	vector<DiZhi*> zhis;
-	vector<Gan_Zhi*> sizhu;
+	vector<shared_ptr<TianGan>> gans;
+	vector<shared_ptr<DiZhi>> zhis;
+	vector<shared_ptr<Gan_Zhi>> sizhu;
 };
-

@@ -11,9 +11,12 @@
 #include <set>
 #include <algorithm>
 
+#include <boost/make_shared.hpp>
+
 using namespace std;
 
-JinKouJue::JinKouJue(Gan_Zhi* pYear,Gan_Zhi* pMonth,Gan_Zhi* pDay,Gan_Zhi* pHour,DiZhi* pDiFen)
+JinKouJue::JinKouJue(shared_ptr<Gan_Zhi> pYear,shared_ptr<Gan_Zhi> pMonth,
+	shared_ptr<Gan_Zhi> pDay,shared_ptr<Gan_Zhi> pHour,shared_ptr<DiZhi> pDiFen)
 {
 	this->pYear = pYear;
 	this->pMonth = pMonth;
@@ -27,7 +30,7 @@ JinKouJue::JinKouJue(Gan_Zhi* pYear,Gan_Zhi* pMonth,Gan_Zhi* pDay,Gan_Zhi* pHour
 
 	//cout<<"[debug]isDay="<<isDay<<endl;
 
-	this->pGuiShen = new GuiShen(pDay->pTG,isDay,pDiFen);
+	this->pGuiShen = make_shared<GuiShen>(pDay->pTG,isDay,pDiFen);
 
 	pRenYuan = Month::wuZiYuanDu(pDay->pTG,pDiFen);
 
@@ -136,7 +139,7 @@ void JinKouJue::duanKe()
 		cout<<"以神为用神"<<endl;
 	}
 
-	Xing** pXings = new Xing*[4];
+	shared_ptr<Xing> pXings[4];
 	//人，贵，月，地
 	pXings[0] = pRenYuan->buildXing();
 	pXings[1] = pGuiShen->pXing;

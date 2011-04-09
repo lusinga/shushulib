@@ -26,6 +26,8 @@
 #include "tiangan_ren.h"
 #include "tiangan_gui.h"
 
+#include <boost/shared_ptr.hpp>
+
 /************************************************************************/
 /* Month类是主要的工具类的集合
 /* 包括：根据数字来构造干支类的对象
@@ -37,10 +39,10 @@ class Month
 public:
 	Month(void);
 	~Month(void);
-	static TianGan* buildGan(int tgid);
-	static DiZhi* buildZhi(int dzid);
+	static shared_ptr<TianGan> buildGan(int tgid);
+	static shared_ptr<DiZhi> buildZhi(int dzid);
 	static int getYueJiang(int month);
-	static int getYueJiang(DiZhi* pDZ);
-	static TianGan* wuZiYuanDu(TianGan* pTG, DiZhi* pDZ);
+	static int getYueJiang(shared_ptr<DiZhi> pDZ);
+	static shared_ptr<TianGan> wuZiYuanDu(shared_ptr<TianGan> pTG, shared_ptr<DiZhi> pDZ);
 };
 

@@ -2,6 +2,7 @@
 
 #include <string>
 #include <iostream>
+#include <boost/scoped_ptr.hpp>
 
 #include "xing.h"
 
@@ -18,5 +19,5 @@ public:
 	bool ke(GanZhi* pgz);
 	bool sheng(GanZhi* pgz);
 	virtual string getName() = 0;
-	Xing* buildXing();
+	shared_ptr<Xing> buildXing();
 };
