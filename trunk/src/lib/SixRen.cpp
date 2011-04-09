@@ -22,13 +22,13 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-	Xing* xings[5];
+	shared_ptr<Xing> xings[5];
 
-	xings[0] = new Jin();
-	xings[1] = new Mu();
-	xings[2] = new Shui();
-	xings[3] = new Tu();
-	xings[4] = new Huo();
+	xings[0] = make_shared<Jin>();
+	xings[1] = make_shared<Mu>();
+	xings[2] = make_shared<Shui>();
+	xings[3] = make_shared<Tu>();
+	xings[4] = make_shared<Huo>();
 
 	for(int i=0;i<5;i++){
 		for (int j=0;j<5;j++){
@@ -37,7 +37,7 @@ int main(int argc, char* argv[])
 		}
 	}
 
-	DiZhi* dzs[12];
+	shared_ptr<DiZhi> dzs[12];
 
 	for(int i=0;i<12;i++)
 	{
@@ -160,12 +160,13 @@ int main(int argc, char* argv[])
 	//index = Xing::whichWang(pXings13,4);
 	//cout<<"The wang index is "<<index<<endl;
 
-	JinKouJue* pJKJ = new JinKouJue(new Gan_Zhi(TianGan::TGwu, DiZhi::DZyin),
-		new Gan_Zhi(TianGan::TGren, DiZhi::DZxu),
-		new Gan_Zhi(TianGan::TGgeng, DiZhi::DZyin),
-		new Gan_Zhi(TianGan::TGren, DiZhi::DZwu),
+	shared_ptr<JinKouJue> pJKJ = make_shared<JinKouJue>(make_shared<Gan_Zhi>(TianGan::TGwu, DiZhi::DZyin),
+		make_shared<Gan_Zhi>(TianGan::TGren, DiZhi::DZxu),
+		make_shared<Gan_Zhi>(TianGan::TGgeng, DiZhi::DZyin),
+		make_shared<Gan_Zhi>(TianGan::TGren, DiZhi::DZwu),
 		Month::buildZhi(DiZhi::DZshen));
 
+#if 0
 	JinKouJue* pJKJ2 = new JinKouJue(
 		new Gan_Zhi(TianGan::TGding, DiZhi::DZhai),
 		new Gan_Zhi(TianGan::TGgui, DiZhi::DZmao),
@@ -228,6 +229,7 @@ int main(int argc, char* argv[])
 		new Gan_Zhi(TianGan::TGding, DiZhi::DZsi),
 		new Gan_Zhi(TianGan::TGgui, DiZhi::DZmao),
 		Month::buildZhi(DiZhi::DZwu));
+#endif
 	
 	//pJKJ->show();
 	//pJKJ2->show();

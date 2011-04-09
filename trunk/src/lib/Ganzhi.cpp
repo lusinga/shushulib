@@ -13,7 +13,7 @@ GanZhi::~GanZhi(void)
 {
 }
 
-bool GanZhi::ke(GanZhi* pdz)
+bool GanZhi::ke(shared_ptr<GanZhi> pdz)
 {
 	if (Xing::ke(this->getXing(),pdz->getXing())){
 		cout<<this->getName()<<Xing::transFeature(this->getXing());
@@ -24,7 +24,7 @@ bool GanZhi::ke(GanZhi* pdz)
 	else return false;
 }
 
-bool GanZhi::sheng(GanZhi* pGZ)
+bool GanZhi::sheng(shared_ptr<GanZhi> pGZ)
 {
 	if(Xing::sheng(getXing(),pGZ->getXing())){
 		cout<<this->getName()<<Xing::transFeature(this->getXing());

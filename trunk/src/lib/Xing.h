@@ -23,13 +23,13 @@ public:
 
 	Xing(void);
 	~Xing(void);
-	bool ke(Xing* xing);
+	bool ke(shared_ptr<Xing> xing);
 	// 基本属性，值为金木水土火之一
 	int feature;
 	static bool sheng(int shenger, int shengee);
 	static bool ke(int ker, int kee);
 	virtual string getFeature() = 0;
-	bool sheng(Xing* xing);
+	bool sheng(shared_ptr<Xing> xing);
 
 	inline static string transFeature(int feature)
 	{
@@ -40,5 +40,5 @@ public:
 	static shared_ptr<Xing> buildXing(int xing);
 	static int whichWang(shared_ptr<Xing>* pXings, int numbers);
 	static shared_ptr<Xing> whichXingIsWang(shared_ptr<Xing>* pXings, int numbers);
-	static int getState(Xing* pXing, Xing** pXings, int numbers);
+	static int getState(shared_ptr<Xing> pXing, shared_ptr<Xing>* pXings, int numbers);
 };

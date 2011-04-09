@@ -1,13 +1,14 @@
 #pragma once
 
 #include "month.h"
+#include <boost/shared_ptr.hpp>
 
 class LiuRen
 {
 public:
 	LiuRen(int month, int time, int riGan, int riZhi);
 	~LiuRen();
-	static void formatPan(DiZhi* pdz);
+	static void formatPan(shared_ptr<DiZhi> pdz);
 	void diPan();
 	void tianPan();
 	void siKe(); 
