@@ -9,40 +9,40 @@ shared_ptr<DiZhi> Month::buildZhi(int dzid)
 	{
 	case DiZhi::DZzi:
 		//pdz = new DiZhi_Zi();
-		pdz = make_shared(DiZhi_Zi);
+		pdz = make_shared<DiZhi_Zi>();
 		break;
 	case DiZhi::DZchou:
-		pdz = make_shared(DiZhi_Chou);
+		pdz = make_shared<DiZhi_Chou>();
 		break;
 	case DiZhi::DZyin:
-		pdz = make_shared(DiZhi_Yin);
+		pdz = make_shared<DiZhi_Yin>();
 		break;
 	case DiZhi::DZmao:
-		pdz = make_shared(new DiZhi_Mao);
+		pdz = make_shared<DiZhi_Mao>();
 		break;
 	case DiZhi::DZchen:
-		pdz = make_shared(new DiZhi_Chen);
+		pdz = make_shared<DiZhi_Chen>();
 		break;
 	case DiZhi::DZsi:
-		pdz = make_shared(new DiZhi_Si);
+		pdz = make_shared<DiZhi_Si>();
 		break;
 	case DiZhi::DZwu:
-		pdz = make_shared(DiZhi_Wu);
+		pdz = make_shared<DiZhi_Wu>();
 		break;
 	case DiZhi::DZwei:
-		pdz = make_shared(DiZhi_Wei);
+		pdz = make_shared<DiZhi_Wei>();
 		break;
 	case DiZhi::DZshen:
-		pdz = make_shared(DiZhi_Shen);
+		pdz = make_shared<DiZhi_Shen>();
 		break;
 	case DiZhi::DZyou:
-		pdz = make_shared(DiZhi_You);
+		pdz = make_shared<DiZhi_You>();
 		break;
 	case DiZhi::DZxu:
-		pdz = make_shared(DiZhi_Xu);
+		pdz = make_shared<DiZhi_Xu>();
 		break;
 	case DiZhi::DZhai:
-		pdz = make_shared(DiZhi_Hai);
+		pdz = make_shared<DiZhi_Hai>();
 		break;
 	}
 
@@ -53,38 +53,38 @@ shared_ptr<TianGan> Month::buildGan(int tgid)
 {
 
 	tgid = (tgid + 10) % 10; 
-	TianGan* ptg = NULL;
+	shared_ptr<TianGan> ptg = NULL;
 	switch(tgid)
 	{
 	case TianGan::TGjia:
-		ptg = make_shared(TianGan_Jia); 
+		ptg = make_shared<TianGan_Jia>(); 
 		break;
 	case TianGan::TGyi:
-		ptg = make_shared(TianGan_Yi);
+		ptg = make_shared<TianGan_Yi>();
 		break;
 	case TianGan::TGbing:
-		ptg = make_shared(TianGan_Bing);
+		ptg = make_shared<TianGan_Bing>();
 		break;
 	case TianGan::TGding:
-		ptg = make_shared(TianGan_Ding);
+		ptg = make_shared<TianGan_Ding>();
 		break;
 	case TianGan::TGwu:
-		ptg = make_shared(TianGan_Wu);
+		ptg = make_shared<TianGan_Wu>();
 		break;
 	case TianGan::TGji:
-		ptg = make_shared(TianGan_Ji);
+		ptg = make_shared<TianGan_Ji>();
 		break;
 	case TianGan::TGgeng:
-		ptg = make_shared(TianGan_Geng);
+		ptg = make_shared<TianGan_Geng>();
 		break;
 	case TianGan::TGxin:
-		ptg = make_shared(TianGan_Xin);
+		ptg = make_shared<TianGan_Xin>();
 		break;
 	case TianGan::TGren:
-		ptg = make_shared(TianGan_Ren);
+		ptg = make_shared<TianGan_Ren>();
 		break;
 	case TianGan::TGgui:
-		ptg = make_shared(TianGan_Gui);
+		ptg = make_shared<TianGan_Gui>();
 		break;
 	}
 
@@ -101,14 +101,14 @@ int Month::getYueJiang(shared_ptr<DiZhi> pDZ)
 	return getYueJiang(pDZ->getMonth());
 }
 
-TianGan* Month::wuZiYuanDu(TianGan* pTG, shared_ptr<DiZhi> pDZ)
+shared_ptr<TianGan> Month::wuZiYuanDu(shared_ptr<TianGan> pTG, shared_ptr<DiZhi> pDZ)
 {
 	int iTgID = pTG->getTgid();
 	int iDzID = pDZ->getDzid();
 
 	int iTG2 = (iTgID % 5) * 2;
 
-	TianGan* pTG2 = buildGan((iTG2+iDzID)%10);
+	shared_ptr<TianGan> pTG2 = buildGan((iTG2+iDzID)%10);
 
 	//cout<<"[debug]TianGan = "<<pTG2->getTgid()<<endl;
 

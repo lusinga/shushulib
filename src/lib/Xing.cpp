@@ -17,7 +17,7 @@ Xing::~Xing(void)
 {
 }
 
-bool Xing::ke(Xing* xing)
+bool Xing::ke(shared_ptr<Xing> xing)
 {
 	if (ke(this->feature,xing->feature)){
 		cout<<this->getFeature()<<"克"<<xing->getFeature()<<endl;
@@ -36,7 +36,7 @@ bool Xing::ke(int ker, int kee)
 	return ((ker + 2)%5 == kee);
 }
 
-bool Xing::sheng(Xing* xing)
+bool Xing::sheng(shared_ptr<Xing> xing)
 {
 	if (sheng(this->feature,xing->feature)){
 		cout<<this->getFeature()<<"生"<<xing->getFeature()<<endl;
@@ -45,7 +45,7 @@ bool Xing::sheng(Xing* xing)
 	else return false;
 }
 
-int Xing::whichWang(Xing** pXing, int numbers)
+int Xing::whichWang(shared_ptr<Xing>* pXings, int numbers)
 {
 	int index = -1;
 
@@ -57,7 +57,7 @@ int Xing::whichWang(Xing** pXing, int numbers)
 
 	for(int i=0;i<numbers;i++)
 	{
-		switch(pXing[i]->feature)
+		switch(pXings[i]->feature)
 		{
 		case HUO:
 			iHuo++;
@@ -90,7 +90,7 @@ int Xing::whichWang(Xing** pXing, int numbers)
 			{
 				if (i==j)
 					continue;
-				if(pXing[j]->ke(pXing[i]))
+				if(pXings[j]->ke(pXings[i]))
 				{
 					iBeenKe = true;
 					break;
@@ -114,7 +114,7 @@ int Xing::whichWang(Xing** pXing, int numbers)
 				{
 					if(i==j) 
 						continue;
-					if(pXing[i]->ke(pXing[j]))
+					if(pXings[i]->ke(pXings[j]))
 					{
 						index = i;
 						break;
@@ -132,7 +132,7 @@ int Xing::whichWang(Xing** pXing, int numbers)
 				{
 					if(i==j) 
 						continue;
-					if(pXing[j]->sheng(pXing[i]))
+					if(pXings[j]->sheng(pXings[i]))
 					{
 						index = i;
 						break;
@@ -145,11 +145,11 @@ int Xing::whichWang(Xing** pXing, int numbers)
 	else if(iJin == 3 || iMu == 3 || iShui == 3 || iHuo == 3 || iTu == 3)
 	{
 		//多着为旺
-		if(pXing[0]->getFeature()==pXing[1]->getFeature())
+		if(pXings[0]->getFeature()==pXings[1]->getFeature())
 		{
 			index = 0;
 		}
-		else if(pXing[0]->getFeature()==pXing[2]->getFeature())
+		else if(pXings[0]->getFeature()==pXings[2]->getFeature())
 		{
 			index = 0;
 		}
@@ -170,7 +170,7 @@ int Xing::whichWang(Xing** pXing, int numbers)
 	return index;
 }
 
-Xing* Xing::whichXingIsWang(Xing** pXing,int numbers)
+shared_ptr<Xing> Xing::whichXingIsWang(shared_ptr<Xing>* pXing,int numbers)
 {
 	int index = whichWang(pXing,numbers);
 	if(index == numbers)
@@ -179,9 +179,9 @@ Xing* Xing::whichXingIsWang(Xing** pXing,int numbers)
 		return pXing[index];
 }
 
-int Xing::getState(Xing* pXing, Xing** pXings, int numbers)
+int Xing::getState(shared_ptr<Xing> pXing, shared_ptr<Xing>* pXings, int numbers)
 {
-	Xing* pWang = whichXingIsWang(pXings,numbers);
+	shared_ptr<Xing> pWang = whichXingIsWang(pXings,numbers);
 
 	if(pWang == NULL)
 		return ZHEFU;

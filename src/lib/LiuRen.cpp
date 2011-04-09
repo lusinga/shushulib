@@ -6,6 +6,7 @@
 #include <map>
 #include <algorithm>
 #include <boost/shared_ptr.hpp>
+#include <boost/make_shared.hpp>
 
 using namespace std;
 
@@ -22,9 +23,9 @@ LiuRen::~LiuRen()
 
 }
 
-void LiuRen::formatPan(DiZhi* pdz)
+void LiuRen::formatPan(shared_ptr<DiZhi> pdz)
 {
-	DiZhi* dzs[12];
+	shared_ptr<DiZhi> dzs[12];
 	dzs[0] = pdz;
 	for(int i=1;i<12;i++)
 	{
@@ -36,21 +37,13 @@ void LiuRen::formatPan(DiZhi* pdz)
 	cout<<dzs[3]->getName()<<"    "<<dzs[10]->getName()<<endl;
 	cout<<dzs[2]->getName()<<dzs[1]->getName()<<dzs[0]->getName()<<dzs[11]->getName()<<endl;
 
-	for(int i=1;i<12;i++)
-	{
-		delete dzs[i];
-		dzs[i] = NULL;
-	}
-
 }
 
 void LiuRen::diPan()
 {
 	cout<<endl<<"地盘："<<endl<<endl;
-	DiZhi* pdz = new DiZhi_Zi();
+	shared_ptr<DiZhi> pdz = make_shared<DiZhi_Zi>();
 	formatPan(pdz);
-	delete pdz;
-	pdz = NULL;
 }
 
 void LiuRen::tianPan()
@@ -67,7 +60,7 @@ void LiuRen::tianPan()
 
 void LiuRen::siKe()
 {
-	TianGan* ptg1 = Month::buildGan(this->riGan);
+	shared_ptr<TianGan> ptg1 = Month::buildGan(this->riGan);
 	this->kelow[0] = this->riGan;
 	this->kelow[1] = this->kehigh[0] = this->tianpan[ptg1->getJiGong()];
 	this->kehigh[1] = this->tianpan[kelow[1]];
@@ -76,12 +69,12 @@ void LiuRen::siKe()
 	this->kelow[3] = this->kehigh[2] = this->tianpan[kelow[2]]; 
 	this->kehigh[3] = this->tianpan[kelow[3]];
 
-	DiZhi* pdz0 = Month::buildZhi(kehigh[0]);
-	DiZhi* pdz1 = Month::buildZhi(kehigh[1]);
-	DiZhi* pdz2 = Month::buildZhi(kehigh[2]);
-	DiZhi* pdz3 = Month::buildZhi(kehigh[3]);
+	shared_ptr<DiZhi> pdz0 = Month::buildZhi(kehigh[0]);
+	shared_ptr<DiZhi> pdz1 = Month::buildZhi(kehigh[1]);
+	shared_ptr<DiZhi> pdz2 = Month::buildZhi(kehigh[2]);
+	shared_ptr<DiZhi> pdz3 = Month::buildZhi(kehigh[3]);
 
-	DiZhi* pdzr = Month::buildZhi(kelow[2]);
+	shared_ptr<DiZhi> pdzr = Month::buildZhi(kelow[2]);
 
 	cout<<endl<<"四课:"<<endl<<endl;
 	cout<<pdz0->getName()<<" "<<pdz1->getName()<<" "
@@ -94,10 +87,10 @@ void LiuRen::siKe()
 
 void LiuRen::printSanChuan(bool isGan)
 {
-	TianGan* ptg;
-	DiZhi* pdz1;
-	DiZhi* pdz2;
-	DiZhi* pdz3;
+	shared_ptr<TianGan> ptg;
+	shared_ptr<DiZhi> pdz1;
+	shared_ptr<DiZhi> pdz2;
+	shared_ptr<DiZhi> pdz3;
 
 	cout<<endl<<"三传："<<endl;
 
@@ -118,8 +111,8 @@ void LiuRen::printSanChuan(bool isGan)
 
 void LiuRen::sanChuan()
 {
-	GanZhi* pgzh[4];
-	GanZhi* pgzl[4];
+	shared_ptr<GanZhi> pgzh[4];
+	shared_ptr<GanZhi> pgzl[4];
 	vector<int> zeiKe;
 	vector<int> zeiKeBiYong;
 	vector<int> keKe;
@@ -151,7 +144,7 @@ void LiuRen::sanChuan()
 	}
 
 	izei=(int)zeiKe.size();
-	izei_he=zeiKeBiYong.size();
+	izei_he=(int)zeiKeBiYong.size();
 
 	cout<<"[Debug]共有"<<izei<<"个贼课。"<<endl;
 	cout<<"[Debug]共有"<<izei_he<<"个贼课比用。"<<endl;
@@ -205,8 +198,8 @@ void LiuRen::sanChuan()
 		}
 	}
 
-	izei=keKe.size();
-	izei_he=keKeBiYong.size();
+	izei=(int)keKe.size();
+	izei_he=(int)keKeBiYong.size();
 
 	cout<<"[Debug]共有"<<ike<<"个克课。"<<endl;
 	cout<<"[Debug]共有"<<ike_he<<"个克课比用。"<<endl;
@@ -256,11 +249,11 @@ int LiuRen::walk(int start, int end)
 
 	if(end<start) end+=12;
 
-	DiZhi* pMe = Month::buildZhi(end);
+	shared_ptr<DiZhi> pMe = Month::buildZhi(end);
 
 	for(int i=start; i<=end; i++)
 	{
-		DiZhi* pHe = Month::buildZhi(i);
+		shared_ptr<DiZhi> pHe = Month::buildZhi(i);
 		//cout<<pHe->getName();
 		if(pHe->ke(pMe))
 			kecount++;

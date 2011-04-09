@@ -32,9 +32,9 @@ public:
 
 	int getMonth(void);
 
-	bool he(DiZhi* pz);
-	bool chong(DiZhi* pz);
-	bool sanhe(DiZhi* pz2, DiZhi* pz3);
+	bool he(shared_ptr<DiZhi> pz);
+	bool chong(shared_ptr<DiZhi> pz);
+	bool sanhe(shared_ptr<DiZhi> pz2, shared_ptr<DiZhi> pz3);
 
 	virtual int getXing() = 0;
 

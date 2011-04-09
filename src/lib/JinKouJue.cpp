@@ -146,7 +146,7 @@ void JinKouJue::duanKe()
 	pXings[2] = pYueJiang->buildXing();
 	pXings[3] = pDiFen->buildXing();
 
-	Xing* pYongShenXing = bYongShenIsJiang? pXings[2] : pXings[1];
+	shared_ptr<Xing> pYongShenXing = bYongShenIsJiang? pXings[2] : pXings[1];
 
 	int state = Xing::getState(pYongShenXing,pXings,4);
 	switch(state)
@@ -224,8 +224,6 @@ void JinKouJue::duanKe()
 
 	shensha();
 
-	delete pXings;
-	pXings = NULL;
 }
 
 void JinKouJue::shensha()
@@ -241,7 +239,7 @@ void JinKouJue::shensha()
 		cout<<"人元见丁。丁火主惊恐事，家中不安，疾病忧愁，损伤六畜，神经病人"<<endl;
 	}
 	//3.天盗(课中见子水)
-	BOOST_FOREACH(DiZhi* pDZ, zhis)
+	BOOST_FOREACH(shared_ptr<DiZhi> pDZ, zhis)
 	{
 		if(pDZ->getDzid() ==DiZhi::DZzi)
 		{
@@ -249,7 +247,7 @@ void JinKouJue::shensha()
 		}
 	}
 	//4.天德
-	BOOST_FOREACH(DiZhi* pDZ, zhis)
+	BOOST_FOREACH(shared_ptr<DiZhi> pDZ, zhis)
 	{
 		if(ShenSha::isTianDe(pMonth->pDZ,pDZ))
 		{
@@ -257,7 +255,7 @@ void JinKouJue::shensha()
 		}
 	}
 
-	BOOST_FOREACH(TianGan* pTG, gans)
+	BOOST_FOREACH(shared_ptr<TianGan> pTG, gans)
 	{
 		if(ShenSha::isTianDe(pMonth->pDZ,pTG))
 		{
@@ -266,7 +264,7 @@ void JinKouJue::shensha()
 	}
 	
 	//5.月德
-	BOOST_FOREACH(TianGan* pTG, gans)
+	BOOST_FOREACH(shared_ptr<TianGan> pTG, gans)
 	{
 		if(ShenSha::isYueDe(pMonth->pDZ,pTG->getTgid()))
 		{
@@ -274,7 +272,7 @@ void JinKouJue::shensha()
 		}
 	}
 	//6.天德合
-	BOOST_FOREACH(TianGan* pTG, gans)
+	BOOST_FOREACH(shared_ptr<TianGan> pTG, gans)
 	{
 		if(ShenSha::isTianDeHe(pMonth->pDZ,pTG))
 		{
@@ -282,16 +280,16 @@ void JinKouJue::shensha()
 		}
 	}
 	//7.月德合
-	BOOST_FOREACH(TianGan* pTG, gans)
+	BOOST_FOREACH(shared_ptr<TianGan> pTG, gans)
 	{
-		auto_ptr<TianGan> pTGHe(Month::buildGan(pTG->getHe()));
+		shared_ptr<TianGan> pTGHe = Month::buildGan(pTG->getHe());
 		if (ShenSha::isYueDe(pMonth->pDZ,pTGHe->getTgid()))
 		{
 			cout<<"月德合入课主和眭，万事顺达有吉庆，化解凶煞，减少损失，逢凶化解，得吉助吉，但是吉庆程度不如月德。"<<endl;
 		}
 	}
 	//8.天马
-	BOOST_FOREACH(DiZhi* pDZ, zhis)
+	BOOST_FOREACH(shared_ptr<DiZhi> pDZ, zhis)
 	{
 		if(ShenSha::isTianMa(pMonth->pDZ->getMonth(),pDZ->getDzid()))
 		{
@@ -300,7 +298,7 @@ void JinKouJue::shensha()
 	}
 
 	//9.驿马
-	BOOST_FOREACH(DiZhi* pDZ, zhis)
+	BOOST_FOREACH(shared_ptr<DiZhi> pDZ, zhis)
 	{
 		if(ShenSha::isDuoMa(pDay->pDZ->getDzid(),pDZ->getDzid()))
 		{
@@ -308,7 +306,7 @@ void JinKouJue::shensha()
 		}
 	}
 	//10.劫煞
-	BOOST_FOREACH(DiZhi* pDZ, zhis)
+	BOOST_FOREACH(shared_ptr<DiZhi> pDZ, zhis)
 	{
 		if(ShenSha::isJieSha(pDay->pDZ->getDzid(),pDZ->getDzid()))
 		{
@@ -341,11 +339,11 @@ void JinKouJue::shensha()
 	//34.课中四绝
 	//35.三奇
 	set<int> ganset;
-	BOOST_FOREACH(TianGan* pTG, gans)
+	BOOST_FOREACH(shared_ptr<TianGan> pTG, gans)
 	{
 		ganset.insert(pTG->getTgid());
 	}
-	BOOST_FOREACH(Gan_Zhi* pGZ, sizhu)
+	BOOST_FOREACH(shared_ptr<Gan_Zhi> pGZ, sizhu)
 	{
 		ganset.insert(pGZ->pTG->getTgid());
 	}
