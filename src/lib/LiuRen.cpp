@@ -10,6 +10,9 @@
 
 using namespace std;
 
+using boost::shared_ptr;
+using boost::make_shared;
+
 LiuRen::LiuRen(int month, int time, int gan, int zhi)
 {
 	this->month = month;

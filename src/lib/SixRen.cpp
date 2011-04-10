@@ -17,8 +17,11 @@
 #include <iostream>
 
 #include <boost/smart_ptr.hpp>
+#include <boost/make_shared.hpp>
 
 using namespace std;
+
+using boost::make_shared;
 
 int main(int argc, char* argv[])
 {
