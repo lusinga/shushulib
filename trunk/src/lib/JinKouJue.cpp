@@ -30,7 +30,7 @@ JinKouJue::JinKouJue(shared_ptr<Gan_Zhi> pYear,shared_ptr<Gan_Zhi> pMonth,
 
 	//cout<<"[debug]isDay="<<isDay<<endl;
 
-	this->pGuiShen = make_shared<GuiShen>(pDay->pTG,isDay,pDiFen);
+	this->pGuiShen = boost::make_shared<GuiShen>(pDay->pTG,isDay,pDiFen);
 
 	pRenYuan = Month::wuZiYuanDu(pDay->pTG,pDiFen);
 

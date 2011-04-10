@@ -4,6 +4,7 @@
 #include <boost/shared_ptr.hpp>
 
 using namespace std;
+using boost::shared_ptr;
 
 class Xing
 {

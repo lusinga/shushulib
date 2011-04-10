@@ -1,6 +1,8 @@
 #include "Month.h"
 #include <boost/make_shared.hpp>
 
+using boost::make_shared;
+
 shared_ptr<DiZhi> Month::buildZhi(int dzid)
 {
 	dzid = dzid>=0 ? dzid %12: dzid % 12 +12;
@@ -53,7 +55,7 @@ shared_ptr<TianGan> Month::buildGan(int tgid)
 {
 
 	tgid = (tgid + 10) % 10; 
-	shared_ptr<TianGan> ptg = NULL;
+	shared_ptr<TianGan> ptg;
 	switch(tgid)
 	{
 	case TianGan::TGjia:

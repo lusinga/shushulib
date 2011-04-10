@@ -11,6 +11,8 @@
 
 #include <boost/make_shared.hpp>
 
+using boost::make_shared;
+
 GuiShen::GuiShen(shared_ptr<TianGan> pTG, bool isDay, shared_ptr<DiZhi> pDiFen)
 {
 	int startForward=0;
