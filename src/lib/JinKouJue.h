@@ -47,7 +47,7 @@ public:
 
 private:
 	string parseYueJiangName();
-	vector<shared_ptr<TianGan>> gans;
-	vector<shared_ptr<DiZhi>> zhis;
-	vector<shared_ptr<Gan_Zhi>> sizhu;
+	vector<shared_ptr<TianGan> > gans;
+	vector<shared_ptr<DiZhi> > zhis;
+	vector<shared_ptr<Gan_Zhi> > sizhu;
 };

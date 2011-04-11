@@ -26,7 +26,7 @@ JinKouJue::JinKouJue(shared_ptr<Gan_Zhi> pYear,shared_ptr<Gan_Zhi> pMonth,
 
 	this->pYueJiang = Month::buildZhi(Month::getYueJiang(this->pMonth->pDZ)-this->pHour->pDZ->getDzid()+this->pDiFen->getDzid());
 
-	bool isDay = pHour->pDZ->getDzid()<DiZhi::DZyou && pHour->pDZ->getDzid()>=DiZhi::DZmao;
+	bool isDay = pHour->pDZ->getDzid()<DZyou && pHour->pDZ->getDzid()>=DZmao;
 
 	//cout<<"[debug]isDay="<<isDay<<endl;
 
@@ -78,15 +78,15 @@ string JinKouJue::parseYueJiangName()
 void JinKouJue::duanKe()
 {
 	int iYang = 0;
-	if(this->pRenYuan->getTgid() % 2 == 0) 
+	if(this->pRenYuan->getTgid() % 2 == 0)
 		iYang++;
-	if(this->pGuiShen->pYinYang->isYang()) 
+	if(this->pGuiShen->pYinYang->isYang())
 		iYang++;
 	if(this->pYueJiang->getDzid() % 2 == 0)
 		iYang++;
 	if(this->pDiFen->getDzid() % 2 == 0)
 		iYang++;
-	
+
 	switch(iYang)
 	{
 	case 0:
@@ -187,7 +187,7 @@ void JinKouJue::duanKe()
 		}
 	}
 
-	if(pDay->isSiDaKongWang(pRenYuan->getXing()) ||pDay->isSiDaKongWang(pGuiShen->pDZ->getXing()) || 
+	if(pDay->isSiDaKongWang(pRenYuan->getXing()) ||pDay->isSiDaKongWang(pGuiShen->pDZ->getXing()) ||
 		pDay->isSiDaKongWang(pYueJiang->getXing()) || pDay->isSiDaKongWang(pDiFen->getXing()))
 	{
 		cout<<"遇四大空亡，吉凶不成。"<<endl;
@@ -210,7 +210,7 @@ void JinKouJue::duanKe()
 	//5.神克干为官动
 	if(pGuiShen->pDZ->ke(pRenYuan))
 		cout<<"神克干为官动"<<endl;
-	
+
 	//判断三动
 	//1.方生干为父母动
 	if(pDiFen->sheng(pRenYuan))
@@ -229,19 +229,19 @@ void JinKouJue::duanKe()
 void JinKouJue::shensha()
 {
 	//1. 人元见甲
-	if(pRenYuan->getTgid() == TianGan::TGjia)
+	if(pRenYuan->getTgid() == TGjia)
 	{
 		cout<<"人元见甲。甲主喜庆和婚姻喜美之事，财帛官职文书之事。主事吉。"<<endl;
 	}
 	//2.人元见丁
-	if(pRenYuan->getTgid() == TianGan::TGding)
+	if(pRenYuan->getTgid() == TGding)
 	{
 		cout<<"人元见丁。丁火主惊恐事，家中不安，疾病忧愁，损伤六畜，神经病人"<<endl;
 	}
 	//3.天盗(课中见子水)
 	BOOST_FOREACH(shared_ptr<DiZhi> pDZ, zhis)
 	{
-		if(pDZ->getDzid() ==DiZhi::DZzi)
+		if(pDZ->getDzid() ==DZzi)
 		{
 			cout<<"课中见天盗，被贼盗去财物，丢失宝物。"<<endl;
 		}
@@ -262,7 +262,7 @@ void JinKouJue::shensha()
 			cout<<"天德入课无忧祸，逢凶化吉危得安。"<<endl;
 		}
 	}
-	
+
 	//5.月德
 	BOOST_FOREACH(shared_ptr<TianGan> pTG, gans)
 	{
@@ -350,20 +350,20 @@ void JinKouJue::shensha()
 	set<int> tiansanqi;
 	set<int> disanqi;
 	set<int> rensanqi;
-	
-	tiansanqi.insert(TianGan::TGjia);
-	tiansanqi.insert(TianGan::TGgeng);
-	tiansanqi.insert(TianGan::TGwu);
 
-	disanqi.insert(TianGan::TGyi);
-	disanqi.insert(TianGan::TGbing);
-	disanqi.insert(TianGan::TGding);
+	tiansanqi.insert(TGjia);
+	tiansanqi.insert(TGgeng);
+	tiansanqi.insert(TGwu);
 
-	rensanqi.insert(TianGan::TGxin);
-	rensanqi.insert(TianGan::TGren);
-	rensanqi.insert(TianGan::TGgui);
-	
-	vector<set<int>> sanqis;
+	disanqi.insert(TGyi);
+	disanqi.insert(TGbing);
+	disanqi.insert(TGding);
+
+	rensanqi.insert(TGxin);
+	rensanqi.insert(TGren);
+	rensanqi.insert(TGgui);
+
+	vector<set<int> > sanqis;
 	sanqis.push_back(tiansanqi);
 	sanqis.push_back(disanqi);
 	sanqis.push_back(rensanqi);

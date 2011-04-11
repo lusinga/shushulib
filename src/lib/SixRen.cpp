@@ -70,7 +70,7 @@ int main(int argc, char* argv[])
 	plr2->sanChuan();
 	plr2->duanKe();
 
-	LiuRen* plr3 = new LiuRen(10, DiZhi::DZsi, TianGan::TGren, DiZhi::DZxu);
+	LiuRen* plr3 = new LiuRen(10, DZsi, TGren, DZxu);
 	plr3->diPan();
 	plr3->tianPan();
 	plr3->siKe();
@@ -79,14 +79,14 @@ int main(int argc, char* argv[])
 
 	//比用法
 
-	LiuRen* plr4 = new LiuRen(4, DiZhi::DZwei, TianGan::TGjia, DiZhi::DZxu);
+	LiuRen* plr4 = new LiuRen(4, DZwei, TGjia, DZxu);
 	plr4->diPan();
 	plr4->tianPan();
 	plr4->siKe();
 	plr4->sanChuan();
 	plr4->duanKe();
 
-	LiuRen* plr5 = new LiuRen(9, DiZhi::DZhai, TianGan::TGxin, DiZhi::DZhai);
+	LiuRen* plr5 = new LiuRen(9, DZhai, TGxin, DZhai);
 	plr5->diPan();
 	plr5->tianPan();
 	plr5->siKe();
@@ -94,14 +94,14 @@ int main(int argc, char* argv[])
 	plr5->duanKe();
 
 	//涉害法
-	LiuRen* plr6 = new LiuRen(1, DiZhi::DZchou, TianGan::TGding, DiZhi::DZmao);
+	LiuRen* plr6 = new LiuRen(1, DZchou, TGding, DZmao);
 	plr6->diPan();
 	plr6->tianPan();
 	plr6->siKe();
 	plr6->sanChuan();
 	plr6->duanKe();
 
-	shared_ptr<LiuRen> plr7(new LiuRen(4, DiZhi::DZxu, TianGan::TGgeng, DiZhi::DZzi));
+	shared_ptr<LiuRen> plr7(new LiuRen(4, DZxu, TGgeng, DZzi));
 	plr7->diPan();
 	plr7->tianPan();
 	plr7->siKe();
@@ -163,77 +163,77 @@ int main(int argc, char* argv[])
 	//index = Xing::whichWang(pXings13,4);
 	//cout<<"The wang index is "<<index<<endl;
 
-	shared_ptr<JinKouJue> pJKJ = make_shared<JinKouJue>(make_shared<Gan_Zhi>(TianGan::TGwu, DiZhi::DZyin),
-		make_shared<Gan_Zhi>(TianGan::TGren, DiZhi::DZxu),
-		make_shared<Gan_Zhi>(TianGan::TGgeng, DiZhi::DZyin),
-		make_shared<Gan_Zhi>(TianGan::TGren, DiZhi::DZwu),
-		Month::buildZhi(DiZhi::DZshen));
+	shared_ptr<JinKouJue> pJKJ = make_shared<JinKouJue>(make_shared<Gan_Zhi>(TGwu, DZyin),
+		make_shared<Gan_Zhi>(TGren, DZxu),
+		make_shared<Gan_Zhi>(TGgeng, DZyin),
+		make_shared<Gan_Zhi>(TGren, DZwu),
+		Month::buildZhi(DZshen));
 
 #if 0
 	JinKouJue* pJKJ2 = new JinKouJue(
-		new Gan_Zhi(TianGan::TGding, DiZhi::DZhai),
-		new Gan_Zhi(TianGan::TGgui, DiZhi::DZmao),
-		new Gan_Zhi(TianGan::TGding, DiZhi::DZmao),
-		new Gan_Zhi(TianGan::TGyi, DiZhi::DZsi),
-		Month::buildZhi(DiZhi::DZyou));
+		new Gan_Zhi(TGding, DZhai),
+		new Gan_Zhi(TGgui, DZmao),
+		new Gan_Zhi(TGding, DZmao),
+		new Gan_Zhi(TGyi, DZsi),
+		Month::buildZhi(DZyou));
 
 	JinKouJue* pJKJ3 = new JinKouJue(
-		new Gan_Zhi(TianGan::TGwu, DiZhi::DZyin),
-		new Gan_Zhi(TianGan::TGxin, DiZhi::DZyou),
-		new Gan_Zhi(TianGan::TGbing, DiZhi::DZxu),
-		new Gan_Zhi(TianGan::TGyi, DiZhi::DZwei),
-		Month::buildZhi(DiZhi::DZzi));
+		new Gan_Zhi(TGwu, DZyin),
+		new Gan_Zhi(TGxin, DZyou),
+		new Gan_Zhi(TGbing, DZxu),
+		new Gan_Zhi(TGyi, DZwei),
+		Month::buildZhi(DZzi));
 
 	JinKouJue* pJKJ4 = new JinKouJue(
-		new Gan_Zhi(TianGan::TGwu, DiZhi::DZyin),
-		new Gan_Zhi(TianGan::TGbing, DiZhi::DZchen),
-		new Gan_Zhi(TianGan::TGwu, DiZhi::DZxu),
-		new Gan_Zhi(TianGan::TGgui, DiZhi::DZhai),
-		Month::buildZhi(DiZhi::DZwu));
+		new Gan_Zhi(TGwu, DZyin),
+		new Gan_Zhi(TGbing, DZchen),
+		new Gan_Zhi(TGwu, DZxu),
+		new Gan_Zhi(TGgui, DZhai),
+		Month::buildZhi(DZwu));
 
 	JinKouJue* pJKJ5 = new JinKouJue(
-		new Gan_Zhi(TianGan::TGding, DiZhi::DZchou),
-		new Gan_Zhi(TianGan::TGgui, DiZhi::DZmao),
-		new Gan_Zhi(TianGan::TGji, DiZhi::DZwei),
-		new Gan_Zhi(TianGan::TGyi, DiZhi::DZsi),
-		Month::buildZhi(DiZhi::DZshen));
+		new Gan_Zhi(TGding, DZchou),
+		new Gan_Zhi(TGgui, DZmao),
+		new Gan_Zhi(TGji, DZwei),
+		new Gan_Zhi(TGyi, DZsi),
+		Month::buildZhi(DZshen));
 
 	JinKouJue* pJKJ6 = new JinKouJue(
-		new Gan_Zhi(TianGan::TGwu, DiZhi::DZyin),
-		new Gan_Zhi(TianGan::TGbing, DiZhi::DZchen),
-		new Gan_Zhi(TianGan::TGding, DiZhi::DZhai),
-		new Gan_Zhi(TianGan::TGjia, DiZhi::DZchen),
-		Month::buildZhi(DiZhi::DZmao));
+		new Gan_Zhi(TGwu, DZyin),
+		new Gan_Zhi(TGbing, DZchen),
+		new Gan_Zhi(TGding, DZhai),
+		new Gan_Zhi(TGjia, DZchen),
+		Month::buildZhi(DZmao));
 
 	JinKouJue* pJKJ7 = new JinKouJue(
-		new Gan_Zhi(TianGan::TGjia, DiZhi::DZxu),
-		new Gan_Zhi(TianGan::TGgui, DiZhi::DZyou),
-		new Gan_Zhi(TianGan::TGgeng, DiZhi::DZxu),
-		new Gan_Zhi(TianGan::TGbing, DiZhi::DZzi),
-		Month::buildZhi(DiZhi::DZhai));
+		new Gan_Zhi(TGjia, DZxu),
+		new Gan_Zhi(TGgui, DZyou),
+		new Gan_Zhi(TGgeng, DZxu),
+		new Gan_Zhi(TGbing, DZzi),
+		Month::buildZhi(DZhai));
 
 	JinKouJue* pJKJ8 = new JinKouJue(
-		new Gan_Zhi(TianGan::TGjia, DiZhi::DZxu),
-		new Gan_Zhi(TianGan::TGbing, DiZhi::DZzi),
-		new Gan_Zhi(TianGan::TGji, DiZhi::DZsi),
-		new Gan_Zhi(TianGan::TGji, DiZhi::DZsi),
-		Month::buildZhi(DiZhi::DZyin));
+		new Gan_Zhi(TGjia, DZxu),
+		new Gan_Zhi(TGbing, DZzi),
+		new Gan_Zhi(TGji, DZsi),
+		new Gan_Zhi(TGji, DZsi),
+		Month::buildZhi(DZyin));
 
 	JinKouJue* pJKJ9 = new JinKouJue(
-		new Gan_Zhi(TianGan::TGyi, DiZhi::DZhai),
-		new Gan_Zhi(TianGan::TGgeng, DiZhi::DZchen),
-		new Gan_Zhi(TianGan::TGgeng, DiZhi::DZwu),
-		new Gan_Zhi(TianGan::TGgui, DiZhi::DZwei),
-		Month::buildZhi(DiZhi::DZwu));
+		new Gan_Zhi(TGyi, DZhai),
+		new Gan_Zhi(TGgeng, DZchen),
+		new Gan_Zhi(TGgeng, DZwu),
+		new Gan_Zhi(TGgui, DZwei),
+		Month::buildZhi(DZwu));
 
 	JinKouJue* pJKJ_11_1 = new JinKouJue(
-		new Gan_Zhi(TianGan::TGbing, DiZhi::DZzi),
-		new Gan_Zhi(TianGan::TGxin, DiZhi::DZchou),
-		new Gan_Zhi(TianGan::TGding, DiZhi::DZsi),
-		new Gan_Zhi(TianGan::TGgui, DiZhi::DZmao),
-		Month::buildZhi(DiZhi::DZwu));
+		new Gan_Zhi(TGbing, DZzi),
+		new Gan_Zhi(TGxin, DZchou),
+		new Gan_Zhi(TGding, DZsi),
+		new Gan_Zhi(TGgui, DZmao),
+		Month::buildZhi(DZwu));
 #endif
-	
+
 	//pJKJ->show();
 	//pJKJ2->show();
 	//pJKJ3->show();
@@ -249,6 +249,6 @@ int main(int argc, char* argv[])
 	//pJKJ_11_1->show();
 
 	cin.get();
-	
+
 	return 0;
 }

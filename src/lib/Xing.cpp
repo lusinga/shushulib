@@ -176,7 +176,7 @@ shared_ptr<Xing> Xing::whichXingIsWang(shared_ptr<Xing>* pXing,int numbers)
 {
 	int index = whichWang(pXing,numbers);
 	if(index == numbers)
-		throw -1;
+		return shared_ptr<Xing>();
 	else
 		return pXing[index];
 }
@@ -234,7 +234,7 @@ shared_ptr<Xing> Xing::buildXing(int xing)
 		return make_shared<Tu>();
 		break;
 	default:
-		throw -1;
+		return shared_ptr<Xing>();
 		break;
 	}
 }

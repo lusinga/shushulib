@@ -5,23 +5,25 @@
 
 #include "ganzhi.h"
 
+const int DZzi   = 0;
+const int DZchou = 1;
+const int DZyin  = 2;
+const int DZmao  = 3;
+const int DZchen = 4;
+const int DZsi   = 5;
+const int DZwu   = 6;
+const int DZwei  = 7;
+const int DZshen = 8;
+const int DZyou  = 9;
+const int DZxu   = 10;
+const int DZhai  = 11;
+
 using namespace std;
 
 class DiZhi : public GanZhi
 {
 public:
-	static const int DZzi   = 0;
-	static const int DZchou = 1;
-	static const int DZyin  = 2;
-	static const int DZmao  = 3;
-	static const int DZchen = 4;
-	static const int DZsi   = 5;
-	static const int DZwu   = 6;
-	static const int DZwei  = 7;
-	static const int DZshen = 8;
-	static const int DZyou  = 9;
-	static const int DZxu   = 10;
-	static const int DZhai  = 11;
+
 
 	DiZhi(void);
 	virtual ~DiZhi(void);
