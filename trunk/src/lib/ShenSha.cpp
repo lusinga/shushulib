@@ -15,41 +15,41 @@ bool ShenSha::isTianDe(shared_ptr<DiZhi> pMonth, shared_ptr<TianGan> pTG)
 {
 	switch (pMonth->getDzid())
 	{
-	case DiZhi::DZyin://正丁二申庚
-		return pTG->getTgid() == TianGan::TGding;
+	case DZyin://正丁二申庚
+		return pTG->getTgid() == TGding;
 		break;
-	//case DiZhi::DZmao://2
-	//	//return pDZ(DiZhi::DZshen);
+	//case DZmao://2
+	//	//return pDZ(DZshen);
 	//	break;
-	case DiZhi::DZchen://3
-		return pTG->getTgid() == TianGan::TGren;
+	case DZchen://3
+		return pTG->getTgid() == TGren;
 		break;
-	case DiZhi::DZsi://4
-		return pTG->getTgid() ==(TianGan::TGxin);
+	case DZsi://4
+		return pTG->getTgid() ==TGxin;
 		break;
-	//case DiZhi::DZwu://5
-	//	//return Month::buildZhi(DiZhi::DZhai);
+	//case DZwu://5
+	//	//return Month::buildZhi(DZhai);
 	//	break;
-	case DiZhi::DZwei://6
-		return pTG->getTgid() == (TianGan::TGjia);
+	case DZwei://6
+		return pTG->getTgid() == TGjia;
 		break;
-	case DiZhi::DZshen://7
-		return pTG->getTgid() == (TianGan::TGgui);
+	case DZshen://7
+		return pTG->getTgid() == TGgui;
 		break;
-	//case DiZhi::DZyou://8
-	//	//return Month::buildZhi(DiZhi::DZyin);
+	//case DZyou://8
+	//	//return Month::buildZhi(DZyin);
 	//	break;
-	case DiZhi::DZxu://9
-		return pTG->getTgid() == (TianGan::TGbing);
+	case DZxu://9
+		return pTG->getTgid() == TGbing;
 		break;
-	case DiZhi::DZhai://10
-		return pTG->getTgid() == (TianGan::TGyi);
+	case DZhai://10
+		return pTG->getTgid() == TGyi;
 		break;
-	//case DiZhi::DZzi://子巳丑庚中
-	//	return //Month::buildZhi(DiZhi::DZsi);
+	//case DZzi://子巳丑庚中
+	//	return //Month::buildZhi(DZsi);
 	//	break;
-	case DiZhi::DZchou:
-		return pTG->getTgid() == (TianGan::TGgeng);
+	case DZchou:
+		return pTG->getTgid() == TGgeng;
 		break;
 	default:
 		return false;
@@ -61,40 +61,40 @@ bool ShenSha::isTianDe(shared_ptr<DiZhi>  pMonth, shared_ptr<DiZhi>  pDZ)
 {
 	switch (pMonth->getDzid())
 	{
-	//case DiZhi::DZyin://正丁二申庚
+	//case DZyin://正丁二申庚
 	//	return pTG->getTgid() == TianGan::TGding;
 	//	break;
-	case DiZhi::DZmao://2
-		return pDZ->getDzid() == (DiZhi::DZshen);
+	case DZmao://2
+		return pDZ->getDzid() == (DZshen);
 		break;
-	//case DiZhi::DZchen://3
+	//case DZchen://3
 	//	//return pTG->getTgid() == TianGan::TGren;
 	//	break;
-	//case DiZhi::DZsi://4
+	//case DZsi://4
 	//	//return pTG->getTgid() ==(TianGan::TGxin);
 	//	break;
-	case DiZhi::DZwu://5
-		return pDZ->getDzid() == (DiZhi::DZhai);
+	case DZwu://5
+		return pDZ->getDzid() == (DZhai);
 		break;
-	case DiZhi::DZwei://6
+	case DZwei://6
 		//return pTG->getTgid() == (TianGan::TGjia);
 		break;
-	//case DiZhi::DZshen://7
+	//case DZshen://7
 	//	//return pTG->getTgid() == (TianGan::TGgui);
 	//	break;
-	case DiZhi::DZyou://8
-		return pDZ->getDzid() == (DiZhi::DZyin);
+	case DZyou://8
+		return pDZ->getDzid() == (DZyin);
 		break;
-	//case DiZhi::DZxu://9
+	//case DZxu://9
 	//	//return pTG->getTgid() == (TianGan::TGbing);
 	//	break;
-	//case DiZhi::DZhai://10
+	//case DZhai://10
 	//	//return pTG->getTgid() == (TianGan::TGyi);
 	//	break;
-	case DiZhi::DZzi://子巳丑庚中
-		return pDZ->getDzid() == (DiZhi::DZsi);
+	case DZzi://子巳丑庚中
+		return pDZ->getDzid() == (DZsi);
 		break;
-	//case DiZhi::DZchou:
+	//case DZchou:
 	//	//return pTG->getTgid() == (TianGan::TGgeng);
 	//	break;
 	default:
@@ -108,21 +108,21 @@ bool ShenSha::isTianDe(shared_ptr<DiZhi>  pMonth, shared_ptr<DiZhi>  pDZ)
 bool ShenSha::isYueDe(shared_ptr<DiZhi>  pMonth, int tgid)
 {
 	int dzid = pMonth->getDzid();
-	if(dzid == DiZhi::DZyin ||dzid == DiZhi::DZwu || dzid == DiZhi::DZmao)
+	if(dzid == DZyin ||dzid == DZwu || dzid == DZmao)
 	{
-		return tgid == TianGan::TGbing;
+		return tgid == TGbing;
 	}
-	else if(dzid == DiZhi::DZhai ||dzid == DiZhi::DZmao || dzid == DiZhi::DZwei)
+	else if(dzid == DZhai ||dzid == DZmao || dzid == DZwei)
 	{
-		return tgid == TianGan::TGjia;
+		return tgid == TGjia;
 	}
-	else if(dzid == DiZhi::DZshen ||dzid == DiZhi::DZzi || dzid == DiZhi::DZchen)
+	else if(dzid == DZshen ||dzid == DZzi || dzid == DZchen)
 	{
-		return tgid == TianGan::TGren;
+		return tgid == TGren;
 	}
-	else if(dzid == DiZhi::DZsi ||dzid == DiZhi::DZyou || dzid == DiZhi::DZchou)
+	else if(dzid == DZsi ||dzid == DZyou || dzid == DZchou)
 	{
-		return tgid == TianGan::TGgeng;
+		return tgid == TGgeng;
 	}
 	else
 		return false;
@@ -135,40 +135,40 @@ bool ShenSha::isTianDeHe(shared_ptr<DiZhi>  pMonth, shared_ptr<TianGan> pTG)
 	switch(pMonth->getMonth())
 	{
 	case 1:
-		return tgid == TianGan::TGren; 
+		return tgid == TGren;
 		break;
 	case 2:
-		return tgid == TianGan::TGyi;
+		return tgid == TGyi;
 		break;
 	case 3:
-		return tgid == TianGan::TGding;
+		return tgid == TGding;
 		break;
 	case 4:
-		return tgid == TianGan::TGbing;
+		return tgid == TGbing;
 		break;
 	case 5:
-		return tgid == TianGan::TGwu;
+		return tgid == TGwu;
 		break;
 	case 6:
-		return tgid == TianGan::TGji;
+		return tgid == TGji;
 		break;
 	case 7:
-		return tgid == TianGan::TGwu;
+		return tgid == TGwu;
 		break;
 	case 8:
-		return tgid == TianGan::TGji;
+		return tgid == TGji;
 		break;
 	case 9:
-		return tgid == TianGan::TGxin;
+		return tgid == TGxin;
 		break;
 	case 10:
-		return tgid == TianGan::TGgeng;
+		return tgid == TGgeng;
 		break;
 	case 11:
-		return tgid == TianGan::TGren;
+		return tgid == TGren;
 		break;
 	case 12:
-		return tgid == TianGan::TGyi;
+		return tgid == TGyi;
 		break;
 	default:
 		return false;
@@ -181,22 +181,22 @@ bool ShenSha::isTianMa(int month, int dzid)
 	switch(month % 6)
 	{
 	case 1:
-		return dzid == DiZhi::DZwu;
+		return dzid == DZwu;
 		break;
 	case 2:
-		return dzid == DiZhi::DZshen;
+		return dzid == DZshen;
 		break;
 	case 3:
-		return dzid == DiZhi::DZxu;
+		return dzid == DZxu;
 		break;
 	case 4:
-		return dzid == DiZhi::DZzi;
+		return dzid == DZzi;
 		break;
 	case 5:
-		return dzid == DiZhi::DZyin;
+		return dzid == DZyin;
 		break;
 	case 0:
-		return dzid == DiZhi::DZchen;
+		return dzid == DZchen;
 		break;
 	default:
 		return false;
@@ -208,25 +208,25 @@ bool ShenSha::isDuoMa(int day_dzid, int dzid)
 {
 	switch (day_dzid)
 	{
-	case DiZhi::DZshen:
-	case DiZhi::DZzi:
-	case DiZhi::DZchen:
-		return dzid == DiZhi::DZyin;
+	case DZshen:
+	case DZzi:
+	case DZchen:
+		return dzid == DZyin;
 		break;
-	case DiZhi::DZhai:
-	case DiZhi::DZmao:
-	case DiZhi::DZwei:
-		return dzid == DiZhi::DZsi;
+	case DZhai:
+	case DZmao:
+	case DZwei:
+		return dzid == DZsi;
 		break;
-	case DiZhi::DZyin:
-	case DiZhi::DZwu:
-	case DiZhi::DZxu:
-		return dzid == DiZhi::DZshen;
+	case DZyin:
+	case DZwu:
+	case DZxu:
+		return dzid == DZshen;
 		break;
-	case DiZhi::DZsi:
-	case DiZhi::DZyou:
-	case DiZhi::DZchou:
-		return dzid == DiZhi::DZhai;
+	case DZsi:
+	case DZyou:
+	case DZchou:
+		return dzid == DZhai;
 		break;
 	default:
 		return false;
@@ -237,25 +237,25 @@ bool ShenSha::isJieSha(int day_dzid, int dzid)
 {
 	switch (day_dzid)
 	{
-	case DiZhi::DZshen:
-	case DiZhi::DZzi:
-	case DiZhi::DZchen:
-		return dzid == DiZhi::DZsi;
+	case DZshen:
+	case DZzi:
+	case DZchen:
+		return dzid == DZsi;
 		break;
-	case DiZhi::DZhai:
-	case DiZhi::DZmao:
-	case DiZhi::DZwei:
-		return dzid == DiZhi::DZhai;
+	case DZhai:
+	case DZmao:
+	case DZwei:
+		return dzid == DZhai;
 		break;
-	case DiZhi::DZyin:
-	case DiZhi::DZwu:
-	case DiZhi::DZxu:
-		return dzid == DiZhi::DZshen;
+	case DZyin:
+	case DZwu:
+	case DZxu:
+		return dzid == DZshen;
 		break;
-	case DiZhi::DZsi:
-	case DiZhi::DZyou:
-	case DiZhi::DZchou:
-		return dzid == DiZhi::DZyin;
+	case DZsi:
+	case DZyou:
+	case DZchou:
+		return dzid == DZyin;
 		break;
 	default:
 		return false;

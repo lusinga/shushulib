@@ -9,41 +9,41 @@ shared_ptr<DiZhi> Month::buildZhi(int dzid)
 	shared_ptr<DiZhi> pdz;
 	switch(dzid)
 	{
-	case DiZhi::DZzi:
+	case DZzi:
 		//pdz = new DiZhi_Zi();
 		pdz = make_shared<DiZhi_Zi>();
 		break;
-	case DiZhi::DZchou:
+	case DZchou:
 		pdz = make_shared<DiZhi_Chou>();
 		break;
-	case DiZhi::DZyin:
+	case DZyin:
 		pdz = make_shared<DiZhi_Yin>();
 		break;
-	case DiZhi::DZmao:
+	case DZmao:
 		pdz = make_shared<DiZhi_Mao>();
 		break;
-	case DiZhi::DZchen:
+	case DZchen:
 		pdz = make_shared<DiZhi_Chen>();
 		break;
-	case DiZhi::DZsi:
+	case DZsi:
 		pdz = make_shared<DiZhi_Si>();
 		break;
-	case DiZhi::DZwu:
+	case DZwu:
 		pdz = make_shared<DiZhi_Wu>();
 		break;
-	case DiZhi::DZwei:
+	case DZwei:
 		pdz = make_shared<DiZhi_Wei>();
 		break;
-	case DiZhi::DZshen:
+	case DZshen:
 		pdz = make_shared<DiZhi_Shen>();
 		break;
-	case DiZhi::DZyou:
+	case DZyou:
 		pdz = make_shared<DiZhi_You>();
 		break;
-	case DiZhi::DZxu:
+	case DZxu:
 		pdz = make_shared<DiZhi_Xu>();
 		break;
-	case DiZhi::DZhai:
+	case DZhai:
 		pdz = make_shared<DiZhi_Hai>();
 		break;
 	}
@@ -54,38 +54,38 @@ shared_ptr<DiZhi> Month::buildZhi(int dzid)
 shared_ptr<TianGan> Month::buildGan(int tgid)
 {
 
-	tgid = (tgid + 10) % 10; 
+	tgid = (tgid + 10) % 10;
 	shared_ptr<TianGan> ptg;
 	switch(tgid)
 	{
-	case TianGan::TGjia:
-		ptg = make_shared<TianGan_Jia>(); 
+	case TGjia:
+		ptg = make_shared<TianGan_Jia>();
 		break;
-	case TianGan::TGyi:
+	case TGyi:
 		ptg = make_shared<TianGan_Yi>();
 		break;
-	case TianGan::TGbing:
+	case TGbing:
 		ptg = make_shared<TianGan_Bing>();
 		break;
-	case TianGan::TGding:
+	case TGding:
 		ptg = make_shared<TianGan_Ding>();
 		break;
-	case TianGan::TGwu:
+	case TGwu:
 		ptg = make_shared<TianGan_Wu>();
 		break;
-	case TianGan::TGji:
+	case TGji:
 		ptg = make_shared<TianGan_Ji>();
 		break;
-	case TianGan::TGgeng:
+	case TGgeng:
 		ptg = make_shared<TianGan_Geng>();
 		break;
-	case TianGan::TGxin:
+	case TGxin:
 		ptg = make_shared<TianGan_Xin>();
 		break;
-	case TianGan::TGren:
+	case TGren:
 		ptg = make_shared<TianGan_Ren>();
 		break;
-	case TianGan::TGgui:
+	case TGgui:
 		ptg = make_shared<TianGan_Gui>();
 		break;
 	}

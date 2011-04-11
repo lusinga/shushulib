@@ -15,7 +15,7 @@ int Gan_Zhi::getXing()
 {
 	return 0;
 }
-	
+
 string Gan_Zhi::getName()
 {
 	return this->pTG->getName()+this->pDZ->getName();
@@ -30,29 +30,29 @@ bool Gan_Zhi::isXunKong(shared_ptr<DiZhi> pDZToBeCheck)
 
 	bool bResult;
 
-	if(xunid == DiZhi::DZzi)
+	if(xunid == DZzi)
 	{
-		bResult = (pDZToBeCheck->getDzid() == DiZhi::DZxu ||pDZToBeCheck->getDzid() == DiZhi::DZhai);
+		bResult = (pDZToBeCheck->getDzid() == DZxu ||pDZToBeCheck->getDzid() == DZhai);
 	}
-	else if(xunid == DiZhi::DZxu)
+	else if(xunid == DZxu)
 	{
-		bResult = (pDZToBeCheck->getDzid() == DiZhi::DZshen ||pDZToBeCheck->getDzid() == DiZhi::DZyou);
+		bResult = (pDZToBeCheck->getDzid() == DZshen ||pDZToBeCheck->getDzid() == DZyou);
 	}
-	else if(xunid == DiZhi::DZshen)
+	else if(xunid == DZshen)
 	{
-		bResult = (pDZToBeCheck->getDzid() == DiZhi::DZwu ||pDZToBeCheck->getDzid() == DiZhi::DZwei);
+		bResult = (pDZToBeCheck->getDzid() == DZwu ||pDZToBeCheck->getDzid() == DZwei);
 	}
-	else if(xunid == DiZhi::DZwu)
+	else if(xunid == DZwu)
 	{
-		bResult = (pDZToBeCheck->getDzid() == DiZhi::DZchen ||pDZToBeCheck->getDzid() == DiZhi::DZsi);
+		bResult = (pDZToBeCheck->getDzid() == DZchen ||pDZToBeCheck->getDzid() == DZsi);
 	}
-	else if(xunid == DiZhi::DZchen)
+	else if(xunid == DZchen)
 	{
-		bResult = (pDZToBeCheck->getDzid() == DiZhi::DZyin ||pDZToBeCheck->getDzid() == DiZhi::DZmao);
+		bResult = (pDZToBeCheck->getDzid() == DZyin ||pDZToBeCheck->getDzid() == DZmao);
 	}
-	else if(xunid == DiZhi::DZyin)
+	else if(xunid == DZyin)
 	{
-		bResult = (pDZToBeCheck->getDzid() == DiZhi::DZzi ||pDZToBeCheck->getDzid() == DiZhi::DZchou);
+		bResult = (pDZToBeCheck->getDzid() == DZzi ||pDZToBeCheck->getDzid() == DZchou);
 	}
 	else
 		bResult = false;
@@ -69,16 +69,16 @@ bool Gan_Zhi::isSiDaKongWang(int xing)
 
 	bool bResult = false;
 
-	if(xunid == DiZhi::DZzi || xunid == DiZhi::DZwu)
+	if(xunid == DZzi || xunid == DZwu)
 	{
 		bResult = xing == Xing::SHUI;
 	}
-	else if(xunid == DiZhi::DZyin || xunid == DiZhi::DZshen)
+	else if(xunid == DZyin || xunid == DZshen)
 	{
 		bResult = xing == Xing::JIN;
 	}
 	else
 		bResult = false;
-	
+
 	return bResult;
 }

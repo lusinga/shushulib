@@ -3,7 +3,7 @@
 
 int TianGan::getJiGong()
 {
-	return this->JiGong[this->tgid];	
+	return this->JiGong[this->tgid];
 };
 
 /**
@@ -15,16 +15,16 @@ int TianGan::getJiGong()
  * 分明不用四正辰
  */
 int TianGan::JiGong[] = {
-	DiZhi::DZyin, 
-	DiZhi::DZchen,
-	DiZhi::DZsi,
-	DiZhi::DZwei,
-	DiZhi::DZsi,
-	DiZhi::DZwei,
-	DiZhi::DZshen,
-	DiZhi::DZxu,
-	DiZhi::DZhai,
-	DiZhi::DZchou,
+	DZyin,
+	DZchen,
+	DZsi,
+	DZwei,
+	DZsi,
+	DZwei,
+	DZshen,
+	DZxu,
+	DZhai,
+	DZchou,
 };
 
 int TianGan::getTgid()
