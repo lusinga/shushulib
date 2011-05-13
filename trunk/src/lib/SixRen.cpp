@@ -108,6 +108,14 @@ int main(int argc, char* argv[])
 	plr7->sanChuan();
 	plr7->duanKe();
 
+	//¼û»ú¸ñ
+	shared_ptr<LiuRen> plr8(new LiuRen(DZshen+1,DZyou,TGji,DZhai));
+	plr8->diPan();
+	plr8->tianPan();
+	plr8->siKe();
+	plr8->sanChuan();
+	plr8->duanKe();
+
 	Gan_Zhi* pGZ = new Gan_Zhi(0,0);
 	cout<<pGZ->getName()<<endl;
 
