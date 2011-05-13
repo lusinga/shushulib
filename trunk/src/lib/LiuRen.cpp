@@ -19,6 +19,12 @@ LiuRen::LiuRen(int month, int time, int gan, int zhi)
 	this->time = time;
 	this->riGan = gan;
 	this->riZhi = zhi;
+
+	shared_ptr<TianGan> pTg = Month::buildGan(riGan);
+	shared_ptr<DiZhi> pDz = Month::buildZhi(riZhi);
+	shared_ptr<DiZhi> pShiChen = Month::buildZhi(time);
+
+	cout<<month<<"月"<<pTg->getName()<<pDz->getName()<<"日"<<pShiChen->getName()<<"时"<<Month::buildZhi(Month::getYueJiang(month))->getName()<<"将"<<endl;
 }
 
 LiuRen::~LiuRen()
@@ -201,8 +207,8 @@ void LiuRen::sanChuan()
 		}
 	}
 
-	izei=(int)keKe.size();
-	izei_he=(int)keKeBiYong.size();
+	ike=(int)keKe.size();
+	ike_he=(int)keKeBiYong.size();
 
 	cout<<"[Debug]共有"<<ike<<"个克课。"<<endl;
 	cout<<"[Debug]共有"<<ike_he<<"个克课比用。"<<endl;
