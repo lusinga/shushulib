@@ -1,5 +1,9 @@
 #include "DiZhi.h"
+#include "Tiangan.h"
 #include <iostream>
+#include <vector>
+#include <boost/shared_ptr.hpp>
+#include <boost/make_shared.hpp>
 
 using namespace std;
 
@@ -66,4 +70,42 @@ bool DiZhi::sanhe(boost::shared_ptr<DiZhi> pz2, boost::shared_ptr<DiZhi> pz3)
 int DiZhi::getMonth(void)
 {
 	return (this->dzid -1 ) %12;
+}
+
+boost::shared_ptr<std::vector<int>> DiZhi::getJiGongTianGanList()
+{
+	boost::shared_ptr<std::vector<int>> tgs = boost::make_shared<std::vector<int>>();
+	switch(dzid)
+	{
+	case DZyin:
+		tgs->push_back(TGjia);
+		break;
+	case DZchen:
+		tgs->push_back(TGyi);
+		break;
+	case DZsi:
+		tgs->push_back(TGbing);
+		tgs->push_back(TGwu);
+		break;
+	case DZwei:
+		tgs->push_back(TGding);
+		tgs->push_back(TGji);
+		break;
+	case DZshen:
+		tgs->push_back(TGgeng);
+		break;
+	case DZxu:
+		tgs->push_back(TGxin);
+		break;
+	case DZhai:
+		tgs->push_back(TGren);
+		break;
+	case DZchou:
+		tgs->push_back(TGgui);
+		break;
+	default:
+		break;
+	}
+
+	return tgs;
 }
