@@ -295,8 +295,16 @@ int LiuRen::walk(int start, int end)
 		//cout<<pHe->getName();
 		if(pHe->ke(pMe))
 			kecount++;
+		boost::shared_ptr<vector<int>> tgs = pHe->getJiGongTianGanList();
+		
+		BOOST_FOREACH(int itg, (*tgs))
+		{
+			boost::shared_ptr<TianGan> pTGtc = Month::buildGan(itg);
+			if(pTGtc->ke(pMe))
+				kecount++;
+		}
 	}
-	cout<<"天盘在回归地盘本位的过程中，共计被克"<<kecount<<"次"<<endl<<endl;
+	cout<<"天盘"<<pMe->getName()<<"在回归地盘本位的过程中，共计被克"<<kecount<<"次"<<endl<<endl;
 
 	return kecount;
 }

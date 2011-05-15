@@ -2,8 +2,10 @@
 
 #include <string>
 #include <iostream>
+#include <vector>
 
 #include "ganzhi.h"
+#include "Tiangan.h"
 
 const int DZzi   = 0;
 const int DZchou = 1;
@@ -39,6 +41,8 @@ public:
 	bool sanhe(boost::shared_ptr<DiZhi> pz2, boost::shared_ptr<DiZhi> pz3);
 
 	virtual int getXing() = 0;
+
+	boost::shared_ptr<std::vector<int>> getJiGongTianGanList();
 
 protected:
 	int dzid;
