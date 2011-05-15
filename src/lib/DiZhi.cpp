@@ -8,7 +8,6 @@ DiZhi::DiZhi(void)
 	
 }
 
-
 DiZhi::~DiZhi(void)
 {
 }
@@ -35,7 +34,7 @@ int DiZhi::getDzid()
 	return this->dzid;
 }
 
-bool DiZhi::he(shared_ptr<DiZhi> pz)
+bool DiZhi::he(boost::shared_ptr<DiZhi> pz)
 {
 	bool ishe = he(this->getDzid(),pz->getDzid());
 	if(ishe)
@@ -45,7 +44,7 @@ bool DiZhi::he(shared_ptr<DiZhi> pz)
 	return ishe;
 }
 
-bool DiZhi::chong(shared_ptr<DiZhi> pz)
+bool DiZhi::chong(boost::shared_ptr<DiZhi> pz)
 {
 	bool ischong = chong(this->getDzid(),pz->getDzid());
 	if(ischong)
@@ -59,7 +58,7 @@ bool DiZhi::chong(shared_ptr<DiZhi> pz)
 	return ischong;
 }
 
-bool DiZhi::sanhe(shared_ptr<DiZhi> pz2, shared_ptr<DiZhi> pz3)
+bool DiZhi::sanhe(boost::shared_ptr<DiZhi> pz2, boost::shared_ptr<DiZhi> pz3)
 {
 	return sanhe(this->getDzid(), pz2->getDzid(), pz3->getDzid());
 }

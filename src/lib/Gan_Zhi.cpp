@@ -21,7 +21,7 @@ string Gan_Zhi::getName()
 	return this->pTG->getName()+this->pDZ->getName();
 }
 
-bool Gan_Zhi::isXunKong(shared_ptr<DiZhi> pDZToBeCheck)
+bool Gan_Zhi::isXunKong(boost::shared_ptr<DiZhi> pDZToBeCheck)
 {
 	int tgid = pTG->getTgid();
 	int dzid = pDZ->getDzid();

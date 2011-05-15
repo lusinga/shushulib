@@ -34,9 +34,9 @@ public:
 
 	int getMonth(void);
 
-	bool he(shared_ptr<DiZhi> pz);
-	bool chong(shared_ptr<DiZhi> pz);
-	bool sanhe(shared_ptr<DiZhi> pz2, shared_ptr<DiZhi> pz3);
+	bool he(boost::shared_ptr<DiZhi> pz);
+	bool chong(boost::shared_ptr<DiZhi> pz);
+	bool sanhe(boost::shared_ptr<DiZhi> pz2, boost::shared_ptr<DiZhi> pz3);
 
 	virtual int getXing() = 0;
 

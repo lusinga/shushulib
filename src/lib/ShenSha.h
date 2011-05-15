@@ -10,11 +10,11 @@ public:
 	ShenSha(void);
 	~ShenSha(void);
 
-	static bool isTianDe(shared_ptr<DiZhi>  pMonth, shared_ptr<TianGan>  pTG);
-	static bool isTianDe(shared_ptr<DiZhi>  pMonth, shared_ptr<DiZhi>  pDZ);
-	static bool isTianDeHe(shared_ptr<DiZhi>  pMonth, shared_ptr<TianGan>  pTG);
+	static bool isTianDe(boost::shared_ptr<DiZhi>  pMonth, boost::shared_ptr<TianGan>  pTG);
+	static bool isTianDe(boost::shared_ptr<DiZhi>  pMonth, boost::shared_ptr<DiZhi>  pDZ);
+	static bool isTianDeHe(boost::shared_ptr<DiZhi>  pMonth, boost::shared_ptr<TianGan>  pTG);
 
-	static bool isYueDe(shared_ptr<DiZhi>  pMonth, int tgid);
+	static bool isYueDe(boost::shared_ptr<DiZhi>  pMonth, int tgid);
 	static bool isTianMa(int month, int dzid);
 	static bool isDuoMa(int day_dzid, int dzid);
 	static bool isJieSha(int day_dzid, int dzid);
