@@ -130,6 +130,10 @@ int main(int argc, char* argv[])
 		Month::getMonthByYueJiang(DZhai),DZmao,TGjia,DZchen);
 	plr_ycy1->doAll();
 
+	boost::shared_ptr<LiuRen> plr_ycy2 = boost::make_shared<LiuRen>(
+		6,DZhai,TGbing,DZzi);
+	plr_ycy2->doAll();
+
 	Gan_Zhi* pGZ = new Gan_Zhi(0,0);
 	cout<<pGZ->getName()<<endl;
 
