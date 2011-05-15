@@ -304,7 +304,7 @@ int LiuRen::walk(int start, int end)
 				kecount++;
 		}
 	}
-	cout<<"天盘"<<pMe->getName()<<"在回归地盘本位的过程中，共计被克"<<kecount<<"次"<<endl<<endl;
+	cout<<"天盘"<<pMe->getName()<<"在回归地盘本位的过程中，共计被克"<<kecount<<"次"<<endl;
 
 	return kecount;
 }
