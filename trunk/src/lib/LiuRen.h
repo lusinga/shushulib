@@ -8,13 +8,14 @@ class LiuRen
 public:
 	LiuRen(int month, int time, int riGan, int riZhi);
 	~LiuRen();
-	static void formatPan(shared_ptr<DiZhi> pdz);
+	static void formatPan(boost::shared_ptr<DiZhi> pdz);
 	void diPan();
 	void tianPan();
 	void siKe(); 
 	void sanChuan();
 	void printSanChuan(bool isGan);
 	void duanKe();
+	void doAll();
 
 private:
 	int walk(int start,int end);
@@ -27,6 +28,8 @@ private:
 	int time;
 	int riGan;
 	int riZhi;
+	boost::shared_ptr<TianGan> pRiGan;
+	boost::shared_ptr<DiZhi> pRiZhi;
 
 	int ike;
 	int izei;

@@ -11,7 +11,7 @@ ShenSha::~ShenSha(void)
 {
 }
 
-bool ShenSha::isTianDe(shared_ptr<DiZhi> pMonth, shared_ptr<TianGan> pTG)
+bool ShenSha::isTianDe(boost::shared_ptr<DiZhi> pMonth, boost::shared_ptr<TianGan> pTG)
 {
 	switch (pMonth->getDzid())
 	{
@@ -57,7 +57,7 @@ bool ShenSha::isTianDe(shared_ptr<DiZhi> pMonth, shared_ptr<TianGan> pTG)
 	}
 }
 
-bool ShenSha::isTianDe(shared_ptr<DiZhi>  pMonth, shared_ptr<DiZhi>  pDZ)
+bool ShenSha::isTianDe(boost::shared_ptr<DiZhi>  pMonth, boost::shared_ptr<DiZhi>  pDZ)
 {
 	switch (pMonth->getDzid())
 	{
@@ -105,7 +105,7 @@ bool ShenSha::isTianDe(shared_ptr<DiZhi>  pMonth, shared_ptr<DiZhi>  pDZ)
 	return false;
 }
 
-bool ShenSha::isYueDe(shared_ptr<DiZhi>  pMonth, int tgid)
+bool ShenSha::isYueDe(boost::shared_ptr<DiZhi>  pMonth, int tgid)
 {
 	int dzid = pMonth->getDzid();
 	if(dzid == DZyin ||dzid == DZwu || dzid == DZmao)
@@ -128,7 +128,7 @@ bool ShenSha::isYueDe(shared_ptr<DiZhi>  pMonth, int tgid)
 		return false;
 }
 
-bool ShenSha::isTianDeHe(shared_ptr<DiZhi>  pMonth, shared_ptr<TianGan> pTG)
+bool ShenSha::isTianDeHe(boost::shared_ptr<DiZhi>  pMonth, boost::shared_ptr<TianGan> pTG)
 {
 	int tgid = pTG->getTgid();
 

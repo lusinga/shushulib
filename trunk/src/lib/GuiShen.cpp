@@ -13,7 +13,7 @@
 
 using boost::make_shared;
 
-GuiShen::GuiShen(shared_ptr<TianGan> pTG, bool isDay, shared_ptr<DiZhi> pDiFen)
+GuiShen::GuiShen(boost::shared_ptr<TianGan> pTG, bool isDay, boost::shared_ptr<DiZhi> pDiFen)
 {
 	int startForward=0;
 	int startReverse=0;
@@ -64,79 +64,79 @@ GuiShen::GuiShen(shared_ptr<TianGan> pTG, bool isDay, shared_ptr<DiZhi> pDiFen)
 	switch(gsID)
 	{
 	case 0:
-		pName = make_shared<string>("³ó (ÌìÒÒ¹óÉñ ÒõÍÁ)");
-		pYinYang = make_shared<Yin>();
-		pXing = make_shared<Tu>();
+		pName = boost::make_shared<string>("³ó (ÌìÒÒ¹óÉñ ÒõÍÁ)");
+		pYinYang = boost::make_shared<Yin>();
+		pXing = boost::make_shared<Tu>();
 		pDZ = Month::buildZhi(DZchou);
 		break;
 	case 1:
-		pName = make_shared<string>("ËÈ (ÎŸÉß Òõ»ğ)");
+		pName = boost::make_shared<string>("ËÈ (ÎŸÉß Òõ»ğ)");
 		pDZ = Month::buildZhi(DZsi);
-		pYinYang = make_shared<Yin>();
-		pXing = make_shared<Huo>();
+		pYinYang = boost::make_shared<Yin>();
+		pXing = boost::make_shared<Huo>();
 		break;
 	case 2:
-		pName =make_shared<string>("Îç (ÖìÈ¸ Ñô»ğ)");
+		pName =boost::make_shared<string>("Îç (ÖìÈ¸ Ñô»ğ)");
 		pDZ = Month::buildZhi(DZwu);
-		pYinYang = make_shared<Yang>();
-		pXing = make_shared<Huo>();
+		pYinYang = boost::make_shared<Yang>();
+		pXing = boost::make_shared<Huo>();
 		break;
 	case 3:
-		pName =make_shared<string>("Ã® (ÁùºÏ ÒõÄ¾)");
+		pName =boost::make_shared<string>("Ã® (ÁùºÏ ÒõÄ¾)");
 		pDZ = Month::buildZhi(DZmao);
-		pYinYang = make_shared<Yin>();
-		pXing = make_shared<Mu>();
+		pYinYang = boost::make_shared<Yin>();
+		pXing = boost::make_shared<Mu>();
 		break;
 	case 4:
-		pName =make_shared<string>("³½ (¹´³Â ÑôÍÁ)");
+		pName =boost::make_shared<string>("³½ (¹´³Â ÑôÍÁ)");
 		pDZ = Month::buildZhi(DZchen);
-		pYinYang = make_shared<Yang>();
-		pXing = make_shared<Tu>();
+		pYinYang = boost::make_shared<Yang>();
+		pXing = boost::make_shared<Tu>();
 		break;
 	case 5:
-		pName =make_shared<string>("Òú (ÇàÁú ÑôÄ¾)");
+		pName =boost::make_shared<string>("Òú (ÇàÁú ÑôÄ¾)");
 		pDZ = Month::buildZhi(DZyin);
-		pYinYang = make_shared<Yang>();
-		pXing = make_shared<Mu>();
+		pYinYang = boost::make_shared<Yang>();
+		pXing = boost::make_shared<Mu>();
 		break;
 	case 6:
-		pName =make_shared<string>("Ğç (Ìì¿Õ ÑôÍÁ)");
+		pName =boost::make_shared<string>("Ğç (Ìì¿Õ ÑôÍÁ)");
 		pDZ = Month::buildZhi(DZxu);
-		pYinYang = make_shared<Yang>();
-		pXing = make_shared<Tu>();
+		pYinYang = boost::make_shared<Yang>();
+		pXing = boost::make_shared<Tu>();
 		break;
 	case 7:
-		pName =make_shared<string>("Éê (°×»¢ Ñô½ğ)");
+		pName =boost::make_shared<string>("Éê (°×»¢ Ñô½ğ)");
 		pDZ = Month::buildZhi(DZshen);
-		pYinYang = make_shared<Yang>();
-		pXing = make_shared<Jin>();
+		pYinYang = boost::make_shared<Yang>();
+		pXing = boost::make_shared<Jin>();
 		break;
 	case 8:
-		pName =make_shared<string>("Î´ (Ì«³£ ÒõÍÁ)");
+		pName =boost::make_shared<string>("Î´ (Ì«³£ ÒõÍÁ)");
 		pDZ = Month::buildZhi(DZwei);
-		pYinYang = make_shared<Yin>();
-		pXing = make_shared<Tu>();
+		pYinYang = boost::make_shared<Yin>();
+		pXing = boost::make_shared<Tu>();
 		break;
 	case 9:
-		pName =make_shared<string>("×Ó (ĞşÎä ÑôË®)");
+		pName =boost::make_shared<string>("×Ó (ĞşÎä ÑôË®)");
 		pDZ = Month::buildZhi(DZzi);
-		pYinYang = make_shared<Yang>();
-		pXing = make_shared<Shui>();
+		pYinYang = boost::make_shared<Yang>();
+		pXing = boost::make_shared<Shui>();
 		break;
 	case 10:
-		pName =make_shared<string>("ÓÏ (Ì«Òõ Òõ½ğ)");
+		pName =boost::make_shared<string>("ÓÏ (Ì«Òõ Òõ½ğ)");
 		pDZ = Month::buildZhi(DZyou);
-		pYinYang = make_shared<Yin>();
-		pXing = make_shared<Jin>();
+		pYinYang = boost::make_shared<Yin>();
+		pXing = boost::make_shared<Jin>();
 		break;
 	case 11:
-		pName =make_shared<string>("º¥ (ÌìºóÒõË®)");
+		pName =boost::make_shared<string>("º¥ (ÌìºóÒõË®)");
 		pDZ = Month::buildZhi(DZhai);
-		pYinYang = make_shared<Yin>();
-		pXing = make_shared<Shui>();
+		pYinYang = boost::make_shared<Yin>();
+		pXing = boost::make_shared<Shui>();
 		break;
 	default:
-		pName = make_shared<string>("´íÎó£¡");
+		pName = boost::make_shared<string>("´íÎó£¡");
 		break;
 	}
 }

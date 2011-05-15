@@ -5,10 +5,11 @@
 #include <boost/scoped_ptr.hpp>
 
 #include "xing.h"
+#include "YinYang.h"
 
 using namespace std;
 
-class GanZhi
+class GanZhi : public YinYang
 {
 public:
 
@@ -16,8 +17,8 @@ public:
 	virtual ~GanZhi(void);
 
 	virtual int getXing() = 0;
-	bool ke(shared_ptr<GanZhi> pgz);
-	bool sheng(shared_ptr<GanZhi> pgz);
+	bool ke(boost::shared_ptr<GanZhi> pgz);
+	bool sheng(boost::shared_ptr<GanZhi> pgz);
 	virtual string getName() = 0;
-	shared_ptr<Xing> buildXing();
+	boost::shared_ptr<Xing> buildXing();
 };

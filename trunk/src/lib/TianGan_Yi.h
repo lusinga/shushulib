@@ -1,10 +1,10 @@
 #pragma once
 #include "yin.h"
-#include "tu.h"
+#include "mu.h"
 #include "tiangan.h"
 
 class TianGan_Yi :
-	public Yin, public Tu, public TianGan	
+	public Yin, public Mu, public TianGan	
 {
 public:
 	TianGan_Yi(void);

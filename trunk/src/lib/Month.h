@@ -39,10 +39,11 @@ class Month
 public:
 	Month(void);
 	~Month(void);
-	static shared_ptr<TianGan> buildGan(int tgid);
-	static shared_ptr<DiZhi> buildZhi(int dzid);
+	static boost::shared_ptr<TianGan> buildGan(int tgid);
+	static boost::shared_ptr<DiZhi> buildZhi(int dzid);
 	static int getYueJiang(int month);
-	static int getYueJiang(shared_ptr<DiZhi> pDZ);
-	static shared_ptr<TianGan> wuZiYuanDu(shared_ptr<TianGan> pTG, shared_ptr<DiZhi> pDZ);
+	static int getYueJiang(boost::shared_ptr<DiZhi> pDZ);
+	static int getMonthByYueJiang(int yuejiang);
+	static boost::shared_ptr<TianGan> wuZiYuanDu(boost::shared_ptr<TianGan> pTG, boost::shared_ptr<DiZhi> pDZ);
 };
 

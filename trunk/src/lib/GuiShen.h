@@ -21,14 +21,14 @@ public:
 	static const int gsTaiYin = 10;
 	static const int gsTianHou = 11;
 
-	GuiShen(shared_ptr<TianGan> pTG, bool isDay, shared_ptr<DiZhi> pDiFen);
+	GuiShen(boost::shared_ptr<TianGan> pTG, bool isDay, boost::shared_ptr<DiZhi> pDiFen);
 	~GuiShen(void);
 
 	string getName();
 
-	shared_ptr<DiZhi> pDZ;
+	boost::shared_ptr<DiZhi> pDZ;
 	int gsID;
-	shared_ptr<string> pName;
-	shared_ptr<Xing> pXing;
-	shared_ptr<YinYang> pYinYang;
+	boost::shared_ptr<string> pName;
+	boost::shared_ptr<Xing> pXing;
+	boost::shared_ptr<YinYang> pYinYang;
 };

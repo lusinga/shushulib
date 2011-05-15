@@ -17,9 +17,9 @@ public:
 	
 	virtual string getName();
 
-	shared_ptr<TianGan> pTG;
-	shared_ptr<DiZhi> pDZ;
+	boost::shared_ptr<TianGan> pTG;
+	boost::shared_ptr<DiZhi> pDZ;
 
-	bool isXunKong(shared_ptr<DiZhi> pDZToBeCheck);
+	bool isXunKong(boost::shared_ptr<DiZhi> pDZToBeCheck);
 	bool isSiDaKongWang(int xing);
 };

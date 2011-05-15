@@ -19,7 +19,7 @@ Xing::~Xing(void)
 {
 }
 
-bool Xing::ke(shared_ptr<Xing> xing)
+bool Xing::ke(boost::shared_ptr<Xing> xing)
 {
 	if (ke(this->feature,xing->feature)){
 		cout<<this->getFeature()<<"¿Ë"<<xing->getFeature()<<endl;
@@ -38,7 +38,7 @@ bool Xing::ke(int ker, int kee)
 	return ((ker + 2)%5 == kee);
 }
 
-bool Xing::sheng(shared_ptr<Xing> xing)
+bool Xing::sheng(boost::shared_ptr<Xing> xing)
 {
 	if (sheng(this->feature,xing->feature)){
 		cout<<this->getFeature()<<"Éú"<<xing->getFeature()<<endl;
@@ -47,7 +47,7 @@ bool Xing::sheng(shared_ptr<Xing> xing)
 	else return false;
 }
 
-int Xing::whichWang(shared_ptr<Xing>* pXings, int numbers)
+int Xing::whichWang(boost::shared_ptr<Xing>* pXings, int numbers)
 {
 	int index = -1;
 
@@ -172,18 +172,18 @@ int Xing::whichWang(shared_ptr<Xing>* pXings, int numbers)
 	return index;
 }
 
-shared_ptr<Xing> Xing::whichXingIsWang(shared_ptr<Xing>* pXing,int numbers)
+boost::shared_ptr<Xing> Xing::whichXingIsWang(boost::shared_ptr<Xing>* pXing,int numbers)
 {
 	int index = whichWang(pXing,numbers);
 	if(index == numbers)
-		return shared_ptr<Xing>();
+		return boost::shared_ptr<Xing>();
 	else
 		return pXing[index];
 }
 
-int Xing::getState(shared_ptr<Xing> pXing, shared_ptr<Xing>* pXings, int numbers)
+int Xing::getState(boost::shared_ptr<Xing> pXing, boost::shared_ptr<Xing>* pXings, int numbers)
 {
-	shared_ptr<Xing> pWang = whichXingIsWang(pXings,numbers);
+	boost::shared_ptr<Xing> pWang = whichXingIsWang(pXings,numbers);
 
 	if(pWang == NULL)
 		return ZHEFU;
@@ -212,29 +212,29 @@ int Xing::getState(shared_ptr<Xing> pXing, shared_ptr<Xing>* pXings, int numbers
 		return ZHEFU;
 }
 
-shared_ptr<Xing> Xing::buildXing(int xing)
+boost::shared_ptr<Xing> Xing::buildXing(int xing)
 {
 	int xing2 = (xing+5) % 5;
 
 	switch (xing2)
 	{
 	case Xing::HUO:
-		return make_shared<Huo>();
+		return boost::make_shared<Huo>();
 		break;
 	case Xing::JIN:
-		return make_shared<Jin>();
+		return boost::make_shared<Jin>();
 		break;
 	case Xing::MU:
-		return make_shared<Mu>();
+		return boost::make_shared<Mu>();
 		break;
 	case Xing::SHUI:
-		return make_shared<Shui>();
+		return boost::make_shared<Shui>();
 		break;
 	case Xing::TU:
-		return make_shared<Tu>();
+		return boost::make_shared<Tu>();
 		break;
 	default:
-		return shared_ptr<Xing>();
+		return boost::shared_ptr<Xing>();
 		break;
 	}
 }

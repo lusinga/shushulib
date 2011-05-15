@@ -25,13 +25,13 @@ using boost::make_shared;
 
 int main(int argc, char* argv[])
 {
-	shared_ptr<Xing> xings[5];
+	boost::shared_ptr<Xing> xings[5];
 
-	xings[0] = make_shared<Jin>();
-	xings[1] = make_shared<Mu>();
-	xings[2] = make_shared<Shui>();
-	xings[3] = make_shared<Tu>();
-	xings[4] = make_shared<Huo>();
+	xings[0] = boost::make_shared<Jin>();
+	xings[1] = boost::make_shared<Mu>();
+	xings[2] = boost::make_shared<Shui>();
+	xings[3] = boost::make_shared<Tu>();
+	xings[4] = boost::make_shared<Huo>();
 
 	for(int i=0;i<5;i++){
 		for (int j=0;j<5;j++){
@@ -40,7 +40,7 @@ int main(int argc, char* argv[])
 		}
 	}
 
-	shared_ptr<DiZhi> dzs[12];
+	boost::shared_ptr<DiZhi> dzs[12];
 
 	for(int i=0;i<12;i++)
 	{
@@ -101,7 +101,7 @@ int main(int argc, char* argv[])
 	plr6->sanChuan();
 	plr6->duanKe();
 
-	shared_ptr<LiuRen> plr7(new LiuRen(4, DZxu, TGgeng, DZzi));
+	boost::shared_ptr<LiuRen> plr7(new LiuRen(4, DZxu, TGgeng, DZzi));
 	plr7->diPan();
 	plr7->tianPan();
 	plr7->siKe();
@@ -109,12 +109,21 @@ int main(int argc, char* argv[])
 	plr7->duanKe();
 
 	//见机格
-	shared_ptr<LiuRen> plr8(new LiuRen(DZshen+1,DZyou,TGji,DZhai));
+	boost::shared_ptr<LiuRen> plr8(new LiuRen(DZshen+1,DZyou,TGji,DZhai));
 	plr8->diPan();
 	plr8->tianPan();
 	plr8->siKe();
 	plr8->sanChuan();
 	plr8->duanKe();
+
+	//昂星法 阳
+	boost::shared_ptr<LiuRen> plr9 = boost::make_shared<LiuRen>(
+		Month::getMonthByYueJiang(DZwu),DZyin,TGwu,DZyin);
+	plr9->doAll();
+
+	boost::shared_ptr<LiuRen> plr10 = boost::make_shared<LiuRen>(
+		Month::getMonthByYueJiang(DZhai),DZzi,TGyi,DZwei);
+	plr10->doAll();
 
 	Gan_Zhi* pGZ = new Gan_Zhi(0,0);
 	cout<<pGZ->getName()<<endl;
@@ -171,10 +180,10 @@ int main(int argc, char* argv[])
 	//index = Xing::whichWang(pXings13,4);
 	//cout<<"The wang index is "<<index<<endl;
 
-	shared_ptr<JinKouJue> pJKJ = make_shared<JinKouJue>(make_shared<Gan_Zhi>(TGwu, DZyin),
-		make_shared<Gan_Zhi>(TGren, DZxu),
-		make_shared<Gan_Zhi>(TGgeng, DZyin),
-		make_shared<Gan_Zhi>(TGren, DZwu),
+	boost::shared_ptr<JinKouJue> pJKJ = boost::make_shared<JinKouJue>(boost::make_shared<Gan_Zhi>(TGwu, DZyin),
+		boost::make_shared<Gan_Zhi>(TGren, DZxu),
+		boost::make_shared<Gan_Zhi>(TGgeng, DZyin),
+		boost::make_shared<Gan_Zhi>(TGren, DZwu),
 		Month::buildZhi(DZshen));
 
 #if 0
