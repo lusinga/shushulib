@@ -42,7 +42,7 @@ public:
 
 	virtual int getXing() = 0;
 
-	boost::shared_ptr<std::vector<int>> getJiGongTianGanList();
+	boost::shared_ptr<std::vector<int> > getJiGongTianGanList();
 
 protected:
 	int dzid;

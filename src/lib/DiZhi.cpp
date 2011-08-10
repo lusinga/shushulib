@@ -72,9 +72,9 @@ int DiZhi::getMonth(void)
 	return (this->dzid -1 ) %12;
 }
 
-boost::shared_ptr<std::vector<int>> DiZhi::getJiGongTianGanList()
+boost::shared_ptr<std::vector<int> > DiZhi::getJiGongTianGanList()
 {
-	boost::shared_ptr<std::vector<int>> tgs = boost::make_shared<std::vector<int>>();
+	boost::shared_ptr<std::vector<int> > tgs = boost::make_shared<std::vector<int> >();
 	switch(dzid)
 	{
 	case DZyin:
