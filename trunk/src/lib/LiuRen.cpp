@@ -295,7 +295,7 @@ int LiuRen::walk(int start, int end)
 		//cout<<pHe->getName();
 		if(pHe->ke(pMe))
 			kecount++;
-		boost::shared_ptr<vector<int>> tgs = pHe->getJiGongTianGanList();
+		boost::shared_ptr<vector<int> > tgs = pHe->getJiGongTianGanList();
 		
 		BOOST_FOREACH(int itg, (*tgs))
 		{
