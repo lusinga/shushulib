@@ -28,6 +28,32 @@
 
 #include <boost/shared_ptr.hpp>
 
+const int JQDongZhi   = 0x10; //冬至
+const int JQJingZhe   = 0x11; //惊蛰
+const int JQXiaoHai   = 0x12; //
+const int JQDaHan     = 0x13; //
+const int JQChunFen   = 0x14; //
+const int JQMangZhong = 0x15; //
+const int JQGuYu      = 0x16; //
+const int JQXiaoMan   = 0x17; //
+const int JQLiChun    = 0x18; //
+const int JQLiXia     = 0x19; //
+const int JQQingMing  = 0x1a; //
+const int JQYuShui    = 0x1b; //
+
+const int JQXiaZhi    = 0x20; //
+const int JQBaiLu     = 0x21; 
+const int JQXiaoShu   = 0x22;
+const int JQQiuFen    = 0x23;
+const int JQDaShu     = 0x24;
+const int JQLiQiu     = 0x25;
+const int JQShuangJiang = 0x26;
+const int JQXiaoXue     = 0x27;
+const int JQDaXue       = 0x28;
+const int JQChuShu      = 0x29;
+const int JQLiDong      = 0x2a;
+const int JQHanLu       = 0x2b;
+
 /************************************************************************/
 /* Month类是主要的工具类的集合
 /* 包括：根据数字来构造干支类的对象
