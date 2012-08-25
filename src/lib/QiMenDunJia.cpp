@@ -13,7 +13,7 @@ QiMenDunJia::~QiMenDunJia(void)
 
 void QiMenDunJia::setDunJu()
 {
-	isYangDun == (this->jieqi < JQXiaZhi && jieqi >= JQDongZhi);
+	isYangDun = (this->jieqi < JQXiaZhi && jieqi >= JQDongZhi);
 
 	switch(jieqi)
 	{

@@ -14,6 +14,8 @@
 #include "Gan_Zhi.h"
 #include "JinKouJue.h"
 
+#include "Gua.h"
+
 #include <iostream>
 
 #include <boost/smart_ptr.hpp>
@@ -260,7 +262,7 @@ int main(int argc, char* argv[])
 		Month::buildZhi(DZwu));
 #endif
 
-	//pJKJ->show();
+	pJKJ->show();
 	//pJKJ2->show();
 	//pJKJ3->show();
 	//pJKJ4->show();
@@ -274,6 +276,25 @@ int main(int argc, char* argv[])
 	////¿˝1
 	//pJKJ_11_1->show();
 
+	//Test ∞Àÿ‘œ‡πÿ
+	cout<<BaGua::getGuaName(BG_Qian)->c_str()<<endl;
+
+	Gan_Zhi* pGZ_t1 = new Gan_Zhi(TGjia, DZzi);
+	cout<<pGZ_t1->getOrder()<<endl;
+	cout<<pGZ_t1->getXunShou()<<endl;
+
+	Gan_Zhi* pGZ_t2 = new Gan_Zhi(TGyi, DZchou);
+	cout<<pGZ_t2->getOrder()<<endl;
+	cout<<pGZ_t2->getXunShou()<<endl;
+
+	Gan_Zhi* pGZ_t3 = new Gan_Zhi(TGyi, DZwei);
+	cout<<pGZ_t3->getOrder()<<endl;
+	cout<<pGZ_t3->getXunShou()<<endl;
+
+	Gan_Zhi* pGZ_t4 = new Gan_Zhi(TGgui, DZhai);
+	cout<<pGZ_t4->getOrder()<<endl;
+	cout<<pGZ_t4->getXunShou()<<endl;
+		
 	cin.get();
 
 	return 0;
