@@ -22,4 +22,10 @@ public:
 
 	bool isXunKong(boost::shared_ptr<DiZhi> pDZToBeCheck);
 	bool isSiDaKongWang(int xing);
+
+	int getOrder();
+	int getXunShou();
+
+private:
+	int order;
 };
