@@ -5,6 +5,17 @@ Gan_Zhi::Gan_Zhi(int iTG, int iDZ)
 {
 	this->pTG = Month::buildGan(iTG);
 	this->pDZ = Month::buildZhi(iDZ);
+
+	order = -1;
+
+	for(int iO = 0, g1 = 0, z1 = 0; iO < 60 ; iO++, g1++, z1++ )
+	{
+		if ( iTG == ( g1 % 10) && iDZ == (z1 % 12))
+		{
+			order = iO; 
+			break;
+		}
+	}
 }
 
 Gan_Zhi::~Gan_Zhi(void)
@@ -81,4 +92,14 @@ bool Gan_Zhi::isSiDaKongWang(int xing)
 		bResult = false;
 
 	return bResult;
+}
+
+int Gan_Zhi::getOrder()
+{
+	return order;
+}
+
+int Gan_Zhi::getXunShou()
+{
+	return (order / 10) * 10;
 }
