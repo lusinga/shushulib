@@ -103,3 +103,8 @@ int Gan_Zhi::getXunShou()
 {
 	return (order / 10) * 10;
 }
+
+int Gan_Zhi::getXunShouTianGan()
+{
+	return (getXunShou()/10 + TGwu);
+}
