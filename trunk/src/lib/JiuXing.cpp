@@ -18,3 +18,8 @@ int JiuXing::getStaticGua(int jiu_xing)
 {
 	return staticPosition[jiu_xing % 9];
 }
+
+int JiuXing::getWuXing(int jiu_xing)
+{
+	return JiuXingWuXing[jiu_xing % 9];
+}

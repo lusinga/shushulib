@@ -8,6 +8,8 @@
 
 #include <boost/make_shared.hpp>
 
+#include "defaultFlags.h"
+
 using boost::make_shared;
 
 Xing::Xing(void)
@@ -22,7 +24,11 @@ Xing::~Xing(void)
 bool Xing::ke(boost::shared_ptr<Xing> xing)
 {
 	if (ke(this->feature,xing->feature)){
+#ifdef ANDROID_LIB
+		sprintf(pCmdOut,"%s克%s\n",this->getFeature().c_str(),xing->getFeature().c_str());
+#else
 		cout<<this->getFeature()<<"克"<<xing->getFeature()<<endl;
+#endif
 		return true;
 	}
 	else return false;
@@ -41,7 +47,11 @@ bool Xing::ke(int ker, int kee)
 bool Xing::sheng(boost::shared_ptr<Xing> xing)
 {
 	if (sheng(this->feature,xing->feature)){
+#ifdef ANDROID_LIB
+		sprintf(pCmdOut,"%s生%s\n",this->getFeature().c_str(),xing->getFeature().c_str());
+#else
 		cout<<this->getFeature()<<"生"<<xing->getFeature()<<endl;
+#endif
 		return true;
 	}
 	else return false;
@@ -218,19 +228,19 @@ boost::shared_ptr<Xing> Xing::buildXing(int xing)
 
 	switch (xing2)
 	{
-	case Xing::HUO:
+	case HUO:
 		return boost::make_shared<Huo>();
 		break;
-	case Xing::JIN:
+	case JIN:
 		return boost::make_shared<Jin>();
 		break;
-	case Xing::MU:
+	case MU:
 		return boost::make_shared<Mu>();
 		break;
-	case Xing::SHUI:
+	case SHUI:
 		return boost::make_shared<Shui>();
 		break;
-	case Xing::TU:
+	case TU:
 		return boost::make_shared<Tu>();
 		break;
 	default:

@@ -82,11 +82,11 @@ bool Gan_Zhi::isSiDaKongWang(int xing)
 
 	if(xunid == DZzi || xunid == DZwu)
 	{
-		bResult = xing == Xing::SHUI;
+		bResult = xing == SHUI;
 	}
 	else if(xunid == DZyin || xunid == DZshen)
 	{
-		bResult = xing == Xing::JIN;
+		bResult = xing == JIN;
 	}
 	else
 		bResult = false;
