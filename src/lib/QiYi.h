@@ -8,7 +8,7 @@
 #include "Ganzhi.h"
 
 const int yangDun[9] = {TGwu, TGji,TGgeng,TGxin,TGren,TGgui,TGding,TGbing,TGyi}; 
-const char qiYiName[10][6] = {"","ÈÕÆæ","ÔÂÆæ","ÐÇÆæ","¼××Ó","¼×Ðç","¼×Éê","¼×Îç","¼×³½","¼×Òú"};
+const char qiYiName[10][10] = {"","ÈÕÆæ","ÔÂÆæ","ÐÇÆæ","¼××Ó","¼×Ðç","¼×Éê","¼×Îç","¼×³½","¼×Òú"};
 
 class QiYi
 {
