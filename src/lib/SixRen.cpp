@@ -15,6 +15,7 @@
 #include "JinKouJue.h"
 
 #include "Gua.h"
+#include "QiMenDunJia.h"
 
 #include <iostream>
 
@@ -294,6 +295,11 @@ int main(int argc, char* argv[])
 	Gan_Zhi* pGZ_t4 = new Gan_Zhi(TGgui, DZhai);
 	cout<<pGZ_t4->getOrder()<<endl;
 	cout<<pGZ_t4->getXunShou()<<endl;
+
+	cout<<"--测试奇门地盘功能--"<<endl;
+
+	QiMenDunJia* pQM1 = new QiMenDunJia(JQChuShu);
+	pQM1->printDiPan();
 		
 	cin.get();
 
