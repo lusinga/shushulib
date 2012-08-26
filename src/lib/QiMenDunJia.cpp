@@ -2,6 +2,7 @@
 #include "Gua.h"
 #include "BaMen.h"
 #include "JiuXing.h"
+#include "BaZhaShen.h"
 
 QiMenDunJia::QiMenDunJia(int jq)
 {
@@ -19,16 +20,9 @@ void QiMenDunJia::printDiPan()
 	{
 		int gua = qiMenDiPan[i];
 		cout<<BaGua::getGuaName(gua)->c_str()<<"\t";
-		for(int i1 =0;i1<8;i1++)
-		{
-			if(BaMen::getBaMenGua(i1) == gua)
-				cout<<BaMen::getBaMenName(i1)->c_str()<<"\t";
-		}
-		for(int i2=0;i2<9;i2++)
-		{
-			if(JiuXing::getStaticGua(i2) == gua)
-				cout<<JiuXing::getXingName(i2)->c_str()<<"\t";
-		}
+		cout<<JiuXing::getXingName(i)->c_str()<<"\t";
+		if (i<8) cout<<BaMen::getBaMenName(i)->c_str()<<"\t";
+		cout<<BaZhaShen::getShenName(i)->c_str()<<"\t";
 		cout<<endl;
 	}
 }
