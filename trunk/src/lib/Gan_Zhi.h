@@ -26,6 +26,8 @@ public:
 	int getOrder();
 	int getXunShou();
 
+	int getXunShouTianGan();
+
 private:
 	int order;
 };
