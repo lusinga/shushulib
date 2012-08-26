@@ -6,20 +6,20 @@
 #include "Gua.h"
 #include "Xing.h"
 
-const int TianFuXing    = 0;
-const int TianQinXing   = 1;
-const int TianXinXing   = 2;
-const int TianChongXing = 3;
-const int TianRenXing   = 4;
-const int TianPengXing  = 5;
-const int TianRuiXing   = 6;
-const int TianYingXing  = 7;
-const int TianZhuXing   = 8;
+const int TianPengXing  = 0;
+const int TianXinXing   = 1;
+const int TianZhuXing   = 2;
+const int TianRuiXing   = 3;
+const int TianYingXing  = 4;
+const int TianFuXing    = 5;
+const int TianChongXing = 6;
+const int TianRenXing   = 7;
+const int TianQinXing   = 8;//不管是寄宫还是飞宫，暂放到最后吧
 
-const char JiuXingName[9][10] = {"天辅星","天禽星","天心星","天冲星","天任星","天蓬星","天芮星","天英星","天柱星"};
-const char JiuXingAnotherName[9][10] = {"武曲星","廉贞星","文曲星","破军星","英明星","右弼星","左辅星","贪狼星","禄存星"};
-const int staticPosition[9] = {BG_Xun, BG_Zhong, BG_Qian, BG_Zhen, BG_Gen, BG_Kan, BG_Kun, BG_Li, BG_Dui};
-const int JiuXingWuXing [9] = {MU, TU, JIN, MU, TU, SHUI, TU, HUO, JIN};
+const char JiuXingName[9][10] = {"天蓬星","天心星","天柱星","天芮星","天英星","天辅星","天冲星","天任星","天禽星"};
+const char JiuXingAnotherName[9][10] = {"右弼星","文曲星","禄存星","左辅星","贪狼星","武曲星","破军星","英明星","廉贞星"};
+const int staticPosition[9] = {BG_Kan,BG_Qian,BG_Dui,BG_Kun,BG_Li,BG_Xun,BG_Zhen,BG_Gen,BG_Zhong};
+const int JiuXingWuXing [9] = {SHUI, JIN, JIN, TU,HUO,MU,MU,TU,TU};
 
 class JiuXing
 {
