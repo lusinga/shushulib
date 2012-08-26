@@ -298,8 +298,9 @@ int main(int argc, char* argv[])
 
 	cout<<"--测试奇门地盘功能--"<<endl;
 
-	QiMenDunJia* pQM1 = new QiMenDunJia(JQChuShu);
-	pQM1->printDiPan();
+	QiMenDunJia* pQM1 = new QiMenDunJia(JQYuShui,XiaYuan);
+	QiMenDunJia::printDiPan();
+	pQM1->printDunJu();
 		
 	cin.get();
 

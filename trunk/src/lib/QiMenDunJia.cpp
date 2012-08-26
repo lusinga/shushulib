@@ -3,11 +3,13 @@
 #include "BaMen.h"
 #include "JiuXing.h"
 #include "BaZhaShen.h"
+#include "QiYi.h"
 
-QiMenDunJia::QiMenDunJia(int jq)
+QiMenDunJia::QiMenDunJia(int jq, int yuan)
 {
 	this->jieqi = jq;
 	this->setDunJu();
+	paiJu(yuan);
 }
 
 QiMenDunJia::~QiMenDunJia(void)
@@ -21,8 +23,28 @@ void QiMenDunJia::printDiPan()
 		int gua = qiMenDiPan[i];
 		cout<<BaGua::getGuaName(gua)->c_str()<<"\t";
 		cout<<JiuXing::getXingName(i)->c_str()<<"\t";
-		if (i<8) cout<<BaMen::getBaMenName(i)->c_str()<<"\t";
-		cout<<BaZhaShen::getShenName(i)->c_str()<<"\t";
+		if (i<8) 
+		{
+			cout<<BaMen::getBaMenName(i)->c_str()<<"\t";
+			cout<<BaZhaShen::getShenName(i)->c_str()<<"\t";
+		}
+		cout<<endl;
+	}
+}
+
+void QiMenDunJia::printDunJu()
+{
+	for(int i=0;i<9;i++)
+	{
+		int gua = qiMenDiPan[i];
+		cout<<BaGua::getGuaName(gua)->c_str()<<"\t";
+		cout<<JiuXing::getXingName(i)->c_str()<<"\t";
+		if (i<8) 
+		{
+			cout<<BaMen::getBaMenName(i)->c_str()<<"\t";
+			cout<<BaZhaShen::getShenName(i)->c_str()<<"\t";
+		}
+		cout<<QiYi::getName(tianPan[i])->c_str()<<"\t";
 		cout<<endl;
 	}
 }
@@ -127,5 +149,15 @@ void QiMenDunJia::setDunJu()
 
 	default:
 		break;
+	}
+}
+
+void QiMenDunJia::paiJu(int yuan)
+{
+	int ju = dunju[yuan % 3];
+
+	for(int i=ju; i< ju+9; i++)
+	{
+		tianPan[BaGua::getPos(i%9)] = QiYi::getYangDun(i-ju);
 	}
 }
