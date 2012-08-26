@@ -5,21 +5,24 @@
 #include <boost/make_shared.hpp>
 
 #include "Gua.h"
-#include "Ganzhi.h"
 
-const int yangDun[9] = {TGwu, TGji,TGgeng,TGxin,TGren,TGgui,TGding,TGbing,TGyi}; 
-const char qiYiName[10][6] = {"","ÈÕÆæ","ÔÂÆæ","ĞÇÆæ","¼××Ó","¼×Ğç","¼×Éê","¼×Îç","¼×³½","¼×Òú"};
+const int ZhiFu    = 0;
+const int JiuTian  = 1;
+const int JiuDi    = 2;
+const int ZhuQue   = 3;
+const int GouChen  = 4;
+const int LiuHe    = 5;
+const int LiuYin   = 6;
+const int TengShe  = 7;
 
-class QiYi
+const char BaZhaShenName[8][6] = {"Ö±·û","¾ÅÌì","¾ÅµØ","ÖìÈ¸","¹´³Â","ÁùºÏ","ÁùÒõ","ÎŸÉß"};
+
+class BaZhaShen
 {
 public:
-	static inline boost::shared_ptr<std::string> getName(int tg)
+	static inline boost::shared_ptr<std::string> getShenName(int men)
 	{
-		return boost::make_shared<std::string>(qiYiName[tg%10]);
-	}
-	static inline int getYangDun(int i)
-	{
-		return yangDun[i%9];
+		return boost::make_shared<std::string>(BaZhaShenName[men%8]);
 	}
 
 };
