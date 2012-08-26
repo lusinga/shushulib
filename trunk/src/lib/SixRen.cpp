@@ -296,11 +296,17 @@ int main(int argc, char* argv[])
 	cout<<pGZ_t4->getOrder()<<endl;
 	cout<<pGZ_t4->getXunShou()<<endl;
 
-	cout<<"--²âÊÔÆæÃÅµØÅÌ¹¦ÄÜ--"<<endl;
+	cout<<"--²âÊÔÆæÃÅÅÅ¾Ö¹¦ÄÜ--"<<endl;
 
 	QiMenDunJia* pQM1 = new QiMenDunJia(JQYuShui,XiaYuan);
-	QiMenDunJia::printDiPan();
+	//QiMenDunJia::printDiPan();
 	pQM1->printDunJu();
+
+	cout<<"~~~Òõ¶Ý²âÊÔÀý~~~"<<endl;
+
+	QiMenDunJia* pQM2 = new QiMenDunJia(JQChuShu, ZhongYuan);
+	QiMenDunJia::printDiPan();
+	pQM2->printDunJu();
 		
 	cin.get();
 

@@ -24,5 +24,6 @@ private:
 	bool isYangDun;
 	int dunju[3];
 	int tianPan[9];
+	int shenPan[8];
 };
 

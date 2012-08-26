@@ -4,6 +4,7 @@
 #include "JiuXing.h"
 #include "BaZhaShen.h"
 #include "QiYi.h"
+#include "Tiangan.h"
 
 QiMenDunJia::QiMenDunJia(int jq, int yuan)
 {
@@ -42,9 +43,9 @@ void QiMenDunJia::printDunJu()
 		if (i<8) 
 		{
 			cout<<BaMen::getBaMenName(i)->c_str()<<"\t";
-			cout<<BaZhaShen::getShenName(i)->c_str()<<"\t";
+			cout<<BaZhaShen::getShenName(shenPan[i])->c_str()<<"\t";
 		}
-		cout<<QiYi::getName(tianPan[i])->c_str()<<"\t";
+		cout<<TianGan::getQiYiName(tianPan[i])->c_str()<<"\t";
 		cout<<endl;
 	}
 }
@@ -156,8 +157,23 @@ void QiMenDunJia::paiJu(int yuan)
 {
 	int ju = dunju[yuan % 3];
 
-	for(int i=ju; i< ju+9; i++)
+	if(isYangDun)
 	{
-		tianPan[BaGua::getPos(i%9)] = QiYi::getYangDun(i-ju);
+		for(int i=ju; i< ju+9; i++)
+		{
+			tianPan[BaGua::getPos(i%9)] = QiYi::getYangDun(i-ju);
+		}
+	}
+	else
+	{
+		for(int i=ju+9; i>ju; i--)
+		{
+			tianPan[BaGua::getPos(i%9)] = QiYi::getYangDun(ju+9-i);
+		}
+	}
+
+	for(int i1=0;i1<8;i1++)
+	{	
+		isYangDun ? shenPan[i1] = i1 : shenPan[i1] = 8 - i1;
 	}
 }
