@@ -21,10 +21,12 @@ public:
 private:
 	int jieqi;
 	void setDunJu();
-	void paiJu(int yuan);
+	void paiJu(int yuan, int xunshou);
 	bool isYangDun;
 	int dunju[3];
-	int tianPan[9];
+	int tianPanQiYi[9];
+	int tianPanStar[9];
+	int renPan[8];
 	int shenPan[8];
 
 	int zhiFu;
