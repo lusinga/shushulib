@@ -151,22 +151,22 @@ void JinKouJue::duanKe()
 	int state = Xing::getState(pYongShenXing,pXings,4);
 	switch(state)
 	{
-	case Xing::WANG:
+	case WANG:
 		cout<<"用神旺"<<endl;
 		break;
-	case Xing::XIANG:
+	case XIANG:
 		cout<<"用神相"<<endl;
 		break;
-	case Xing::XIU:
+	case XIU:
 		cout<<"用神休"<<endl;
 		break;
-	case Xing::QIU:
+	case QIU:
 		cout<<"用神囚"<<endl;
 		break;
-	case Xing::SI:
+	case SI:
 		cout<<"用神死"<<endl;
 		break;
-	case Xing::ZHEFU:
+	case ZHEFU:
 		cout<<"用神蛰伏"<<endl;
 		break;
 	}
@@ -180,7 +180,7 @@ void JinKouJue::duanKe()
 	if (pDay->isXunKong(pYueJiang) ||pDay->isXunKong(pGuiShen->pDZ))
 	{
 		cout<<"1.事件虚假，此事不真实，有欺诈行为。\n2.问事人心中不实，非真心求问。"<<endl;
-		if(state == Xing::WANG || state == Xing::XIANG)
+		if(state == WANG || state == XIANG)
 		{
 			cout<<"3.此事本旬中不成，出旬可有希望。"<<endl;
 			cout<<"出旬还需要"<<10 - pDay->pTG->getTgid()<<"天。"<<endl;
@@ -191,6 +191,7 @@ void JinKouJue::duanKe()
 		pDay->isSiDaKongWang(pYueJiang->getXing()) || pDay->isSiDaKongWang(pDiFen->getXing()))
 	{
 		cout<<"遇四大空亡，吉凶不成。"<<endl;
+		//TODO: 
 		cout<<"出空日期待完成。"<<endl;
 	}
 
