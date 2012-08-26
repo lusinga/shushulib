@@ -277,37 +277,12 @@ int main(int argc, char* argv[])
 	////¿˝1
 	//pJKJ_11_1->show();
 
-	//Test ∞Àÿ‘œ‡πÿ
-	cout<<BaGua::getGuaName(BG_Qian)->c_str()<<endl;
+	cout<<"...æ≠µ‰¿˝..."<<endl;
 
-	Gan_Zhi* pGZ_t1 = new Gan_Zhi(TGjia, DZzi);
-	cout<<pGZ_t1->getOrder()<<endl;
-	cout<<pGZ_t1->getXunShou()<<endl;
-
-	Gan_Zhi* pGZ_t2 = new Gan_Zhi(TGyi, DZchou);
-	cout<<pGZ_t2->getOrder()<<endl;
-	cout<<pGZ_t2->getXunShou()<<endl;
-
-	Gan_Zhi* pGZ_t3 = new Gan_Zhi(TGyi, DZwei);
-	cout<<pGZ_t3->getOrder()<<endl;
-	cout<<pGZ_t3->getXunShou()<<endl;
-
-	Gan_Zhi* pGZ_t4 = new Gan_Zhi(TGgui, DZhai);
-	cout<<pGZ_t4->getOrder()<<endl;
-	cout<<pGZ_t4->getXunShou()<<endl;
-
-	cout<<"--≤‚ ‘∆Ê√≈≈≈æ÷π¶ƒ‹--"<<endl;
-
-	QiMenDunJia* pQM1 = new QiMenDunJia(JQYuShui,XiaYuan);
+	QiMenDunJia* pQM3 = new QiMenDunJia(JQYuShui,ShangYuan,boost::make_shared<Gan_Zhi>(TGxin, DZsi));
 	//QiMenDunJia::printDiPan();
-	pQM1->printDunJu();
-
-	cout<<"~~~“ı∂›≤‚ ‘¿˝~~~"<<endl;
-
-	QiMenDunJia* pQM2 = new QiMenDunJia(JQChuShu, ZhongYuan);
-	QiMenDunJia::printDiPan();
-	pQM2->printDunJu();
-		
+	pQM3->printDunJu();
+			
 	cin.get();
 
 	return 0;

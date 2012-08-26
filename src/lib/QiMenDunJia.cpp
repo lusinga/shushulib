@@ -6,9 +6,11 @@
 #include "QiYi.h"
 #include "Tiangan.h"
 
-QiMenDunJia::QiMenDunJia(int jq, int yuan)
+QiMenDunJia::QiMenDunJia(int jq, int yuan, boost::shared_ptr<Gan_Zhi> pGZ)
 {
 	this->jieqi = jq;
+	int tg = pGZ->getXunShouTianGan();
+	cout<<"Ñ®Ê×ÊÇ£º"<<Month::buildGan(tg)->getName().c_str()<<endl;
 	this->setDunJu();
 	paiJu(yuan);
 }
