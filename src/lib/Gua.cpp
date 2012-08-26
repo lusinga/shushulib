@@ -41,5 +41,7 @@ int BaGua::getPos(int gua)
 	case BG_Zhong:
 		return 8;
 		break;
+	default:
+		return -1;//Impossible 
 	}
 }
