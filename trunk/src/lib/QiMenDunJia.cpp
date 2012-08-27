@@ -12,6 +12,8 @@ QiMenDunJia::QiMenDunJia(int jq, int yuan, boost::shared_ptr<Gan_Zhi> pGZ)
 	int tg = pGZ->getXunShouTianGan();
 	cout<<"旬首是："<<Month::buildGan(tg)->getName().c_str()<<endl;
 	this->setDunJu();
+	shiGan = pGZ->pTG->getTgid();
+	shiZhi = pGZ->pDZ->getDzid();
 	paiJu(yuan,tg);
 }
 
@@ -41,13 +43,13 @@ void QiMenDunJia::printDunJu()
 	{
 		int gua = qiMenDiPan[i];
 		cout<<BaGua::getGuaName(gua)->c_str()<<"\t";
-		cout<<JiuXing::getXingName(i)->c_str()<<"\t";
+		cout<<JiuXing::getXingName(tianPan2[i].star)->c_str()<<"\t";
 		if (i<8) 
 		{
-			cout<<BaMen::getBaMenName(i)->c_str()<<"\t";
-			cout<<BaZhaShen::getShenName(shenPan[i])->c_str()<<"\t";
+			cout<<BaMen::getBaMenName(renPan[i])->c_str()<<"\t";
+			cout<<BaZhaShen::getShenName(shenPan2[i])->c_str()<<"\t";
 		}
-		cout<<TianGan::getQiYiName(tianPanQiYi[i])->c_str()<<"\t";
+		cout<<TianGan::getQiYiName(tianPan2[i].qiyi)->c_str()<<"\t";
 		cout<<endl;
 	}
 }
@@ -159,7 +161,11 @@ void QiMenDunJia::paiJu(int yuan, int xunshou)
 {
 	//天盘只有一种排法
 	for(int i0=0;i0<9;i0++)
-		tianPanStar[i0] = i0;
+	{
+		tianPan[i0].qiyi = i0;
+		tianPan[i0].star = i0;
+		tianPan2[i0] = tianPan[i0]; 
+	}
 	//人盘只有一种排法
 	for(int i0=0;i0<8;i0++)
 		renPan[i0] = i0;
@@ -172,14 +178,14 @@ void QiMenDunJia::paiJu(int yuan, int xunshou)
 	{
 		for(int i=ju; i< ju+9; i++)
 		{
-			tianPanQiYi[BaGua::getPos(i%9)] = QiYi::getYangDun(i-ju);
+			tianPan[BaGua::getPos(i%9)].qiyi= QiYi::getYangDun(i-ju);
 		}
 	}
 	else
 	{
 		for(int i=ju+9; i>ju; i--)
 		{
-			tianPanQiYi[BaGua::getPos(i%9)] = QiYi::getYangDun(ju+9-i);
+			tianPan[BaGua::getPos(i%9)].qiyi = QiYi::getYangDun(ju+9-i);
 		}
 	}
 
@@ -192,12 +198,55 @@ void QiMenDunJia::paiJu(int yuan, int xunshou)
 	//根据旬首找值符值使
 	for(int i2=0;i2<9;i2++)
 	{
-		if(tianPanQiYi[i2] == xunshou)
+		if(tianPan[i2].qiyi == xunshou)
 		{
-			zhiFu = tianPanStar[i2];
+			zhiFu = i2;
 			cout<<"值符为"<<JiuXing::getXingName(zhiFu)->c_str()<<endl;
-			zhiShi = renPan[i2];
+			zhiShi = i2;
 			cout<<"值使为"<<BaMen::getBaMenName(zhiShi)->c_str()<<endl;
 		}
+	}
+
+	//查找用事时辰天干所在的方位
+	for(int i3=0;i3<9;i3++)
+	{
+		if(tianPan[i3].qiyi == shiGan)
+		{
+			ganPos = i3;
+			cout<<"天干所在方位为:"<<BaGua::getGuaName(qiMenDiPan[ganPos])->c_str()<<endl;
+		}
+	}
+
+	//将zhiFu所在的星转动到ganPos所在位置
+	//注意，旋转的时候中五宫是不受影响的，只有八个方向再转
+	for(int i4=0;i4<8;i4++)
+	{
+		tianPan2[(ganPos+i4)%8] = tianPan[(zhiFu + i4) % 8];
+		cout<<BaGua::getGuaName(qiMenDiPan[(ganPos+i4)%8])->c_str()<<"\t"<<JiuXing::getXingName((zhiFu + i4) % 8)->c_str()<<endl;
+	}
+
+	//求地支所在之宫
+	//然后将人盘值使旋转至地支所在之宫
+	int diGong = BaGua::getPos(qiMenDiPan[shiGan%9]);
+	//cout<<diGong<<"!";
+	//cout<<"地支所在之宫为："<<BaGua::getGuaName(diGong)->c_str()<<endl;
+	int iZhishi = renPan[zhiShi];
+	for(int i5=0,i6=0;i5<9;i5++)
+	{
+		int iGong = (diGong +i5) % 9;
+		if(iGong == 8) continue;
+		//cout<<iGong<<"~"<<(iZhishi + i6) % 8<<"~~";
+		renPan[iGong] = (iZhishi + i6) % 8;
+		i6++;
+	}
+	//cout<<endl;
+
+	//旋转八诈门盘的神盘，将直符对准天盘九星的值符
+	for(int i7=0,i8=0;i7<9;i7++)
+	{
+		int iGong = (ganPos +i7) % 9;
+		if(iGong == 8) continue;
+		shenPan2[iGong] = shenPan[i8];
+		i8++;
 	}
 }

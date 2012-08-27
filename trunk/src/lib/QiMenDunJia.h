@@ -2,6 +2,7 @@
 
 #include "Gua.h"
 #include "Gan_Zhi.h"
+#include "TianPan.h"
 
 const int ShangYuan = 0;
 const int ZhongYuan = 1;
@@ -20,16 +21,21 @@ public:
 
 private:
 	int jieqi;
+	int shiGan;
+	int shiZhi;
 	void setDunJu();
 	void paiJu(int yuan, int xunshou);
 	bool isYangDun;
 	int dunju[3];
-	int tianPanQiYi[9];
-	int tianPanStar[9];
 	int renPan[8];
+	TianPan tianPan[9];
+	//TianPan* pTianPan[9];
+	TianPan tianPan2[9];
 	int shenPan[8];
+	int shenPan2[8];
 
 	int zhiFu;
 	int zhiShi;
+	int ganPos;
 };
 
