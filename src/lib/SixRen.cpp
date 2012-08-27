@@ -282,7 +282,13 @@ int main(int argc, char* argv[])
 	QiMenDunJia* pQM3 = new QiMenDunJia(JQYuShui,ShangYuan,boost::make_shared<Gan_Zhi>(TGxin, DZsi));
 	//QiMenDunJia::printDiPan();
 	pQM3->printDunJu();
-			
+
+	cout<<"Òõ¶Ý"<<endl;
+
+	QiMenDunJia* pQM4 = new QiMenDunJia(JQDaXue,ShangYuan,boost::make_shared<Gan_Zhi>(TGwu, DZyin));
+	//QiMenDunJia::printDiPan();
+	pQM4->printDunJu();
+
 	cin.get();
 
 	return 0;
