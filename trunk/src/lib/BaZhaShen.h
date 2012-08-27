@@ -15,7 +15,7 @@ const int LiuHe    = 5;
 const int LiuYin   = 6;
 const int TengShe  = 7;
 
-const char BaZhaShenName[8][6] = {"直符","九天","九地","朱雀","勾陈","六合","六阴","螣蛇"};
+const char BaZhaShenName[8][6] = {"直符","九天","九地","朱雀","勾陈","六合","太阴","螣蛇"};
 
 class BaZhaShen
 {
