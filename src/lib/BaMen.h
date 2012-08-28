@@ -30,4 +30,11 @@ public:
 	{
 		return BaMenGua[men % 8];
 	}
+
+	//判断是不是吉门
+	static inline bool isJiMen(int men)
+	{
+		//开，休，生为三吉门，居北方三白之方
+		return (men == KaiMen || men==XiuMen || men == ShengMen);
+	}
 };
