@@ -22,4 +22,8 @@ public:
 	{
 		return yinDun[i%9];
 	}
+	static inline bool isQi(int qiyi)
+	{
+		return (qiyi == TGyi || qiyi == TGbing || qiyi == TGding);
+	}
 };
