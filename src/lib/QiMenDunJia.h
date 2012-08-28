@@ -20,22 +20,30 @@ public:
 	void printDunJu();
 
 private:
+	//天盘
+	TianPan tianPan[9];
+	//人盘
+	int renPan[8];
+	//神盘
+	int shenPan[8];
+
+	//节气
 	int jieqi;
 	int shiGan;
 	int shiZhi;
 	void setDunJu();
 	void paiJu(int yuan, int xunshou);
+	//断卦
+	void duan();
+
 	bool isYangDun;
 	int dunju[3];
-	int renPan[8];
-	TianPan tianPan[9];
-	//TianPan* pTianPan[9];
-	TianPan tianPan2[9];
-	int shenPan[8];
-	int shenPan2[8];
-
+	TianPan _tianPan[9];
+	int _shenPan[8];
+	
 	int zhiFu;
 	int zhiShi;
 	int ganPos;
+	int zhiGong;
 };
 
