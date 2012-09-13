@@ -291,4 +291,9 @@ void QiMenDunJia::duan()
 			cout<<"三奇得使~天盘"<<TianGan::getQiYiName(_tianPan[i2].qiyi)->c_str()<<"加地盘"<<TianGan::getQiYiName(tianPan[i2].qiyi)->c_str()<<endl;
 		}
 	}
+
+	//又有三奇游六仪，号为玉女守门扉
+	//若遇阴私和合事，诸君但向此中推
+	if(tianPan[zhiShi].qiyi == TGding)
+		cout<<"玉女守门"<<endl;
 }
