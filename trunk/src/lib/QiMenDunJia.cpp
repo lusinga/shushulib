@@ -161,12 +161,10 @@ void QiMenDunJia::setDunJu()
 
 void QiMenDunJia::paiJu(int yuan, int xunshou)
 {
-	//天盘只有一种排法
+	//天盘上的星只有一种排法
 	for(int i0=0;i0<9;i0++)
 	{
-		_tianPan[i0].qiyi = i0;
 		_tianPan[i0].star = i0;
-		tianPan[i0] = _tianPan[i0]; 
 	}
 	//人盘只有一种排法
 	for(int i0=0;i0<8;i0++)
@@ -189,6 +187,12 @@ void QiMenDunJia::paiJu(int yuan, int xunshou)
 		{
 			_tianPan[BaGua::getPos(i%9)].qiyi = QiYi::getYangDun(ju+9-i);
 		}
+	}
+
+	//将带奇仪的天盘原始排局存起来
+	for(int i0=0;i0<9;i0++)
+	{
+		tianPan[i0] = _tianPan[i0];
 	}
 
 	//排列八诈门盘
@@ -270,4 +274,21 @@ void QiMenDunJia::duan()
 	//更合从旁加检点，余宫不可有微疵
 
 	//三奇得使诚堪使，六甲遇之非小补
+	//乙逢犬马丙鼠猴，六丁玉女骑龙虎
+
+	for(int i2=0;i2<8;i2++)
+	{
+		//即乙奇加临地盘上甲午(辛)为逢马，加甲戌(己)为逢犬
+		//丙奇加甲子(戊)为逢鼠，加甲申(庚)为逢猴
+		//丁奇加甲辰(壬)为逢龙，加甲寅(癸)为逢虎
+		if((_tianPan[i2].qiyi == TGyi && tianPan[i2].qiyi == TGxin) ||
+			(_tianPan[i2].qiyi == TGyi && tianPan[i2].qiyi == TGji) ||
+			(_tianPan[i2].qiyi == TGbing && tianPan[i2].qiyi == TGwu) ||
+			(_tianPan[i2].qiyi == TGbing && tianPan[i2].qiyi == TGgeng) ||
+			(_tianPan[i2].qiyi == TGding && tianPan[i2].qiyi == TGren) ||
+			(_tianPan[i2].qiyi == TGding && tianPan[i2].qiyi == TGgui))
+		{
+			cout<<"三奇得使~天盘"<<TianGan::getQiYiName(_tianPan[i2].qiyi)->c_str()<<"加地盘"<<TianGan::getQiYiName(tianPan[i2].qiyi)->c_str()<<endl;
+		}
+	}
 }
