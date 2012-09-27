@@ -121,3 +121,59 @@ int Month::getMonthByYueJiang(int yuejiang)
 {
 	return (12-yuejiang);
 }
+
+int Month::getYueJiangByJieQi(int jieqi)
+{
+	switch(jieqi)
+	{
+	case JQDaHan://12月
+	case JQLiChun:
+		return DZzi;
+		break;
+	case JQYuShui://1月
+	case JQJingZhe:
+		return DZhai;
+		break;
+	case JQChunFen://2月
+	case JQQingMing:
+		return DZxu;
+		break;
+	case JQGuYu://3月
+	case JQLiXia:
+		return DZyou;
+		break;
+	case JQXiaoMan://4月
+	case JQMangZhong:
+		return DZshen;
+		break;
+	case JQXiaZhi://5月
+	case JQXiaoShu:
+		return DZwei;
+		break;
+	case JQDaShu://6月
+	case JQLiQiu:
+		return DZwu;
+		break;
+	case JQChuShu://7月
+	case JQBaiLu:
+		return DZsi;
+		break;
+	case JQQiuFen://8月
+	case JQHanLu:
+		return DZchen;
+		break;
+	case JQShuangJiang://9月
+	case JQLiDong:
+		return DZmao;
+		break;
+	case JQXiaoXue://10月
+	case JQDaXue:
+		return DZyin;
+		break;
+	case JQDongZhi://11月
+	case JQXiaoHai:
+		return DZchou;
+		break;
+	}
+}
+
