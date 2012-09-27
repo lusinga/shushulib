@@ -72,5 +72,7 @@ public:
 	static int getMonthByYueJiang(int yuejiang);
 	static boost::shared_ptr<TianGan> wuZiYuanDu(boost::shared_ptr<TianGan> pTG, boost::shared_ptr<DiZhi> pDZ);
 	static int getYueJiangByJieQi(int jieqi);
+
+	static int findDiZhiByGuiShen(int riGan, bool isDay, int guiShen);//根据贵神来查对应的地支
 };
 

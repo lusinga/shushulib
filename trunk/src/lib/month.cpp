@@ -1,6 +1,8 @@
 #include "Month.h"
 #include <boost/make_shared.hpp>
 
+#include "GuiShen.h"
+
 using boost::make_shared;
 
 boost::shared_ptr<DiZhi> Month::buildZhi(int dzid)
@@ -175,5 +177,22 @@ int Month::getYueJiangByJieQi(int jieqi)
 		return DZchou;
 		break;
 	}
+
+	return -1;
+}
+
+int Month::findDiZhiByGuiShen( int riGan, bool isDay, int guiShen)
+{
+	boost::shared_ptr<GuiShen> pGS;
+	boost::shared_ptr<TianGan> pTG = Month::buildGan(riGan);
+	
+	for(int i=DZzi;i<DZhai+1;i++)
+	{
+		boost::shared_ptr<DiZhi> pDZ = Month::buildZhi(i);
+		pGS = boost::make_shared<GuiShen>(pTG,isDay,pDZ);
+		if(pGS->gsID == guiShen)
+			return i;
+	}
+	return -1;
 }
 
