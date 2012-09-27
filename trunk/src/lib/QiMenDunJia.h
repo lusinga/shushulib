@@ -14,7 +14,7 @@ const int qiMenDiPan[9] = {BG_Kan, BG_Qian, BG_Dui, BG_Kun, BG_Li, BG_Xun, BG_Zh
 class QiMenDunJia
 {
 public:
-	QiMenDunJia(int jieqi, int yuan,boost::shared_ptr<Gan_Zhi> pGZ);
+	QiMenDunJia(int jieqi, int yuan,boost::shared_ptr<Gan_Zhi> pShiGZ, boost::shared_ptr<Gan_Zhi> pRiGZ);
 	~QiMenDunJia(void);
 	static void printDiPan();
 	void printDunJu();
@@ -29,8 +29,12 @@ private:
 
 	//节气
 	int jieqi;
+	//时干
 	int shiGan;
+	//时支
 	int shiZhi;
+	//日干
+	int riGan;
 	void setDunJu();
 	void paiJu(int yuan, int xunshou);
 	//断卦

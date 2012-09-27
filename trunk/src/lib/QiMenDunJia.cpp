@@ -6,7 +6,7 @@
 #include "QiYi.h"
 #include "Tiangan.h"
 
-QiMenDunJia::QiMenDunJia(int jq, int yuan, boost::shared_ptr<Gan_Zhi> pGZ)
+QiMenDunJia::QiMenDunJia(int jq, int yuan, boost::shared_ptr<Gan_Zhi> pGZ, boost::shared_ptr<Gan_Zhi> pRiGanZhi)
 {
 	this->jieqi = jq;
 	int tg = pGZ->getXunShouTianGan();
@@ -15,6 +15,7 @@ QiMenDunJia::QiMenDunJia(int jq, int yuan, boost::shared_ptr<Gan_Zhi> pGZ)
 	this->setDunJu();
 	shiGan = pGZ->pTG->getTgid();
 	shiZhi = pGZ->pDZ->getDzid();
+	riGan = pRiGanZhi->pTG->getTgid();
 	paiJu(yuan,tg);
 }
 
@@ -326,8 +327,10 @@ void QiMenDunJia::duan()
 	cout<<Month::buildZhi(hu4)->getName().c_str()<<" ";
 	cout<<endl;
 	
-	//六合太阴太常君，三辰元是地私门
-	//更得奇门相照耀，出门百事总欣欣
+	/*六合太阴太常君，三辰元是地私门
+	 * 更得奇门相照耀，出门百事总欣欣*/
+	
+	//TODO: 这个需要日干
 
 	//太冲天马最为贵，卒然有难能逃避
 	//但当乘取天马行，剑戟如山不足畏

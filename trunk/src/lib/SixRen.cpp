@@ -279,13 +279,13 @@ int main(int argc, char* argv[])
 
 	cout<<"...¾­µäÀý..."<<endl;
 
-	QiMenDunJia* pQM3 = new QiMenDunJia(JQYuShui,ShangYuan,boost::make_shared<Gan_Zhi>(TGxin, DZsi));
+	QiMenDunJia* pQM3 = new QiMenDunJia(JQYuShui,ShangYuan,boost::make_shared<Gan_Zhi>(TGxin, DZsi),boost::make_shared<Gan_Zhi>(TGgeng,DZxu));
 	//QiMenDunJia::printDiPan();
 	pQM3->printDunJu();
 
 	cout<<"Òõ¶Ý"<<endl;
 
-	QiMenDunJia* pQM4 = new QiMenDunJia(JQDaXue,ShangYuan,boost::make_shared<Gan_Zhi>(TGwu, DZyin));
+	QiMenDunJia* pQM4 = new QiMenDunJia(JQDaXue,ShangYuan,boost::make_shared<Gan_Zhi>(TGwu, DZyin),boost::make_shared<Gan_Zhi>(TGgeng,DZxu));
 	//QiMenDunJia::printDiPan();
 	pQM4->printDunJu();
 
