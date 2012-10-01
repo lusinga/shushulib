@@ -5,6 +5,7 @@
 #include "BaZhaShen.h"
 #include "QiYi.h"
 #include "Tiangan.h"
+#include "GuiShen.h"
 
 QiMenDunJia::QiMenDunJia(int jq, int yuan, boost::shared_ptr<Gan_Zhi> pGZ, boost::shared_ptr<Gan_Zhi> pRiGanZhi)
 {
@@ -16,6 +17,8 @@ QiMenDunJia::QiMenDunJia(int jq, int yuan, boost::shared_ptr<Gan_Zhi> pGZ, boost
 	shiGan = pGZ->pTG->getTgid();
 	shiZhi = pGZ->pDZ->getDzid();
 	riGan = pRiGanZhi->pTG->getTgid();
+	isDay = shiZhi <DZyou && shiZhi >=DZmao;
+
 	paiJu(yuan,tg);
 }
 
@@ -315,32 +318,53 @@ void QiMenDunJia::duan()
 	int hu4 = (shiZhi + 10) % 12; //开
 
 	cout<<"天三门所在支为：";
-	cout<<Month::buildZhi(men1)->getName().c_str()<<" ";
-	cout<<Month::buildZhi(men2)->getName().c_str()<<" ";
-	cout<<Month::buildZhi(men3)->getName().c_str()<<" ";
+	cout<<"太冲天马最为贵->"<<Month::buildZhi(men1)->getName().c_str()<<" ";
+	cout<<"小吉->"<<Month::buildZhi(men2)->getName().c_str()<<" ";
+	cout<<"从魁->"<<Month::buildZhi(men3)->getName().c_str()<<" ";
 	cout<<endl;
 
 	cout<<"地四户所在支为：";
-	cout<<Month::buildZhi(hu1)->getName().c_str()<<" ";
-	cout<<Month::buildZhi(hu2)->getName().c_str()<<" ";
-	cout<<Month::buildZhi(hu3)->getName().c_str()<<" ";
-	cout<<Month::buildZhi(hu4)->getName().c_str()<<" ";
+	cout<<"除->"<<Month::buildZhi(hu1)->getName().c_str()<<" ";
+	cout<<"定->"<<Month::buildZhi(hu2)->getName().c_str()<<" ";
+	cout<<"危->"<<Month::buildZhi(hu3)->getName().c_str()<<" ";
+	cout<<"开->"<<Month::buildZhi(hu4)->getName().c_str()<<" ";
 	cout<<endl;
 	
 	/*六合太阴太常君，三辰元是地私门
 	 * 更得奇门相照耀，出门百事总欣欣*/
 	
-	//TODO: 这个需要日干
+	int disi1 = Month::findDiZhiByGuiShen(riGan,isDay,GuiShen::gsLiuHe);
+	int disi2 = Month::findDiZhiByGuiShen(riGan,isDay,GuiShen::gsTaiYin);
+	int disi3 = Month::findDiZhiByGuiShen(riGan,isDay,GuiShen::gsTaiChang);
+
+	cout<<"地私门： ";
+	cout<<Month::buildZhi(disi1)->getName().c_str()<<" ";
+	cout<<"六合->"<<Month::buildZhi(disi1)->getName().c_str()<<" ";
+	cout<<"太阴->"<<Month::buildZhi(disi2)->getName().c_str()<<" ";
+	cout<<"太常->"<<Month::buildZhi(disi3)->getName().c_str()<<" ";
+	cout<<endl;
 
 	//太冲天马最为贵，卒然有难能逃避
 	//但当乘取天马行，剑戟如山不足畏
 
+	//No code need this part
+
 	//三为生气五为死，胜在三兮衰在五
 	//能识游三避五时，造化真机需记取
+	
+	//This is not easy to implement, TODO
 
 	//就中伏吟最为凶，天蓬加著地天蓬
+	if(findPosByTianPanXing(TianPengXing) == findPosByDiPanXing(TianPengXing))
+	{
+		cout<<"就中伏吟最为凶，天蓬加著地天蓬"<<endl;
+	}
 	
 	//天蓬若到天英上，须知即是反吟宫
+	if(findPosByTianPanXing(TianPengXing) == findPosByDiPanXing(TianYingXing))
+	{
+		cout<<"天蓬若到天英上，须知即是反吟宫"<<endl;
+	}
 
 	//八门反复皆如此，生在生门死在死
 	//假令吉宿得奇门，万事皆凶不堪使
@@ -486,4 +510,24 @@ void QiMenDunJia::duan()
 	//三元积数成六纪，天地未成有一理
 
 	//请观歌里精微诀，非是贤人莫传与
+}
+
+int QiMenDunJia::findPosByTianPanXing( int jiuxing )
+{
+	for(int i=0;i<9;i++)
+	{
+		if(_tianPan[i].star == jiuxing)
+			return i;
+	}
+	return -1;
+}
+
+int QiMenDunJia::findPosByDiPanXing( int jiuxing )
+{
+	for(int i=0;i<9;i++)
+	{
+		if(tianPan[i].star == jiuxing)
+			return i;
+	}
+	return -1;
 }
