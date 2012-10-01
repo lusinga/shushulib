@@ -35,6 +35,9 @@ private:
 	int shiZhi;
 	//日干
 	int riGan;
+	//白昼还是黑夜
+	bool isDay; 
+
 	void setDunJu();
 	void paiJu(int yuan, int xunshou);
 	//断卦
@@ -49,5 +52,8 @@ private:
 	int zhiShi;
 	int ganPos;
 	int zhiGong;
+
+	int findPosByTianPanXing(int jiuxing);
+	int findPosByDiPanXing(int jiuxing);
 };
 
